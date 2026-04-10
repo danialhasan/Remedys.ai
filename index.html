@@ -1,480 +1,290 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remedys AI | Enterprise Intelligence</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Rr Mr fi Cr Ar ci Tr Fr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_CEGE11ffVSoStkKyi3vngbXaQUo2Bpw1BEzGZ5AnTOf', {
-            api_host: 'https://us.i.posthog.com',
-            defaults: '2025-05-24',
-            person_profiles: 'identified_only'
-        })
-    </script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Manrope', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            black: '#0a0a0a',
-                            dark: '#171717',
-                            gray: '#737373',
-                            light: '#f5f5f5',
-                            white: '#ffffff',
-                            accent: '#FF4F11', // Duna-style vibrant orange
-                        }
-                    },
-                    backgroundImage: {
-                        'mesh-gradient': 'radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(340,100%,76%,1) 0px, transparent 50%)',
-                        'subtle-grid': 'linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)',
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                        'glow': '0 0 40px -10px rgba(255, 79, 17, 0.3)',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #FAFAFA;
-            color: #171717;
-        }
-        
-        /* Abstract "Painting" Blurs */
-        .aura-blur {
-            filter: blur(80px);
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .bento-card {
-            background: white;
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .bento-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
-            border-color: rgba(0,0,0,0.08);
-        }
-
-        /* Modern Typography */
-        h1, h2, h3 {
-            letter-spacing: -0.04em;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FAFAFA;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d4d4d4;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a3a3a3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remedys.ai | Put AI to work.</title>
+  <meta name="description" content="Remedys helps growing businesses figure out where to start with AI, train their teams to use it well, and implement practical systems that make the business stronger.">
+  <meta property="og:title" content="Remedys.ai | Put AI to work.">
+  <meta property="og:description" content="AI consulting, education, and implementation for growing businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remedys.ai">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-brand-accent selection:text-white">
-
-    <!-- Background Mesh -->
-    <div class="fixed inset-0 z-0 bg-[size:40px_40px] bg-subtle-grid opacity-[0.3] pointer-events-none"></div>
-    
-    <!-- Painterly Orbs -->
-    <div class="fixed top-0 right-0 w-[500px] h-[500px] bg-orange-300 rounded-full aura-blur mix-blend-multiply z-0 animate-pulse" style="animation-duration: 8s;"></div>
-    <div class="fixed bottom-0 left-0 w-[600px] h-[600px] bg-purple-200 rounded-full aura-blur mix-blend-multiply z-0"></div>
-    <div class="fixed top-1/2 left-1/2 w-[400px] h-[400px] bg-blue-200 rounded-full aura-blur mix-blend-multiply z-0 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-black/5" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-8 h-8 rounded-lg bg-brand-black flex items-center justify-center text-white">
-                        <i class="fa-solid fa-layer-group text-sm"></i>
-                    </div>
-                    <span class="font-display font-bold text-xl text-brand-black">Remedys<span class="text-brand-gray">.ai</span></span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="text-sm font-medium text-brand-gray hover:text-brand-black transition-colors">Solutions</a>
-                    <a href="#process" class="text-sm font-medium text-brand-gray hover:text-brand-black transition-colors">Methodology</a>
-                    <a href="#about" class="text-sm font-medium text-brand-gray hover:text-brand-black transition-colors">About Us</a>
-                    <a href="#contact" class="bg-brand-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-accent transition-colors duration-300 shadow-lg shadow-black/5">
-                        Get my AI plan
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Btn -->
-                <button class="md:hidden text-brand-black" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Remedys home">
+          <span class="brand-mark">R</span>
+          <span class="brand-wordmark"><span>Remedys</span><span>.ai</span></span>
+        </a>
+        <div class="header-actions">
+          <a class="button-ghost" href="/get-started/" data-track="nav_get_started">Get started</a>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+            <span class="menu-icon"></span>
+          </button>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden bg-white border-t border-gray-100 p-4 absolute w-full shadow-xl">
-            <div class="flex flex-col gap-4">
-                <a href="#services" class="text-lg font-medium">Solutions</a>
-                <a href="#process" class="text-lg font-medium">Methodology</a>
-                <a href="#about" class="text-lg font-medium">About Us</a>
-                <a href="#contact" class="bg-brand-black text-white text-center py-3 rounded-xl font-semibold">Get my AI plan</a>
-            </div>
-        </div>
-    </nav>
+      </div>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-black/5 shadow-sm mb-8">
-                <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-                <span class="text-xs font-bold tracking-wide uppercase text-brand-gray">Q1 2026 waitlist open</span>
-            </div>
-            
-            <h1 class="text-6xl md:text-8xl font-display font-bold text-brand-black leading-[0.9] tracking-tighter mb-8">
-                Remedy your business pains.
-            </h1>
-            
-            <p class="mt-6 max-w-2xl mx-auto text-xl text-brand-gray leading-relaxed font-light">
-                We help you turn everything you know about your business into a simple, focused AI plan that increases revenue and removes busywork. You bring the context. We bring the direction.
+    <div class="menu-overlay" data-menu-overlay>
+      <div class="container menu-panel">
+        <a class="menu-link" href="/">
+          Home
+          <small>The firm, the thesis, and the starting point.</small>
+        </a>
+        <a class="menu-link" href="/consulting/">
+          AI Consulting
+          <small>Figure out where AI fits and what to do first.</small>
+        </a>
+        <a class="menu-link" href="/education/">
+          AI Education
+          <small>Help leaders and teams use AI well in real work.</small>
+        </a>
+        <a class="menu-link" href="/implementation/">
+          AI Implementation
+          <small>Build practical systems that save time and strengthen operations.</small>
+        </a>
+        <a class="menu-link" href="/get-started/">
+          Get Started
+          <small>Tell us what you are trying to improve.</small>
+        </a>
+      </div>
+    </div>
+
+    <main>
+      <section class="page-hero">
+        <div class="container hero-grid hero-grid--home">
+          <div class="reveal">
+            <p class="eyebrow">AI consulting, education, and implementation for growing businesses</p>
+            <h1 class="headline">Put AI to work.</h1>
+            <p class="hero-copy">
+              Remedys helps businesses figure out where to start with AI, train their teams to use it well, and implement practical systems that make the business stronger.
             </p>
-            
-            <div class="mt-10 flex justify-center">
-                <a href="#contact" class="px-8 py-4 rounded-full bg-brand-black text-white font-semibold hover:bg-gray-800 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2 group">
-                    Get my AI plan
-                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
+            <div class="hero-actions">
+              <a class="button" href="/get-started/" data-track="hero_get_started">Get started</a>
+              <a class="button-link" href="/consulting/" data-track="hero_learn_more">Learn more</a>
             </div>
+            <div class="hero-support">
+              <span class="support-pill">Practical help, not theory</span>
+              <span class="support-pill">Built for operators and business owners</span>
+              <span class="support-pill">Clear path from idea to implementation</span>
+            </div>
+          </div>
 
-            <!-- Abstract "Dashboard" Visual -->
-            <div class="mt-20 relative max-w-5xl mx-auto">
-                <div class="absolute -inset-1 bg-gradient-to-r from-orange-100 via-purple-100 to-blue-100 rounded-3xl blur opacity-50"></div>
-                <div class="relative bg-white rounded-2xl border border-black/5 shadow-2xl shadow-blue-900/5 overflow-hidden">
-                    <div class="h-11 border-b border-gray-100 bg-gray-50/50 flex items-center px-4 gap-2">
-                        <div class="w-3 h-3 rounded-full bg-red-400/20 border border-red-400/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-400/20 border border-yellow-400/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-400/20 border border-green-400/50"></div>
-                    </div>
-                    <div class="p-8 grid md:grid-cols-3 gap-8">
-                        <!-- Mock Chart -->
-                        <div class="col-span-2 space-y-4">
-                            <div class="flex justify-between items-end">
-                                <div>
-                                    <p class="text-xs text-gray-400 uppercase font-semibold">Efficiency Score</p>
-                                    <p class="text-3xl font-display font-bold text-brand-black">98.4%</p>
-                                </div>
-                                <div class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">+12%</div>
-                            </div>
-                            <div class="h-32 flex items-end gap-2">
-                                <div class="w-full bg-gray-100 rounded-t-lg h-[40%]"></div>
-                                <div class="w-full bg-gray-100 rounded-t-lg h-[60%]"></div>
-                                <div class="w-full bg-brand-black rounded-t-lg h-[85%] relative group">
-                                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Remedy</div>
-                                </div>
-                                <div class="w-full bg-gray-100 rounded-t-lg h-[70%]"></div>
-                            </div>
-                        </div>
-                        <!-- Mock Stats -->
-                        <div class="space-y-4">
-                            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <p class="text-xs text-gray-400 mb-1">Tokens Saved</p>
-                                <p class="text-xl font-bold">14.2M</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <p class="text-xs text-gray-400 mb-1">Agent Uptime</p>
-                                <p class="text-xl font-bold">99.99%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="hero-visual reveal">
+            <div class="visual-grid"></div>
+            <div class="orbit orbit--three"></div>
+            <div class="orbit orbit--one"></div>
+            <div class="orbit orbit--two"></div>
+            <div class="visual-core">
+              <div>
+                <strong>Start simple.<br>Build leverage.</strong>
+                <span>Strategy, education, and implementation designed for real business workflows.</span>
+              </div>
             </div>
-
-            <!-- Logos -->
-            <!-- Temporarily hidden until we have real client logos -->
-            <div class="mt-16 pt-10 border-t border-black/5 hidden">
-                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8">Trusted by innovative teams</p>
-                <div class="flex flex-wrap justify-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-                    <i class="fab fa-stripe text-4xl"></i>
-                    <i class="fab fa-aws text-4xl"></i>
-                    <i class="fab fa-google text-4xl"></i>
-                    <i class="fab fa-meta text-4xl"></i>
-                    <i class="fab fa-spotify text-4xl"></i>
-                </div>
-            </div>
+            <div class="visual-tag visual-tag--top">faster execution</div>
+            <div class="visual-tag visual-tag--left">clear starting point</div>
+            <div class="visual-tag visual-tag--bottom">systems that get used</div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Services Bento Grid -->
-    <section id="services" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 max-w-2xl">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-black">Three focused services.</h2>
-                <p class="text-xl text-brand-gray">We help you decide what to build, build it with AI-assisted engineering, and make sure it actually gets used.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]">
-                
-                <!-- Card 1: Large -->
-                <div class="bento-card md:col-span-2 rounded-[2rem] p-10 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-blue-100"></div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6 text-blue-600">
-                            <i class="fas fa-compass text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4">1. Discovery and Planning</h3>
-                        <p class="text-gray-500 text-lg max-w-md">
-                            We interview your team, map how work gets done, and identify where AI will have real impact. You get a prioritized roadmap with concrete next steps.
-                        </p>
-                    </div>
-                    <!-- Decorative graphic -->
-                    <div class="absolute bottom-0 right-0 w-1/2 h-32 bg-gradient-to-t from-blue-50 to-transparent opacity-50"></div>
-                </div>
-
-                <!-- Card 2: Tall -->
-                <div class="bento-card md:row-span-2 rounded-[2rem] p-10 relative overflow-hidden flex flex-col justify-between group">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-transparent via-orange-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div>
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6 text-brand-accent">
-                            <i class="fas fa-robot text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4">2. AI-Assisted Building</h3>
-                        <p class="text-gray-500 text-lg">
-                            We use Squad, our AI agent platform, to accelerate design and development. Agents handle the heavy lifting while we supervise and refine to production quality.
-                        </p>
-                    </div>
-                    <div class="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-400 font-mono">
-                        > Squad_Agent: <span class="text-green-600">Active</span><br>
-                        > Task: Build_Feature<br>
-                        > Status: <span class="text-brand-black font-bold">In Progress</span>
-                    </div>
-                </div>
-
-                <!-- Card 3: Standard -->
-                <div class="bento-card rounded-[2rem] p-10 relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6 text-purple-600">
-                        <i class="fas fa-rocket text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">3. Deployment and Adoption</h3>
-                    <p class="text-gray-500">
-                        We integrate into your existing tools, run pilots with real users, and train your team so changes stick. You get working systems, not just documentation.
-                    </p>
-                </div>
-
-                <!-- Card 4: Removed - keeping only 3 focused services -->
-                <div class="bento-card rounded-[2rem] p-10 relative overflow-hidden group bg-brand-black text-white hidden">
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-shield-halved text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Enterprise Governance</h3>
-                    <p class="text-gray-400">
-                        ISO-compliant guardrails ensuring your AI never hallucinates or leaks PII.
-                    </p>
-                </div>
-
-            </div>
+      <section class="page-section page-section--tight">
+        <div class="container split">
+          <div class="section-intro reveal">
+            <p class="eyebrow">Why now</p>
+            <h2 class="section-title">Most businesses know AI matters. Very few know what to do next.</h2>
+          </div>
+          <div class="statement-panel reveal">
+            <strong>The tools are improving fast. The cost of capability is dropping.</strong>
+            <p>
+              But most businesses still do not have a clear starting point, a trained team, or a practical plan. Remedys exists to close that gap and help businesses put AI to work where it actually matters.
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Process Section -->
-    <section id="process" class="py-24 relative z-10 bg-white border-y border-black/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">The Treatment Plan.</h2>
-                    <p class="text-xl text-brand-gray mb-12">
-                        A simple three-step way to work with us, from first conversation to live results.
-                    </p>
-                </div>
+      <section class="page-section">
+        <div class="container">
+          <div class="section-intro reveal">
+            <p class="eyebrow">How we help</p>
+            <h2 class="section-title">A practical way to adopt AI.</h2>
+            <p class="section-copy">
+              The goal is not to chase trends. The goal is to make the business stronger with systems that actually get used.
+            </p>
+          </div>
 
-                <div class="relative border-l border-gray-200 ml-4 md:ml-0 space-y-12 pl-8 md:pl-12">
-                    <!-- Item 1 -->
-                    <div class="relative group">
-                        <div class="absolute -left-[3.25rem] md:-left-[3.25rem] top-1 w-5 h-5 bg-white border-4 border-gray-200 rounded-full group-hover:border-brand-accent transition-colors"></div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">01. Understand the business</h3>
-                        <p class="text-brand-gray text-lg">We start with a short series of calls and workshops to learn how your business makes money and where time is wasted. Deliverable: a shared map of your key processes and pain points.</p>
-                    </div>
+          <div class="grid-3" style="margin-top: 1.75rem;">
+            <article class="card reveal">
+              <div class="card-kicker">AI Consulting</div>
+              <h3 class="card-title">Find the right starting point.</h3>
+              <p class="card-copy">Understand where AI can create real value, what to prioritize first, and how to move without wasting time.</p>
+              <ul class="card-list">
+                <li>Workflow review and bottleneck mapping</li>
+                <li>Opportunity prioritization by effort and impact</li>
+                <li>Clear next steps for leaders and operators</li>
+              </ul>
+              <div class="hero-actions" style="margin-top: 1.4rem;">
+                <a class="button-link" href="/consulting/" data-track="consulting_learn_more">Learn more</a>
+              </div>
+            </article>
 
-                    <!-- Item 2 -->
-                    <div class="relative group">
-                        <div class="absolute -left-[3.25rem] md:-left-[3.25rem] top-1 w-5 h-5 bg-white border-4 border-gray-200 rounded-full group-hover:border-brand-accent transition-colors"></div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">02. Design the AI plan</h3>
-                        <p class="text-brand-gray text-lg">We identify the highest-value AI opportunities, pressure-test them with you, and shape them into a clear sequence of projects. Deliverable: a concise AI game plan that your leadership team can agree on.</p>
-                    </div>
+            <article class="card reveal">
+              <div class="card-kicker">AI Education</div>
+              <h3 class="card-title">Help your team use AI well.</h3>
+              <p class="card-copy">Build real fluency across founders, leaders, and teams around the work they already do.</p>
+              <ul class="card-list">
+                <li>1:1 sessions for operators and executives</li>
+                <li>Team workshops tied to real workflows</li>
+                <li>Enablement that makes adoption stick</li>
+              </ul>
+              <div class="hero-actions" style="margin-top: 1.4rem;">
+                <a class="button-link" href="/education/" data-track="education_learn_more">Learn more</a>
+              </div>
+            </article>
 
-                    <!-- Item 3 -->
-                    <div class="relative group">
-                        <div class="absolute -left-[3.25rem] md:-left-[3.25rem] top-1 w-5 h-5 bg-white border-4 border-gray-200 rounded-full group-hover:border-brand-accent transition-colors"></div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">03. Build, ship, and refine</h3>
-                        <p class="text-brand-gray text-lg">We use Squad and our engineering playbooks to help implement the first projects, then adjust based on what actually works in production. Deliverable: live improvements and a pattern you can repeat.</p>
-                    </div>
-                </div>
-            </div>
+            <article class="card reveal">
+              <div class="card-kicker">AI Implementation</div>
+              <h3 class="card-title">Build the systems worth putting to work.</h3>
+              <p class="card-copy">Design and ship practical automations, internal tools, and AI-supported workflows tied to real business needs.</p>
+              <ul class="card-list">
+                <li>Automations that remove repetitive work</li>
+                <li>Internal tools for operations and knowledge</li>
+                <li>Human-in-the-loop systems with practical guardrails</li>
+              </ul>
+              <div class="hero-actions" style="margin-top: 1.4rem;">
+                <a class="button-link" href="/implementation/" data-track="implementation_learn_more">Learn more</a>
+              </div>
+            </article>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-32 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-black">The Founders.</h2>
-                <p class="text-xl text-brand-gray">
-                    We connect business realities with practical engineering so AI work actually ships and gets used.
-                </p>
-            </div>
+      <section class="page-section">
+        <div class="container split">
+          <div class="split-panel reveal">
+            <p class="eyebrow">Best fit</p>
+            <h3>Remedys works best for businesses that want practical help.</h3>
+            <ul class="check-list">
+              <li>You know AI matters, but you do not know where to start.</li>
+              <li>Your team is experimenting, but there is no real plan.</li>
+              <li>You want stronger workflows, better execution, and more leverage.</li>
+              <li>You want implementation, not a vague strategy deck.</li>
+            </ul>
+          </div>
 
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Founder 1: Shafan -->
-                <div class="bento-card rounded-[2.5rem] p-10 relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[80px] opacity-60 -mr-20 -mt-20 group-hover:bg-orange-200 transition-colors"></div>
-                    
-                    <div class="relative z-10 h-full flex flex-col">
-                        <div class="mb-8">
-                            <h3 class="text-3xl font-display font-bold text-brand-black mb-1">Shafan Khan</h3>
-                            <p class="text-brand-accent font-medium tracking-wide uppercase text-sm">Co-Founder and Strategy Lead</p>
-                        </div>
-
-                        <div class="prose prose-lg text-gray-600 flex-grow">
-                            <p class="mb-4">
-                                Shafan leads discovery and strategy. He turns what your team knows about the business into clear problems that AI can actually solve without disrupting how people work.
-                            </p>
-                            <ul class="space-y-2 mt-6">
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-check text-brand-accent"></i> Fewer steps in important workflows
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-check text-brand-accent"></i> Faster answers for operators and customers
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-check text-brand-accent"></i> Clear decisions leadership can trust
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Founder 2: Danial -->
-                <div class="bento-card rounded-[2.5rem] p-10 relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[80px] opacity-60 -mr-20 -mt-20 group-hover:bg-blue-200 transition-colors"></div>
-                    
-                    <div class="relative z-10 h-full flex flex-col">
-                        <div class="mb-8">
-                            <h3 class="text-3xl font-display font-bold text-brand-black mb-1">Danial Hasan</h3>
-                            <p class="text-blue-500 font-medium tracking-wide uppercase text-sm">Co-Founder and Technical Lead</p>
-                        </div>
-
-                        <div class="prose prose-lg text-gray-600 flex-grow">
-                            <p class="mb-4">
-                                Danial leads architecture and implementation. He prototypes quickly, tests ideas with real users, and hardens the ones that work so they stay maintainable.
-                            </p>
-                            <ul class="space-y-2 mt-6">
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-code text-blue-500"></i> Rapid prototyping with real data
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-shield-halved text-blue-500"></i> Production-ready engineering support
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-users text-blue-500"></i> Systems your team can own after handoff
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Mini stats below bio -->
-            <!-- Temporarily hidden until we have real metrics -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-black/5 hidden">
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">100+</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Systems Healed</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">30%</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Cost Reduction</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">24h</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Response Time</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">ISO</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Certified Secure</div>
-                </div>
-            </div>
+          <div class="split-panel reveal">
+            <p class="eyebrow">What we are not</p>
+            <h3>We are not here to sell vague AI theater.</h3>
+            <ul class="check-list">
+              <li>We do not lead with abstract transformation language.</li>
+              <li>We do not build disconnected prototypes nobody uses.</li>
+              <li>We do not hand over decks without helping the team move.</li>
+              <li>We do not assume you already know what the right first step is.</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- CTA / Contact Section -->
-    <section id="contact" class="py-24 relative z-10">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-brand-black rounded-[2.5rem] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
-                <!-- Background effects -->
-                <div class="absolute top-0 right-0 w-96 h-96 bg-brand-accent rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full blur-[100px] opacity-20 -ml-20 -mb-20 pointer-events-none"></div>
-                
-                <div class="relative z-10">
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-white tracking-tight">Ready for the remedy?</h2>
-                    <p class="text-gray-400 text-xl mb-10 max-w-2xl mx-auto">
-                        Schedule a free 30-minute call.<br>
-                        We will diagnose one high-value workflow, identify where AI and automation can actually help, and propose a concrete plan you can act on with us or without us.
-                    </p>
+      <section class="page-section">
+        <div class="container">
+          <div class="section-intro reveal">
+            <p class="eyebrow">How we work</p>
+            <h2 class="section-title">Understand the business. Find the right move. Build from there.</h2>
+          </div>
 
-                    <form onsubmit="event.preventDefault(); alert('Thank you. Your request has been received.');" class="max-w-md mx-auto space-y-4">
-                        <div>
-                            <input type="email" placeholder="work@company.com" required
-                                   class="w-full px-6 py-4 bg-white/10 border border-white/10 rounded-xl focus:outline-none focus:bg-white/20 focus:border-white/30 text-white placeholder-gray-500 transition-all text-center">
-                        </div>
-                        <button type="submit" class="w-full px-8 py-4 rounded-xl bg-white text-brand-black font-bold text-lg transition-all hover:scale-[1.02] shadow-glow">
-                            Get my AI plan
-                        </button>
-                        <p class="text-xs text-gray-500 mt-4">No slides in advance. No obligation. Just a focused conversation.</p>
-                    </form>
-                </div>
+          <div class="grid-3 process-list" style="margin-top: 1.75rem;">
+            <div class="process-step reveal">
+              <h3>Understand the business</h3>
+              <p>We learn how work currently gets done, where friction exists, and what matters most to the people running it.</p>
             </div>
+            <div class="process-step reveal">
+              <h3>Find the right starting point</h3>
+              <p>We identify the best AI opportunities based on speed, effort, and business impact so the path forward is clear.</p>
+            </div>
+            <div class="process-step reveal">
+              <h3>Train and implement</h3>
+              <p>We help your team use AI well and build the first systems worth putting into practice.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-black/5 bg-white py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded bg-brand-black flex items-center justify-center">
-                    <i class="fa-solid fa-layer-group text-white text-xs"></i>
-                </div>
-                <span class="font-bold text-lg tracking-tight text-brand-black">Remedys.ai</span>
-            </div>
-            <div class="text-gray-500 text-sm font-medium">
-                &copy; 2025 Remedys AI Consultancy.
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-brand-black transition-colors"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-brand-black transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-gray-400 hover:text-brand-black transition-colors"><i class="fab fa-github"></i></a>
-            </div>
+      <section class="page-section">
+        <div class="container">
+          <div class="section-intro reveal">
+            <p class="eyebrow">Founders</p>
+            <h2 class="section-title">Business understanding plus technical execution.</h2>
+            <p class="section-copy">
+              Remedys is led by Shafan Khan and Danial Hasan. Shafan leads discovery, strategy, and business understanding. Danial leads applied AI, systems, and implementation.
+            </p>
+          </div>
+
+          <div class="founder-grid" style="margin-top: 1.75rem;">
+            <article class="card founder-card reveal">
+              <p class="eyebrow">Shafan Khan</p>
+              <h3>Strategy, discovery, and business context.</h3>
+              <span class="role">Co-founder</span>
+              <p class="card-copy">
+                Shafan works with clients to understand how the business runs today, where leverage exists, and what is worth acting on first.
+              </p>
+            </article>
+
+            <article class="card founder-card reveal">
+              <p class="eyebrow">Danial Hasan</p>
+              <h3>Applied AI, systems, and implementation.</h3>
+              <span class="role">Co-founder</span>
+              <p class="card-copy">
+                Danial turns the roadmap into working systems, practical automations, and AI-supported workflows teams can actually use.
+              </p>
+            </article>
+          </div>
+
+          <div class="proof-row reveal">
+            <span class="proof-chip">Consulting experience across operators and teams</span>
+            <span class="proof-chip">Live workshops and AI education sessions</span>
+            <span class="proof-chip">Applied AI product-building and implementation</span>
+          </div>
         </div>
+      </section>
+
+      <section class="page-cta">
+        <div class="container">
+          <div class="cta-panel reveal">
+            <p class="eyebrow">Get started</p>
+            <h2>Tell us what you’re trying to improve.</h2>
+            <p>
+              Share a few details about your business, where AI may fit, and what you want help with. We will follow up with the best next step.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="/get-started/" data-track="footer_get_started">Get started</a>
+              <a class="button-link" href="/consulting/" data-track="footer_learn_more">Learn more</a>
+            </div>
+            <p class="inline-note">You do not need to know exactly what you need yet.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          <span class="brand-mark">R</span>
+          <span class="brand-wordmark"><span>Remedys</span><span>.ai</span></span>
+        </div>
+        <div><a href="mailto:hello@remedys.ai">hello@remedys.ai</a></div>
+        <div>&copy; <span data-year></span> Remedys.ai</div>
+      </div>
     </footer>
+  </div>
 
+  <script src="/assets/site.js"></script>
 </body>
 </html>

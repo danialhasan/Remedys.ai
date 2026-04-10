@@ -1,12 +1,13 @@
 # Remedys.ai
 
-AI consultancy landing page for operational intelligence and autonomous agents.
+AI consultancy website for practical AI consulting, education, and implementation.
 
 ## Tech Stack
 
-- **Static HTML** - Single page site with vanilla JavaScript
-- **Tailwind CSS** - Utility-first CSS via CDN
+- **Static HTML** - Multi-page site with clean URLs
+- **Vanilla CSS + JavaScript** - Shared design system and interactions
 - **PostHog** - Analytics and event tracking
+- **Supabase REST endpoint** - Inquiry capture
 - **Netlify** - Hosting and deployment
 
 ## Development
@@ -25,16 +26,24 @@ The site will be available at `http://localhost:3000`
 
 ```
 Remedys.ai/
-├── index.html      # Main landing page
-├── netlify.toml    # Netlify configuration
-└── README.md       # This file
+├── index.html                # Homepage
+├── consulting/index.html     # AI Consulting page
+├── education/index.html      # AI Education page
+├── implementation/index.html # AI Implementation page
+├── get-started/index.html    # Inquiry form flow
+├── assets/
+│   ├── site.css              # Shared visual system
+│   ├── site.js               # Shared interactions, analytics, form logic
+│   └── favicon.svg           # Favicon
+├── netlify.toml              # Netlify configuration
+└── README.md                 # This file
 ```
 
 ### Making Changes
 
-1. Edit `index.html` directly
-2. Changes auto-reload in browser
-3. Test locally before deploying
+1. Edit the relevant page HTML or shared assets
+2. Test locally before deploying
+3. Push changes to GitHub or deploy manually
 
 ## Deployment
 
@@ -83,13 +92,10 @@ Changes to PostHog configuration require redeployment to take effect.
 ### Making Changes
 
 ```bash
-# Make your changes to index.html
-git add index.html
+git add .
 git commit -m "Description of changes"
-git push origin main
+git push origin <branch-name>
 ```
-
-### Deployment happens automatically after push
 
 ## Domain & DNS
 

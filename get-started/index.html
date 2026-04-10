@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started | Remedys.ai</title>
+  <meta name="description" content="Tell Remedys what you are trying to improve and we will follow up with the best next step for AI consulting, education, or implementation.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Remedys home">
+          <span class="brand-mark">R</span>
+          <span class="brand-wordmark"><span>Remedys</span><span>.ai</span></span>
+        </a>
+        <div class="header-actions">
+          <a class="button-ghost" href="/consulting/" data-track="nav_learn_more">Learn more</a>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+            <span class="menu-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="menu-overlay" data-menu-overlay>
+      <div class="container menu-panel">
+        <a class="menu-link" href="/"><small>Back to the homepage.</small>Home</a>
+        <a class="menu-link" href="/consulting/"><small>Figure out where AI fits and what to do first.</small>AI Consulting</a>
+        <a class="menu-link" href="/education/"><small>Help leaders and teams use AI well in real work.</small>AI Education</a>
+        <a class="menu-link" href="/implementation/"><small>Build practical systems that save time and strengthen operations.</small>AI Implementation</a>
+        <a class="menu-link" href="/get-started/"><small>Tell us what you are trying to improve.</small>Get Started</a>
+      </div>
+    </div>
+
+    <main>
+      <section class="page-hero">
+        <div class="container form-layout">
+          <div class="form-side reveal">
+            <p class="eyebrow">Get started</p>
+            <h1 class="page-headline">Tell us what you’re trying to improve.</h1>
+            <p class="page-copy">
+              If you are not sure where to start, that is fine. That is the point. Share the business context and we will follow up with the best next step.
+            </p>
+            <ul class="form-list">
+              <li>Figure out where AI fits in your business</li>
+              <li>Train your team to use it well</li>
+              <li>Implement practical systems that save time</li>
+            </ul>
+            <p class="inline-note" style="margin-top: 1.5rem;">Prefer email directly? <a href="mailto:hello@remedys.ai?subject=Remedys%20AI%20Inquiry">hello@remedys.ai</a></p>
+          </div>
+
+          <div class="form-panel reveal">
+            <form data-lead-form>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input class="input" id="name" name="name" type="text" placeholder="Your name" required>
+                </div>
+                <div class="field">
+                  <label for="email">Work email</label>
+                  <input class="input" id="email" name="email" type="email" placeholder="work@company.com" required>
+                </div>
+
+                <div class="field">
+                  <label for="company">Company</label>
+                  <input class="input" id="company" name="company" type="text" placeholder="Company name">
+                </div>
+                <div class="field">
+                  <label for="role">Role</label>
+                  <input class="input" id="role" name="role" type="text" placeholder="Founder, operator, director...">
+                </div>
+
+                <div class="field">
+                  <label for="team_size">Team size</label>
+                  <select class="select" id="team_size" name="team_size">
+                    <option value="">Select one...</option>
+                    <option value="1-5">1-5</option>
+                    <option value="6-20">6-20</option>
+                    <option value="21-50">21-50</option>
+                    <option value="51-200">51-200</option>
+                    <option value="200+">200+</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="service_interest">What are you interested in?</label>
+                  <select class="select" id="service_interest" name="service_interest">
+                    <option value="AI Consulting">AI Consulting</option>
+                    <option value="AI Education">AI Education</option>
+                    <option value="AI Implementation">AI Implementation</option>
+                    <option value="Not Sure Yet">Not sure yet</option>
+                  </select>
+                </div>
+
+                <div class="field field--full">
+                  <label for="goals">What are you trying to improve?</label>
+                  <textarea class="textarea" id="goals" name="goals" placeholder="Examples: lead follow-up, internal knowledge, reporting, support, scheduling, admin work, team adoption..." required></textarea>
+                </div>
+
+                <div class="field field--full">
+                  <label for="hear_about_us">How did you hear about us?</label>
+                  <select class="select" id="hear_about_us" name="hear_about_us">
+                    <option value="">Select one...</option>
+                    <option value="Search Engine (Google, Bing, etc)">Search Engine (Google, Bing, etc)</option>
+                    <option value="AI App (ChatGPT, Perplexity, etc)">AI App (ChatGPT, Perplexity, etc)</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="X">X</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Newsletter">Newsletter</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="field field--full" style="display:none;" aria-hidden="true">
+                  <label for="website">Leave this field empty</label>
+                  <input class="input" id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="hero-actions" style="margin-top: 1.5rem;">
+                <button class="button" type="submit" data-track="get_started_submit">Submit</button>
+              </div>
+              <p class="status" data-form-status></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          <span class="brand-mark">R</span>
+          <span class="brand-wordmark"><span>Remedys</span><span>.ai</span></span>
+        </div>
+        <div><a href="mailto:hello@remedys.ai">hello@remedys.ai</a></div>
+        <div>&copy; <span data-year></span> Remedys.ai</div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>
