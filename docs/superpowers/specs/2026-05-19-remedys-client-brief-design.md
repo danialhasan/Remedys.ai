@@ -107,6 +107,10 @@ The visual system should match the current Remedys website direction:
 - Distinct enough to avoid generic AI-site aesthetics.
 - Restrained with strong hierarchy.
 
+Anti-slop companion:
+
+- Use [2026-05-19-remedys-anti-slop-guidelines.md](/Users/shafankhan/Remedys.ai/docs/superpowers/specs/2026-05-19-remedys-anti-slop-guidelines.md) as the quality filter before building, reviewing, or exporting the final asset.
+
 Canonical palette:
 
 - Light paper base: `#f7f8fb`
