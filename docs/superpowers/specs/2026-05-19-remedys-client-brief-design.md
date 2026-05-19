@@ -62,11 +62,41 @@ The asset should answer the buyer's questions in order:
 
 - PDF.
 - 12 pages.
-- Landscape orientation preferred for readability and future slide reuse.
+- 16:9 landscape orientation.
+- Optimized for email attachment and screen reading.
 - Each page should carry one idea.
 - Each page should be understandable in 30-45 seconds.
 - Footer should include `Remedys` and page number.
 - Avoid dense paragraphs and long consulting-document walls of text.
+
+## Locked Build Decisions
+
+The approved build decisions are:
+
+- Final format: 16:9 landscape PDF.
+- Density: balanced, but closer to sparse than dense.
+- Design personality: enterprise-ready decision briefing with product-studio polish.
+- Typography: match the Remedys site where possible; otherwise use a clean modern sans-serif such as Inter, Geist, or IBM Plex Sans.
+- Page structure: consistent header/footer and varied middle layouts.
+- Visual objects: consulting-grade tables, process lines, route maps, timelines, and artifact stacks.
+- Proof level: process proof only. Do not use named client proof, fake metrics, logos, or testimonials.
+- Squad treatment: one subtle but credible page. Squad supports the Remedys story and should not take over the asset.
+- CTA: schedule a focused working session and share prototype, workflow, scope, or vendor materials if available.
+- Public URLs to include: `remedys.ai` and `trysquad.ai`.
+- Production method: HTML/CSS to PDF first for tighter control over layout, spacing, typography, and export quality.
+
+Create two final variants:
+
+1. Generic reusable version.
+   - Fully reusable across prospects.
+   - No client-specific references.
+   - Balanced coverage of AI consulting, automation, enablement, engineering, vendor governance, and Squad-backed delivery discipline.
+
+2. Lightly shaped current-client version.
+   - Does not name the client or overfit to the client.
+   - Slightly emphasizes prototypes, vendor quotes, outsourced dev shops, BPOs, and build-path decisions.
+   - Uses the same structure and design system as the generic version.
+   - Should feel like a relevant briefing, not a custom proposal.
 
 ## Visual System
 
@@ -94,6 +124,14 @@ Visual ingredients:
 - sparse accent usage
 - clear typographic hierarchy
 - diagrams, process lines, tables, and artifact stacks
+
+Texturization and focus:
+
+- Use subtle texture, grid, light panel contrast, and restrained accent rules to make the document feel solid and authored.
+- Texture should guide focus, not decorate the page.
+- Keep strong reading paths through spacing, alignment, and contrast.
+- Avoid visual noise that makes the eyes work harder.
+- Give each page a clear focal area so the reader knows where to start.
 
 Avoid:
 
