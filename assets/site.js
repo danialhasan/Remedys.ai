@@ -1473,13 +1473,13 @@
 
       appendLine(`> ${answer}`, "answer");
 
-      if (answer.startsWith("/")) {
-        handleCommand(answer.toLowerCase());
+      if (state.submitting || state.mode === "submitting") {
+        appendLine("Recommendation is being generated.", "hint");
         return;
       }
 
-      if (state.submitting || state.mode === "submitting") {
-        appendLine("Recommendation is being generated.", "hint");
+      if (answer.startsWith("/")) {
+        handleCommand(answer.toLowerCase());
         return;
       }
 
