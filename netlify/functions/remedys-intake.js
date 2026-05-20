@@ -191,11 +191,22 @@ function validatePayload(payload) {
   }
 
   const source = cleanText(payload.source, 80);
+  if (!ALLOWED_SOURCES.has(source)) return "Unknown request type.";
+
+  if (source === "remedys_direct_call") {
+    const bookingEmail = cleanEmail(payload.booking_email);
+    const calendarEventId = cleanText(payload.calendar_event_id, 260);
+    if (bookingEmail && !isValidEmail(bookingEmail)) return "A valid booking email is required.";
+    if (!bookingEmail && !calendarEventId) {
+      return "A booking email or calendar event id is required.";
+    }
+    return "";
+  }
+
   const email = cleanEmail(payload.email);
   const fullName = cleanText(payload.full_name, 160);
   const company = cleanText(payload.company, 180);
 
-  if (!ALLOWED_SOURCES.has(source)) return "Unknown request type.";
   if (!fullName) return "Full name is required.";
   if (!company) return "Company name is required.";
   if (!isValidEmail(email)) return "A valid work email is required.";
@@ -223,14 +234,6 @@ function validatePayload(payload) {
       payload.ai_usage,
     ].some((value) => cleanText(value, 20).length > 0);
     if (!hasDiagnosticAnswer) return "Answer at least one diagnostic question.";
-  }
-
-  if (source === "remedys_direct_call") {
-    const bookingEmail = cleanEmail(payload.booking_email || payload.email);
-    const calendarEventId = cleanText(payload.calendar_event_id, 260);
-    if (!bookingEmail && !calendarEventId) {
-      return "A booking email or calendar event id is required.";
-    }
   }
 
   return "";
