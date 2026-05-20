@@ -1035,6 +1035,13 @@
 
   function buildDiagnosticPayload(state, contact, result) {
     const leadContext = getLeadContext(contact.formVariant || "diagnostic_v1");
+    const answers = {
+      businessDescription: state.answers.businessDescription,
+      workflowSlowdown: state.answers.workflowSlowdown,
+      affectedGroup: state.answers.affectedGroup,
+      aiUsage: state.answers.aiUsage,
+      improvementTarget: state.answers.improvementTarget,
+    };
 
     return {
       source: "remedys_ai_diagnostic",
@@ -1048,11 +1055,11 @@
       recommendation_band: result.band,
       expected_time_to_value: result.timeToValue,
       prefill_service: state.prefillService,
-      company_description: state.answers.companyDescription,
-      time_drain: state.answers.timeDrain,
-      affected_group: state.answers.affectedGroup,
-      ai_usage: state.answers.aiUsage,
-      desired_outcome: state.answers.desiredOutcome,
+      company_description: answers.businessDescription,
+      time_drain: answers.workflowSlowdown,
+      affected_group: answers.affectedGroup,
+      ai_usage: answers.aiUsage,
+      desired_outcome: answers.improvementTarget,
       booking_url: INTRO_CALL_BOOKING_URL,
       ...leadContext,
       raw_payload: {
@@ -1063,11 +1070,16 @@
           newsletter_opt_in: contact.newsletterOptIn,
         },
         answers: {
-          company_description: state.answers.companyDescription,
-          time_drain: state.answers.timeDrain,
-          affected_group: state.answers.affectedGroup,
-          ai_usage: state.answers.aiUsage,
-          desired_outcome: state.answers.desiredOutcome,
+          businessDescription: answers.businessDescription,
+          workflowSlowdown: answers.workflowSlowdown,
+          affectedGroup: answers.affectedGroup,
+          aiUsage: answers.aiUsage,
+          improvementTarget: answers.improvementTarget,
+          company_description: answers.businessDescription,
+          time_drain: answers.workflowSlowdown,
+          affected_group: answers.affectedGroup,
+          ai_usage: answers.aiUsage,
+          desired_outcome: answers.improvementTarget,
         },
         recommendation: {
           key: result.key,
