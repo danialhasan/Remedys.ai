@@ -1388,6 +1388,10 @@
           resetTerminal();
           return true;
         case "/skip":
+          if (state.submitting || state.mode === "submitting") {
+            appendLine("Recommendation is being generated.", "hint");
+            return true;
+          }
           if (state.mode === "questions") {
             state.answers[currentQuestion().id] = "";
             state.questionIndex += 1;
@@ -1399,6 +1403,7 @@
           } else if (state.mode === "contact" && currentContactPrompt().id === "newsletterOptIn") {
             state.contact.newsletterOptIn = false;
             state.contactIndex += 1;
+            state.mode = "submitting";
             submitTerminalDiagnostic();
           } else {
             appendLine("This field is required before we can generate and store the recommendation.", "error");
@@ -1473,6 +1478,11 @@
         return;
       }
 
+      if (state.submitting || state.mode === "submitting") {
+        appendLine("Recommendation is being generated.", "hint");
+        return;
+      }
+
       if (!state.started) {
         state.started = true;
         trackEvent("diagnostic_started", {
@@ -1536,6 +1546,7 @@
             page: window.location.pathname,
             terminal: true,
           });
+          state.mode = "submitting";
           submitTerminalDiagnostic();
           return;
         }
