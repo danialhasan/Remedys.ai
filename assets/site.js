@@ -1186,6 +1186,9 @@
     const form = root.querySelector("[data-terminal-form]");
     const input = root.querySelector("[data-terminal-input]");
     const submitButton = root.querySelector("[data-terminal-submit]");
+    const currentQuestionNode = root.querySelector("[data-terminal-current-question]");
+    const progressNode = root.querySelector("[data-terminal-progress]");
+    const statusNode = root.querySelector("[data-terminal-status]");
     if (!log || !form || !input) return;
 
     const contactPrompts = [
@@ -1221,6 +1224,16 @@
     }
 
     function appendQuestion(question, index) {
+      if (currentQuestionNode) {
+        currentQuestionNode.textContent = question.label;
+      }
+      if (progressNode && state.mode === "questions") {
+        progressNode.textContent = `Question ${String(index + 1).padStart(2, "0")} / ${String(DIAGNOSTIC_QUESTIONS.length).padStart(2, "0")}`;
+      }
+      if (statusNode && state.mode === "questions") {
+        statusNode.textContent = question.helper || "Answer the question, then press Enter.";
+      }
+
       const group = document.createElement("div");
       group.className = "terminal-question-block";
 
@@ -1342,9 +1355,8 @@
       state.submitting = false;
       state.started = false;
       log.textContent = "";
-      appendLine("remedys diagnostic v2.4 - ai opportunity scanner");
-      appendLine("hint: this is a real tool. your answers generate a real recommendation.");
-      appendLine("type /skip to jump ahead, /reset to start over, /help for commands.");
+      appendLine("This is a real diagnostic. Your answers generate a real recommendation.");
+      appendLine("Type /reset to start over or /help for commands.", "hint");
       promptCurrentStep();
     }
 
@@ -1416,6 +1428,14 @@
           score: result.score,
           terminal: true,
         });
+        trackEvent("home_diagnostic_complete", {
+          page: window.location.pathname,
+          id: responseData.id,
+          can_book: responseData.canBook,
+          recommendation: result.key,
+          score: result.score,
+          terminal: true,
+        });
         trackEvent("diagnostic_recommendation_viewed", {
           page: window.location.pathname,
           recommendation: result.key,
@@ -1455,6 +1475,10 @@
           page: window.location.pathname,
           terminal: true,
         });
+        trackEvent("home_diagnostic_start", {
+          page: window.location.pathname,
+          terminal: true,
+        });
       }
 
       if (state.mode === "questions") {
@@ -1466,6 +1490,12 @@
         }
         state.answers[question.id] = normalizedAnswer;
         trackEvent("diagnostic_question_answered", {
+          page: window.location.pathname,
+          question_id: question.id,
+          question_number: state.questionIndex + 1,
+          terminal: true,
+        });
+        trackEvent("home_diagnostic_question_submit", {
           page: window.location.pathname,
           question_id: question.id,
           question_number: state.questionIndex + 1,
@@ -1536,6 +1566,20 @@
     });
 
     resetTerminal();
+  }
+
+  function initHomeDiagnosticStart() {
+    const start = document.querySelector("[data-start-home-diagnostic]");
+    const input = document.querySelector("[data-terminal-diagnostic] [data-terminal-input]");
+    if (!start || !input) return;
+
+    start.addEventListener("click", () => {
+      trackEvent("home_diagnostic_start", {
+        page: window.location.pathname,
+        source: "intro_button",
+      });
+      input.focus({ preventScroll: false });
+    });
   }
 
   function initTerminalDiagnostic() {
@@ -2086,6 +2130,7 @@
     initParallax();
     initFaq();
     initTracking();
+    initHomeDiagnosticStart();
     initTerminalDiagnostic();
     initDiagnostic();
     initRequestHelp();
