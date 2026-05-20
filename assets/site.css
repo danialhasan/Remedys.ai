@@ -4731,11 +4731,11 @@ body.page-light {
 }
 
 .page-light .hero-subhead {
-  max-width: 44rem;
+  max-width: min(65rem, 100%);
   margin: 0;
   color: var(--muted);
   font-size: clamp(1.12rem, 1.65vw, 1.45rem);
-  line-height: 1.42;
+  line-height: 1.32;
 }
 
 .page-light .hero-actions,
