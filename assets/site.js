@@ -1227,10 +1227,14 @@
       if (currentQuestionNode) {
         currentQuestionNode.textContent = question.label;
       }
-      if (progressNode && state.mode === "questions") {
-        progressNode.textContent = `Question ${String(index + 1).padStart(2, "0")} / ${String(DIAGNOSTIC_QUESTIONS.length).padStart(2, "0")}`;
+      if (progressNode) {
+        if (state.mode === "questions") {
+          progressNode.textContent = `Question ${String(index + 1).padStart(2, "0")} / ${String(DIAGNOSTIC_QUESTIONS.length).padStart(2, "0")}`;
+        } else if (state.mode === "contact") {
+          progressNode.textContent = `Contact ${String(index + 1).padStart(2, "0")} / ${String(contactPrompts.length).padStart(2, "0")}`;
+        }
       }
-      if (statusNode && state.mode === "questions") {
+      if (statusNode && (state.mode === "questions" || state.mode === "contact")) {
         statusNode.textContent = question.helper || "Answer the question, then press Enter.";
       }
 
