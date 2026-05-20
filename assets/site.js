@@ -1033,15 +1033,33 @@
     return submitLeadPayload(payload);
   }
 
-  function buildDiagnosticPayload(state, contact, result) {
-    const leadContext = getLeadContext(contact.formVariant || "diagnostic_v1");
-    const answers = {
-      businessDescription: state.answers.businessDescription,
-      workflowSlowdown: state.answers.workflowSlowdown,
-      affectedGroup: state.answers.affectedGroup,
-      aiUsage: state.answers.aiUsage,
-      improvementTarget: state.answers.improvementTarget,
+  function buildRecommendationOutput(state, result) {
+    const answers = state.answers;
+    return {
+      primary_recommendation: result.label,
+      secondary_recommendation: result.secondary ? result.secondary.label : "",
+      why_this_fits: result.summary,
+      signals_we_noticed: [
+        answers.workflowSlowdown ? `Workflow: ${answers.workflowSlowdown}` : "",
+        answers.businessImpact ? `Impact: ${answers.businessImpact}` : "",
+        answers.systemsTouched ? `Systems: ${answers.systemsTouched}` : "",
+        answers.aiUsage ? `AI usage: ${answers.aiUsage}` : "",
+      ].filter(Boolean).slice(0, 4),
+      estimated_time_to_value: result.timeToValue,
+      what_remedys_would_look_at_first: result.focus,
+      what_to_gather_next: [
+        "Examples of the workflow today",
+        "Systems and documents involved",
+        "Who approves, uses, or maintains the first solution",
+      ],
+      decision_bridge: result.decisionBridge,
+      next_move: result.score >= 68 ? "Book a Call" : "Submit a Request",
     };
+  }
+
+  function buildDiagnosticPayload(state, contact, result) {
+    const leadContext = getLeadContext(contact.formVariant || DIAGNOSTIC_VERSION);
+    const recommendationOutput = buildRecommendationOutput(state, result);
 
     return {
       source: "remedys_ai_diagnostic",
@@ -1049,17 +1067,29 @@
       email: contact.email,
       company: contact.company,
       newsletter_opt_in: contact.newsletterOptIn,
+      diagnostic_version: DIAGNOSTIC_VERSION,
+      scoring_version: SCORING_VERSION,
+      lead_key: contact.email ? `email:${contact.email.toLowerCase()}` : "",
+      booking_email: contact.email,
       readiness_score: result.score,
       recommendation_key: result.key,
       recommendation_label: result.label,
       recommendation_band: result.band,
       expected_time_to_value: result.timeToValue,
+      path_scores: result.pathScores,
+      score_breakdown: result.scoreBreakdown,
+      recommendation_output: recommendationOutput,
       prefill_service: state.prefillService,
-      company_description: answers.businessDescription,
-      time_drain: answers.workflowSlowdown,
-      affected_group: answers.affectedGroup,
-      ai_usage: answers.aiUsage,
-      desired_outcome: answers.improvementTarget,
+      business_description: state.answers.businessDescription,
+      improvement_target: state.answers.improvementTarget,
+      workflow_slowdown: state.answers.workflowSlowdown,
+      business_impact: state.answers.businessImpact,
+      systems_touched: state.answers.systemsTouched,
+      company_description: state.answers.businessDescription,
+      time_drain: state.answers.workflowSlowdown,
+      affected_group: state.answers.affectedGroup,
+      ai_usage: state.answers.aiUsage,
+      desired_outcome: state.answers.improvementTarget,
       booking_url: INTRO_CALL_BOOKING_URL,
       ...leadContext,
       raw_payload: {
@@ -1070,16 +1100,13 @@
           newsletter_opt_in: contact.newsletterOptIn,
         },
         answers: {
-          businessDescription: answers.businessDescription,
-          workflowSlowdown: answers.workflowSlowdown,
-          affectedGroup: answers.affectedGroup,
-          aiUsage: answers.aiUsage,
-          improvementTarget: answers.improvementTarget,
-          company_description: answers.businessDescription,
-          time_drain: answers.workflowSlowdown,
-          affected_group: answers.affectedGroup,
-          ai_usage: answers.aiUsage,
-          desired_outcome: answers.improvementTarget,
+          business_description: state.answers.businessDescription,
+          improvement_target: state.answers.improvementTarget,
+          workflow_slowdown: state.answers.workflowSlowdown,
+          affected_group: state.answers.affectedGroup,
+          business_impact: state.answers.businessImpact,
+          systems_touched: state.answers.systemsTouched,
+          ai_usage: state.answers.aiUsage,
         },
         recommendation: {
           key: result.key,
@@ -1087,6 +1114,10 @@
           band: result.band,
           score: result.score,
           expected_time_to_value: result.timeToValue,
+          secondary: result.secondary,
+          path_scores: result.pathScores,
+          score_breakdown: result.scoreBreakdown,
+          output: recommendationOutput,
         },
         context: {
           prefill_service: state.prefillService,
@@ -1250,7 +1281,9 @@
       band.textContent = result.band;
       resultNode.appendChild(band);
 
-      appendMetric("Readiness score", `${result.score}/100`);
+      if (result.secondary) {
+        appendMetric("Also worth considering", result.secondary.label);
+      }
       appendMetric("Estimated time to value", result.timeToValue);
 
       const summary = document.createElement("p");
@@ -1258,6 +1291,10 @@
       resultNode.appendChild(summary);
 
       appendMetric("What we'd look at first", result.focus);
+
+      const bridge = document.createElement("p");
+      bridge.textContent = result.decisionBridge;
+      resultNode.appendChild(bridge);
 
       const actions = document.createElement("div");
       actions.className = "terminal-result-actions";
