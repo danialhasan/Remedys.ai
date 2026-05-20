@@ -162,7 +162,6 @@ const diagnosticV3Request = {
 const directCallRequest = {
   source: "remedys_direct_call",
   full_name: "Booked Lead",
-  email: "booked@example.com",
   booking_email: "booked@example.com",
   company: "Booked Co",
   calendar_event_id: "event_123",
@@ -232,6 +231,10 @@ const directCallRequest = {
     assert(rows[0].systems_touched.includes("HubSpot"), "expected systems touched");
     assert(rows[0].path_scores.automation === 86, "expected automation path score");
     assert(
+      rows[0].score_breakdown.business_impact === 16,
+      "expected business impact score breakdown"
+    );
+    assert(
       rows[0].recommendation_output.primary_recommendation === "AI Automation",
       "expected primary recommendation"
     );
@@ -248,6 +251,7 @@ const directCallRequest = {
     assert(body.ok === true, "expected ok response");
     assert(rows.length === 1, "expected one Supabase insert");
     assert(rows[0].source === "remedys_direct_call", "expected direct call source");
+    assert(rows[0].email === "booked@example.com", "expected fallback email");
     assert(rows[0].booking_email === "booked@example.com", "expected booking email");
     assert(rows[0].calendar_event_id === "event_123", "expected calendar event id");
     assert(
