@@ -130,12 +130,15 @@ function bool(value) {
 function buildRow(payload, event, submissionId) {
   const origin = getHeader(event.headers, "origin");
   const bookingUrl = process.env.INTRO_CALL_BOOKING_URL || DEFAULT_BOOKING_URL;
+  const source = cleanText(payload.source, 80);
 
   return {
-    source: cleanText(payload.source, 80),
+    source,
     submission_id: submissionId,
     full_name: cleanText(payload.full_name, 160),
-    email: cleanEmail(payload.email),
+    email: cleanEmail(
+      source === "remedys_direct_call" ? payload.email || payload.booking_email : payload.email
+    ),
     company: cleanText(payload.company, 180),
     newsletter_opt_in: bool(payload.newsletter_opt_in),
     readiness_score: normalizeScore(payload.readiness_score),
@@ -194,10 +197,12 @@ function validatePayload(payload) {
   if (!ALLOWED_SOURCES.has(source)) return "Unknown request type.";
 
   if (source === "remedys_direct_call") {
+    const primaryEmail = cleanEmail(payload.email);
     const bookingEmail = cleanEmail(payload.booking_email);
     const calendarEventId = cleanText(payload.calendar_event_id, 260);
+    if (primaryEmail && !isValidEmail(primaryEmail)) return "A valid booking email is required.";
     if (bookingEmail && !isValidEmail(bookingEmail)) return "A valid booking email is required.";
-    if (!bookingEmail && !calendarEventId) {
+    if (!primaryEmail && !bookingEmail && !calendarEventId) {
       return "A booking email or calendar event id is required.";
     }
     return "";
@@ -341,19 +346,24 @@ async function sendResendEmail(row, bookingUrl) {
   if (!apiKey || !from || !notifyTo) return;
 
   const subjectPrefix = row.source === "remedys_direct_request" ? "Direct request" : "Diagnostic";
+  const emailBody = {
+    from,
+    to: notifyTo.split(",").map((email) => email.trim()).filter(Boolean),
+    subject: `${subjectPrefix}: ${row.company || row.email}`,
+    html: renderLeadHtml(row, bookingUrl),
+  };
+
+  if (row.email) {
+    emailBody.reply_to = row.email;
+  }
+
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      from,
-      to: notifyTo.split(",").map((email) => email.trim()).filter(Boolean),
-      reply_to: row.email,
-      subject: `${subjectPrefix}: ${row.company || row.email}`,
-      html: renderLeadHtml(row, bookingUrl),
-    }),
+    body: JSON.stringify(emailBody),
   });
 
   if (!response.ok) {
@@ -361,7 +371,7 @@ async function sendResendEmail(row, bookingUrl) {
     throw new Error(body || "Resend notification failed.");
   }
 
-  if (process.env.SEND_LEAD_CONFIRMATION === "true") {
+  if (process.env.SEND_LEAD_CONFIRMATION === "true" && row.email) {
     const confirmationResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
