@@ -1,8 +1,24 @@
-# Launch Wiring Checklist
+# Operations
 
-Last updated: May 19, 2026
+How the Remedys.ai site is run: local dev, deploy, environment, and the launch/QA
+checklist. The site is live — treat this as the standing operational reference, not a
+one-time pre-launch gate. (Originated as the May 2026 launch-wiring checklist.)
 
-This checklist covers the operational wiring required before the Remedys.ai refresh can safely go live.
+## Local development
+
+```sh
+npx serve -l 4500 .
+```
+
+Serves the static root at `http://localhost:4500` (matches `.claude/launch.json`).
+No build step. Edit route HTML and/or the shared `assets/`, then refresh.
+
+## Deploy
+
+- **Automatic:** push to `main` → Netlify auto-deploys. `netlify.toml` sets
+  `publish = "."`, with no build command and no redirects.
+- **Manual:** `npx netlify-cli deploy --prod --dir=.`
+- **Production:** https://remedys.ai
 
 ## Homepage V10 QA
 
@@ -63,12 +79,12 @@ Production values:
 
 ## Supabase Requirements
 
-Database migrations:
+Database migrations (all applied on disk):
 
 - `supabase/migrations/20260515120000_create_remedys_intake.sql`
 - `supabase/migrations/20260515133000_harden_remedys_intake.sql`
 - `supabase/migrations/20260519100000_align_remedys_intake_schema.sql`
-- Next required migration before the rebuilt diagnostic ships: add first-class fields for the seven approved diagnostic answers, scoring version fields, `path_scores`, `score_breakdown`, `recommendation_output`, booking reconciliation fields, and a server-side lead grouping key or equivalent.
+- `supabase/migrations/20260519143000_diagnostic_v3_plain_7.sql` — first-class v3 fields (the seven diagnostic answers, scoring/version fields, `path_scores`, `score_breakdown`, `recommendation_output`, booking reconciliation, lead key). **This already shipped**; older notes that call it "the next required migration" are stale.
 
 Required table:
 
@@ -165,6 +181,10 @@ The intake function must:
 - Return a booking URL only when the diagnostic is high-fit or when the flow is explicitly allowed to show it.
 
 ## Search, AEO, GEO, And Agent Discovery
+
+> **Note:** `sitemap.xml`, `robots.txt`, and `llms.txt` do **not** currently exist in
+> the repo root. The items below that reference them are aspirational until those files
+> are created.
 
 Before deploy:
 

@@ -1,5 +1,10 @@
 # Remedys.ai Copy Changes & Design Optimization
 
+> **HISTORICAL (Nov 2025) — describes a site version that no longer exists.** A shorter
+> companion to the same old single-page copy pass (orange accent, Manrope + Inter,
+> bento cards, waitlist). The current site is the multi-page diagnostic site; see
+> [`../README.md`](../README.md). Kept for context only.
+
 ## Copy Changes Summary
 
 ### Navigation

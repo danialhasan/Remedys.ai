@@ -1,5 +1,13 @@
 # Remedys Tenex-System Finalization Design
 
+> **HISTORICAL — not the current site.** This 2026-04-16 spec argued for making
+> Remedys structurally resemble tenex.ai (denser, more systemized). The homepage has
+> since been rebuilt on the newer V10 `page-light` rail system, and accent direction
+> has moved toward violet — so this doc's "orange-accented" framing is stale. Kept for
+> the rationale behind page density, CTA rhythm, and sitemap depth. For the current
+> shipped state, see [`../architecture.md`](../architecture.md) and
+> [`../design-system.md`](../design-system.md).
+
 Date: 2026-04-16
 
 ## Purpose

@@ -1,5 +1,12 @@
 # Remedys Client Brief Design Spec
 
+> **HISTORICAL — describes a separate PDF artifact, not the website.** This 2026-05-19
+> spec designs a reusable client-facing brief PDF; it was "awaiting user review" and is
+> not a description of the live site. Its positioning (the four paths, "Put AI to
+> work.") still tracks the brand, but for the site itself the source of truth is the
+> code and the current docs in [`../`](../). The evergreen production rules it draws on
+> now live in [`../anti-slop-guidelines.md`](../anti-slop-guidelines.md).
+
 Date: 2026-05-19
 Status: awaiting user review
 Owner: Shafan Khan
@@ -109,7 +116,7 @@ The visual system should match the current Remedys website direction:
 
 Anti-slop companion:
 
-- Use [2026-05-19-remedys-anti-slop-guidelines.md](/Users/shafankhan/Remedys.ai/docs/superpowers/specs/2026-05-19-remedys-anti-slop-guidelines.md) as the quality filter before building, reviewing, or exporting the final asset.
+- Use the [anti-slop guidelines](../anti-slop-guidelines.md) as the quality filter before building, reviewing, or exporting the final asset.
 
 Canonical palette:
 
