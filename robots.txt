@@ -1,0 +1,14 @@
+# Remedys.ai
+# All crawlers welcome, including AI answer/generative engines
+# (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.).
+
+User-agent: *
+Allow: /
+
+# Internal archives and design scratch — not for indexing.
+Disallow: /output/
+Disallow: /mockups/
+
+Sitemap: https://remedys.ai/sitemap.xml
+
+# AI-readable site summary: https://remedys.ai/llms.txt
