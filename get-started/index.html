@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">
     {
@@ -39,8 +39,106 @@
       }
     }
   </script>
+  <style>
+    /* Get Started (page-light): re-skins the staged diagnostic + intake form for the new system.
+       Markup + data-hooks are unchanged; this overrides the dark-base component styles. */
+    body.page-light { --font-display: "Clash Display", "Switzer", Arial, sans-serif; }
+
+    /* layout */
+    .get-started-intake-section { padding: clamp(5.5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem); }
+    .get-started-intake-section [hidden] { display: none !important; }
+    .get-started-shell { display: grid; grid-template-columns: minmax(20rem, 0.92fr) minmax(26rem, 1.08fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+    .get-started-left { min-width: 0; display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); }
+    .get-started-hero-copy { display: grid; gap: 0.9rem; }
+    .get-started-hero-copy .hero-lede { max-width: 36rem; }
+    .get-started-choice-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .get-started-diagnostic-panel { margin-top: 0.4rem; padding: 0; border: 0; background: transparent; }
+    .get-started-diagnostic-panel > .stack-header { display: none; }
+    .get-started-direct { position: sticky; top: 6.5rem; align-self: start; padding: clamp(1.25rem, 2.4vw, 1.75rem); border: 1px solid var(--line); border-radius: 4px; background: #fff; box-shadow: 0 2px 4px rgba(11,16,32,0.03), 0 20px 44px -22px rgba(11,16,32,0.18); }
+    .get-started-direct .stack-header { margin-bottom: 1.1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+    .get-started-direct .section-card { padding: 0; border: 0; background: transparent; box-shadow: none; }
+    .get-started-direct .hero-actions { margin-top: 1rem; }
+    .get-started-direct .hero-actions .button { width: 100%; justify-content: center; }
+    .stack-header { display: grid; gap: 0.7rem; }
+
+    /* typography mapping (page-ivory classes -> page-light treatment, scoped to this page) */
+    .get-started-intake-section .u-eyebrow { margin: 0; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); }
+    .get-started-intake-section .text-h1-xl { margin: 0; font-family: var(--font-display); font-size: clamp(2.6rem, 5.5vw, 4.4rem); font-weight: 700; line-height: 0.94; letter-spacing: -0.015em; color: var(--ink); }
+    .get-started-intake-section .text-h1 { margin: 0; font-family: var(--font-display); font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.012em; color: var(--ink); }
+    .get-started-intake-section .text-xxl, .get-started-intake-section .hero-lede { margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.45; color: var(--muted); }
+
+    /* buttons (page-light skin for the old .button component on this page) */
+    .get-started-intake-section .button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.7rem; padding: 0 1.1rem; border: 1px solid var(--ink); border-radius: 0; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 0.95rem; line-height: 1; text-decoration: none; cursor: pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; }
+    .get-started-intake-section .button:hover, .get-started-intake-section .button:focus-visible { background: var(--violet); border-color: var(--violet); color: #fff; }
+    .get-started-intake-section .button.cc-tertiary { background: transparent; color: var(--ink); }
+    .get-started-intake-section .button.cc-tertiary:hover, .get-started-intake-section .button.cc-tertiary:focus-visible { background: transparent; border-color: var(--violet); color: var(--violet); }
+    .get-started-intake-section .icon-box { display: none; }
+
+    /* choice cards */
+    .get-started-choice-card { display: grid; gap: 0.6rem; padding: clamp(1.1rem, 2vw, 1.4rem); border: 1px solid var(--line); border-radius: 4px; background: #fff; box-shadow: none; }
+    .get-started-choice-card h2 { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.01em; color: var(--ink); }
+    .get-started-choice-card p { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.45; }
+    .get-started-choice-card .button { width: 100%; margin-top: 0.4rem; }
+    .get-started-choice-card--dark { background: var(--navy); border-color: var(--navy); color: #f7f8fb; }
+    .get-started-choice-card--dark h2 { color: #fff; }
+    .get-started-choice-card--dark p { color: rgba(247,248,251,0.72); }
+    .get-started-choice-card--dark .u-eyebrow { color: var(--blue); }
+    .get-started-choice-card--dark .button { background: #fff; color: var(--navy); border-color: #fff; }
+    .get-started-choice-card--dark .button:hover, .get-started-choice-card--dark .button:focus-visible { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+    /* diagnostic shell + internals (re-skin from dark base to page-light) */
+    .diagnostic-shell { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--ink); box-shadow: 0 2px 4px rgba(11,16,32,0.03), 0 20px 44px -22px rgba(11,16,32,0.18); }
+    .get-started-diagnostic-panel .diagnostic-shell { box-shadow: none; }
+    .diagnostic-shell::before { background-image: linear-gradient(rgba(11,16,32,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(11,16,32,0.04) 1px, transparent 1px); opacity: 0.6; }
+    .diagnostic-kicker, .diagnostic-step { color: var(--violet); }
+    .diagnostic-shell-title, .diagnostic-question-title, .diagnostic-result-title { font-family: var(--font-display); color: var(--ink); }
+    .diagnostic-runtime, .diagnostic-progress-copy, .diagnostic-result-band { color: var(--muted); }
+    .diagnostic-note, .diagnostic-question-helper, .diagnostic-result-summary p, .diagnostic-result-focus p, .diagnostic-result-status, .diagnostic-callout p, .diagnostic-check { color: var(--muted); }
+    .diagnostic-progress-track { background: rgba(11,16,32,0.08); border-color: var(--line); }
+    .diagnostic-progress-bar { background: var(--violet); }
+    .diagnostic-callout { border-top-color: var(--line); }
+    .diagnostic-callout span, .diagnostic-result-metric span, .diagnostic-result-label { color: var(--violet); }
+    .diagnostic-text-input, .diagnostic-textarea { border: 1px solid var(--line); background: #fff; color: var(--ink); }
+    .diagnostic-choice { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 4px; }
+    .diagnostic-choice:hover, .diagnostic-choice:focus-visible { transform: translateY(-1px); border-color: rgba(123,77,255,0.5); background: rgba(123,77,255,0.06); }
+    .diagnostic-choice.is-selected { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .diagnostic-choice-label { color: inherit; }
+    .diagnostic-question-error { color: #c0392b; }
+    .diagnostic-analysis-item { border: 1px solid var(--line); background: rgba(255,255,255,0.6); color: var(--muted); }
+    .diagnostic-analysis-item::before { border-color: rgba(11,16,32,0.24); }
+    .diagnostic-analysis-item.is-active { border-color: rgba(123,77,255,0.42); color: var(--ink); }
+    .diagnostic-analysis-item.is-active::before { border-color: var(--violet); background: radial-gradient(circle, var(--violet) 0 36%, transparent 42%); box-shadow: 0 0 0.75rem rgba(123,77,255,0.35); }
+    .diagnostic-result-metric, .diagnostic-result-focus { border-color: var(--line); }
+    .diagnostic-result-metric { background: rgba(255,255,255,0.6); }
+    .diagnostic-result-metric strong { color: var(--ink); }
+    .diagnostic-reset { color: var(--muted); }
+
+    /* form fields */
+    .input, .select, .textarea { border: 1px solid var(--line); border-radius: 4px; background-color: #fff; color: var(--ink); }
+    .input:focus-visible, .select:focus-visible, .textarea:focus-visible { border-color: var(--violet); outline: none; }
+    .input::placeholder, .textarea::placeholder, .diagnostic-text-input::placeholder, .diagnostic-textarea::placeholder { color: rgba(11,16,32,0.4); }
+    .field label { color: var(--ink); font-weight: 500; }
+    .diagnostic-check input { accent-color: var(--violet); }
+    .status { color: var(--muted); }
+    .status a { color: var(--violet); }
+    .inline-note { color: var(--muted); }
+    .inline-note a { color: var(--violet); }
+    .request-form { display: grid; gap: 1.4rem; }
+    .request-success { display: grid; gap: 0.8rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 4px; background: rgba(255,255,255,0.6); }
+
+    @media (max-width: 991px) {
+      .get-started-shell { grid-template-columns: 1fr; gap: 2rem; }
+      .get-started-direct { position: static; }
+    }
+    @media (max-width: 600px) {
+      .get-started-choice-stack { grid-template-columns: 1fr; }
+      .diagnostic-contact-grid, .diagnostic-result-metrics { grid-template-columns: 1fr; }
+      .diagnostic-nav { flex-direction: column-reverse; }
+      .diagnostic-nav-button { min-width: 0; width: 100%; }
+    }
+  </style>
 </head>
-<body class="page-ivory">
+<body class="page-light">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <div class="block-overlay" data-menu-overlay>
@@ -61,6 +159,10 @@
           <span>Who We Are</span>
           <span class="menu-item-meta">Understand the mission, beliefs, and the people behind the work.</span>
         </a>
+        <a class="block-menu-item" href="/manifesto/">
+          <span>Manifesto</span>
+          <span class="menu-item-meta">Why we exist.</span>
+        </a>
         <a class="block-menu-item" href="/get-started/">
           <span>Get Started</span>
           <span class="menu-item-meta">Start with the AI Diagnostic or submit a request directly.</span>
@@ -76,25 +178,19 @@
       </div>
     </div>
 
-    <nav class="nav">
-      <div class="nav_content container">
-        <div class="nav_logo">
-          <a href="/" class="logo-link">
-            <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-            <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-          </a>
-        </div>
-        <div class="shell-actions">
-          <a href="/get-started/" class="button shell-cta" data-track="shell_get_started">
-            <span>Get Started</span>
-            <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-          </a>
-          <div class="toggle-btn1">
-            <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu"><span></span></button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/">Services</a>
+        <a href="/#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/manifesto/">Manifesto</a>
+        <a href="/get-started/" class="nav-cta" aria-current="page" data-track="get_started_nav_click">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
     <main class="site-main" id="main-content">
       <section class="site-section site-section--hero get-started-intake-section" id="request">
@@ -388,7 +484,7 @@
         </div>
       </section>
 
-      <section class="site-section site-section--tight">
+      <section class="site-section site-section--tight footer-band">
         <div class="container">
           <footer class="site-footer reveal">
             <div class="footer-grid">
@@ -398,7 +494,7 @@
                   <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
                 </a>
                 <p>Put AI to work.</p>
-                <p class="text-xs">Practical AI consulting, education, implementation, and engineering.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
               </div>
 
               <div class="footer-group">
@@ -414,6 +510,7 @@
                 <h3>Company</h3>
                 <div class="footer-links">
                   <a href="/about/">Who We Are</a>
+                  <a href="/manifesto/">Manifesto</a>
                   <a href="/contact/">Contact</a>
                 </div>
               </div>
@@ -442,6 +539,10 @@
                   <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
               </div>
+            </div>
+            <div class="footer-baseline">
+              <span>&copy; 2026 Remedys.ai</span>
+              <span>Made with intent. Not a template.</span>
             </div>
           </footer>
         </div>

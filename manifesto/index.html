@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifesto — Why we exist. | Remedys.ai</title>
+  <meta name="description" content="Why Remedys exists: AI only matters when it improves how the business runs. We make the first move obvious — then build it.">
+  <meta name="theme-color" content="#f8f8f8">
+  <link rel="canonical" href="https://remedys.ai/manifesto/">
+  <meta property="og:title" content="Manifesto — Why we exist. | Remedys.ai">
+  <meta property="og:description" content="Why Remedys exists: AI only matters when it improves how the business runs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remedys.ai/manifesto/">
+  <meta property="og:image" content="https://remedys.ai/assets/images/statue-hero.png">
+  <meta property="og:image:alt" content="Remedys.ai artwork">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Manifesto — Why we exist. | Remedys.ai">
+  <meta name="twitter:description" content="Why Remedys exists: AI only matters when it improves how the business runs.">
+  <meta name="twitter:image" content="https://remedys.ai/assets/images/statue-hero.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    /* Manifesto (page-light): editorial belief page. Extends page-light tokens in site.css. */
+    body.page-light { --font-display: "Clash Display", "Switzer", Arial, sans-serif; }
+    .m-pad { padding-inline: clamp(1.25rem, 3.5vw, 3.5rem); }
+    .mf-hero h1, .mf-belief h2, .mf-close h2, .mf-thesis { font-family: var(--font-display); }
+
+    /* hero */
+    .mf-hero { padding: clamp(6.5rem, 13vw, 11rem) 0 clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid var(--line); }
+    .mf-hero .label { margin: 0 0 1.15rem; }
+    .mf-hero h1 { margin: 0; font-size: clamp(3.2rem, 9vw, 7rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.015em; color: var(--ink); }
+    .mf-thesis { margin: clamp(1.5rem, 3vw, 2.25rem) 0 0; max-width: 26ch; font-size: clamp(1.55rem, 3.4vw, 2.7rem); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); }
+
+    /* beliefs */
+    .mf-beliefs { padding: clamp(4rem, 8vw, 7rem) 0; }
+    .mf-belief-list { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(2.75rem, 6vw, 5rem); }
+    .mf-belief { display: grid; gap: 0.7rem; max-width: 64rem; }
+    .mf-belief-num { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); }
+    .mf-belief h2 { margin: 0; font-size: clamp(1.7rem, 3.6vw, 3rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.012em; color: var(--ink); max-width: 20ch; }
+    .mf-belief p { margin: 0.15rem 0 0; color: var(--muted); font-size: clamp(1.05rem, 1.45vw, 1.24rem); line-height: 1.5; max-width: 56ch; }
+
+    /* close */
+    .mf-close { padding: clamp(4rem, 8vw, 6.5rem) 0 clamp(5rem, 9vw, 8rem); border-top: 1px solid var(--line); }
+    .mf-close-inner { display: grid; gap: 1.5rem; max-width: 58rem; }
+    .mf-close h2 { margin: 0; font-size: clamp(2.4rem, 5.5vw, 4.4rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.014em; color: var(--ink); max-width: 16ch; }
+    .mf-close .hero-cta { justify-content: flex-start; margin-top: 0.3rem; }
+    .mf-sign { margin: 0.4rem 0 0; font-family: var(--font-mono); font-size: 0.84rem; letter-spacing: 0.03em; color: var(--muted); }
+
+    /* reveal (degrades to visible) */
+    .mf-reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mf-reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .mf-reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body class="page-light">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-wrapper">
+    <div class="block-overlay" data-menu-overlay>
+      <div class="block-overlay-bg" aria-hidden="true">
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+      </div>
+      <div class="block-menu-list">
+        <a class="block-menu-item" href="/services/">
+          <span>Services</span>
+          <span class="menu-item-meta">See the four ways to work with Remedys.</span>
+        </a>
+        <a class="block-menu-item" href="/about/">
+          <span>Who We Are</span>
+          <span class="menu-item-meta">Understand the mission, beliefs, and the people behind the work.</span>
+        </a>
+        <a class="block-menu-item" href="/manifesto/" aria-current="page">
+          <span>Manifesto</span>
+          <span class="menu-item-meta">Why we exist.</span>
+        </a>
+        <a class="block-menu-item" href="/get-started/">
+          <span>Get Started</span>
+          <span class="menu-item-meta">Start with the AI Diagnostic or submit a request directly.</span>
+        </a>
+        <a class="block-menu-item" href="/contact/">
+          <span>Contact</span>
+          <span class="menu-item-meta">Reach the team directly.</span>
+        </a>
+        <a class="block-menu-item" href="/privacy/">
+          <span>Privacy</span>
+          <span class="menu-item-meta">See how inquiry information is handled.</span>
+        </a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/">Services</a>
+        <a href="/#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/manifesto/" aria-current="page">Manifesto</a>
+        <a href="/get-started/" class="nav-cta" data-track="manifesto_get_started_click">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="site-main" id="main-content">
+      <div class="rail-frame">
+        <!-- HERO -->
+        <section class="mf-hero" aria-labelledby="manifesto-title">
+          <div class="rail m-pad mf-reveal">
+            <p class="label">Manifesto</p>
+            <h1 id="manifesto-title">Why we exist.</h1>
+            <p class="mf-thesis">AI changed what&rsquo;s possible. Most companies are still bolting it on.</p>
+          </div>
+        </section>
+
+        <!-- BELIEFS -->
+        <section class="mf-beliefs" aria-label="What we believe">
+          <div class="rail m-pad">
+            <ol class="mf-belief-list">
+              <li class="mf-belief mf-reveal">
+                <span class="mf-belief-num">01</span>
+                <h2>AI is the biggest shift in how work gets done in a generation.</h2>
+                <p>Most companies treat it like a feature to install &mdash; a box to check &mdash; then wonder why nothing changed.</p>
+              </li>
+              <li class="mf-belief mf-reveal">
+                <span class="mf-belief-num">02</span>
+                <h2>Software is no longer the bottleneck. Judgment is.</h2>
+                <p>The teams that win know where to point AI first, and have the engineering to build it for real.</p>
+              </li>
+              <li class="mf-belief mf-reveal">
+                <span class="mf-belief-num">03</span>
+                <h2>We make the first move obvious &mdash; then build it.</h2>
+                <p>Not slides. Not a pilot that dies in a deck. Working systems inside how your business actually runs.</p>
+              </li>
+              <li class="mf-belief mf-reveal">
+                <span class="mf-belief-num">04</span>
+                <h2>We&rsquo;re engineers and operators, not an agency.</h2>
+                <p>We built Squad, an AI-native engineering product, and run it ourselves. You get that as a Chief AI Officer &mdash; in the room with you, not shipping deliverables and leaving.</p>
+              </li>
+              <li class="mf-belief mf-reveal">
+                <span class="mf-belief-num">05</span>
+                <h2>AI only matters when it improves how the business runs.</h2>
+                <p>That&rsquo;s the whole job. Everything else is noise.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- CLOSE -->
+        <section class="mf-close" aria-labelledby="manifesto-close-title">
+          <div class="rail m-pad mf-reveal">
+            <div class="mf-close-inner">
+              <h2 id="manifesto-close-title">Put AI to work. Choose the first move.</h2>
+              <div class="hero-cta">
+                <a class="button button-primary" href="/get-started/" data-track="manifesto_get_started_click">Get Started</a>
+                <a class="button button-secondary" href="/#diagnostic" data-track="manifesto_diagnostic_click">Take the diagnostic</a>
+              </div>
+              <p class="mf-sign">&mdash; Danial Hasan &amp; Shafan Khan, Remedys.ai</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="site-section site-section--tight footer-band">
+        <div class="container">
+          <footer class="site-footer reveal">
+            <div class="footer-grid">
+              <div class="footer-brand">
+                <a href="/" class="logo-link">
+                  <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+                  <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
+                </a>
+                <p>Put AI to work.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
+              </div>
+
+              <div class="footer-group">
+                <h3>Explore</h3>
+                <div class="footer-links">
+                  <a href="/services/">Services</a>
+                  <a href="/get-started/">AI Diagnostic</a>
+                  <a href="/get-started/#request">Submit a Request</a>
+                </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Company</h3>
+                <div class="footer-links">
+                  <a href="/about/">Who We Are</a>
+                  <a href="/manifesto/">Manifesto</a>
+                  <a href="/contact/">Contact</a>
+                </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Paths</h3>
+                <div class="footer-links">
+                  <a href="/consulting/">AI Consulting</a>
+                  <a href="/automation/">AI Automation</a>
+                  <a href="/enablement/">AI Enablement</a>
+                  <a href="/engineering/">AI Engineering</a>
+                </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                  <a href="/privacy/">Privacy</a>
+                </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                  <a href="mailto:hello@remedys.ai">hello@remedys.ai</a>
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-baseline">
+              <span>&copy; 2026 Remedys.ai</span>
+              <span>Made with intent. Not a template.</span>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/site.js"></script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('.mf-reveal');
+    if (!els.length) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function showAll() { els.forEach(function (e) { e.classList.add('is-in'); }); }
+    if (reduce || !('IntersectionObserver' in window)) { showAll(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+    setTimeout(showAll, 1800);
+  })();
+  </script>
+</body>
+</html>

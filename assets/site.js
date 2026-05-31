@@ -1243,7 +1243,7 @@
 
       const prompt = document.createElement("p");
       prompt.className = "terminal-line terminal-line--question";
-      prompt.textContent = `> ${question.label}`;
+      prompt.textContent = `? ${question.label}`;
       group.appendChild(prompt);
 
       if (question.helper) {
@@ -1359,6 +1359,9 @@
       state.submitting = false;
       state.started = false;
       log.textContent = "";
+      appendLine("remedys diagnostic — v1.0", "hint");
+      appendLine("scanning: business · workflows · data · team", "hint");
+      appendLine("session ready · 7 questions · ~3 min", "hint");
       appendLine("This is a real diagnostic. Your answers generate a real recommendation.");
       appendLine("Type /reset to start over or /help for commands.", "hint");
       promptCurrentStep();

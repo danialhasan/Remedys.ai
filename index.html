@@ -62,17 +62,13 @@
     .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 0.4rem; }
     .hero-cta .button { transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 220ms cubic-bezier(0.22,1,0.36,1), box-shadow 220ms ease; }
     .hero-cta .button:hover, .hero-cta .button:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba(11,16,32,0.38); }
-    .hero-caption {
-      position: absolute; left: 8vw; bottom: clamp(1.5rem, 4vw, 2.6rem); z-index: 2;
-      display: inline-flex; align-items: center; gap: 0.55rem;
-      font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.04em; color: rgba(11,16,32,0.5);
-    }
-    .hero-caption .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(123,77,255,0.16); }
     .scroll-cue {
       position: absolute; left: 50%; bottom: clamp(1.4rem, 3.5vw, 2.4rem); transform: translateX(-50%); z-index: 2;
       display: grid; justify-items: center; gap: 0.5rem;
       font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(11,16,32,0.42);
+      text-decoration: none; transition: color 200ms ease;
     }
+    .scroll-cue:hover, .scroll-cue:focus-visible { color: var(--violet); outline: none; }
     .scroll-cue .rail-line { width: 1px; height: 2.4rem; background: linear-gradient(var(--violet), transparent); animation: cue 1.8s ease-in-out infinite; transform-origin: top; }
     @keyframes cue { 0%,100% { transform: scaleY(0.4); opacity: 0.5; } 50% { transform: scaleY(1); opacity: 1; } }
 
@@ -117,7 +113,7 @@
     .m-routemap.is-in .m-route:nth-child(4) { transition-delay: 0.27s; }
     .m-route {
       position: relative; display: grid;
-      grid-template-columns: 3.5rem minmax(0, 1fr) 9rem 2rem;
+      grid-template-columns: auto minmax(0, 1fr) 9rem 2rem;
       align-items: center; gap: clamp(1rem, 3vw, 2.75rem);
       padding: clamp(1.5rem, 2.8vw, 2.25rem) clamp(0.5rem, 1.5vw, 1.5rem);
       border-top: 1px solid var(--line); text-decoration: none; color: var(--ink);
@@ -128,6 +124,10 @@
     .m-route:hover, .m-route:focus-visible { background: #fff; outline: none; }
     .m-route:hover::before, .m-route:focus-visible::before { transform: scaleY(1); }
     .m-route-num { font-family: var(--font-mono); font-size: 0.92rem; color: var(--violet); }
+    .m-route-lead { display: inline-flex; align-items: center; gap: 0.85rem; }
+    .m-route-icon { display: inline-flex; color: rgba(11,16,32,0.4); transition: color 220ms ease; }
+    .m-route-icon svg { display: block; }
+    .m-route:hover .m-route-icon, .m-route:focus-visible .m-route-icon { color: var(--violet); }
     .m-route-body { display: grid; gap: 0.2rem; min-width: 0; }
     .m-route-name { font-size: clamp(1.55rem, 2.4vw, 2.4rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.01em; }
     .m-route-promise { color: var(--muted); font-size: 1.04rem; line-height: 1.4; }
@@ -149,22 +149,25 @@
     .m-diagnostic .button-primary:hover { background: var(--blue); border-color: var(--blue); }
     .m-diagnostic .button-secondary { color: #fff; border-color: rgba(247,248,251,0.24); }
 
-    /* ---------- PROOF (who you work with) ---------- */
+    /* ---------- PROOF (why remedys: belief + proof) ---------- */
     .m-proof { padding: clamp(5.5rem, 10vw, 9rem) 0; border-bottom: 1px solid var(--line); }
-    .m-proof-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.85fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
-    .m-proof-lead .label { margin: 0 0 0.9rem; }
-    .m-proof-lead h2 { margin: 0 0 1rem; font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.005em; max-width: 20ch; }
-    .m-proof-lead p { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.55; max-width: 52ch; }
-    .m-proof-panel { padding: clamp(1.5rem, 2.8vw, 2.25rem); border: 1px solid var(--line); background: #fff; display: grid; gap: 1.1rem; box-shadow: 0 2px 4px rgba(11,16,32,0.03), 0 20px 44px -22px rgba(11,16,32,0.18); }
-    .m-proof-panel .m-panel-label { margin: 0; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet); }
-    .m-proof-panel .m-panel-body { margin: 0; color: var(--muted); font-size: 0.99rem; line-height: 1.55; }
-    .m-proof-panel .m-panel-body strong { color: var(--ink); font-weight: 600; }
-    .m-founders { list-style: none; margin: 0; padding: 1.1rem 0 0; display: grid; gap: 1.15rem; border-top: 1px solid var(--line); }
-    .m-founder { display: grid; gap: 0.22rem; }
-    .m-founder + .m-founder { border-top: 1px solid var(--line); padding-top: 1.15rem; }
-    .m-founder-name { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; letter-spacing: -0.01em; color: var(--ink); }
-    .m-founder-role { margin: 0; font-size: 0.9rem; color: var(--muted); }
-    .m-founder-marks { margin: 0.18rem 0 0; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.02em; line-height: 1.55; color: rgba(11,16,32,0.55); }
+    .m-proof-belief { max-width: 64rem; }
+    .m-proof-belief .label { margin: 0 0 0.95rem; }
+    .m-proof-belief h2 { margin: 0 0 1.1rem; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.012em; max-width: 17ch; }
+    .m-proof-belief p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.5; max-width: 60ch; }
+    .m-proof-evidence { margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; gap: clamp(1.6rem, 3vw, 2.4rem); }
+    .m-founders { list-style: none; margin: 0; padding: clamp(1.5rem, 3vw, 2.25rem) 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.75rem, 4vw, 3.5rem); border-top: 1px solid var(--line); }
+    .m-founder { display: grid; gap: 0.22rem; align-content: start; }
+    .m-founder-name { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.12rem, 1.5vw, 1.32rem); letter-spacing: -0.01em; color: var(--ink); }
+    .m-founder-role { margin: 0; font-size: 0.92rem; color: var(--muted); }
+    .m-founder-marks { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 0.4rem; }
+    .m-founder-marks li { position: relative; padding-left: 1.05rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.01em; line-height: 1.45; color: rgba(11,16,32,0.66); }
+    .m-founder-marks li::before { content: ""; position: absolute; left: 0; top: 0.52em; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--violet); opacity: 0.72; }
+    .m-proof-connective { margin: 0; max-width: 60ch; color: var(--ink); font-size: clamp(1.02rem, 1.3vw, 1.16rem); line-height: 1.5; font-weight: 500; }
+    @media (max-width: 700px) {
+      .m-founders { grid-template-columns: 1fr; gap: 1.5rem; }
+      .m-founder + .m-founder { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+    }
 
     /* ---------- SESSIONS ---------- */
     .m-sessions { padding: clamp(5rem, 9vw, 8rem) 0; border-bottom: 1px solid var(--line); }
@@ -172,13 +175,39 @@
     .m-sessions-row .label { margin: 0 0 0.9rem; }
     .m-sessions-row h2 { margin: 0 0 0.9rem; font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.01em; max-width: 18ch; }
     .m-sessions-row p { margin: 0; color: var(--muted); font-size: 1.04rem; line-height: 1.5; max-width: 56ch; }
+    /* past sessions pulled from the Squad Luma calendar */
+    .m-sessions-list { margin-top: clamp(2.75rem, 5vw, 4rem); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(0.85rem, 1.6vw, 1.1rem); }
+    .m-sessions-list.sec-reveal { opacity: 1; transform: none; }
+    .m-session {
+      position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto 1fr;
+      gap: 0.85rem 1rem; padding: clamp(1.3rem, 2.4vw, 1.7rem) clamp(1.3rem, 2.4vw, 1.6rem);
+      border: 1px solid var(--line); border-radius: 14px; background: rgba(255, 255, 255, 0.55);
+      text-decoration: none; color: inherit;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+    }
+    .m-sessions-list.is-in .m-session { opacity: 1; transform: none; }
+    .m-sessions-list.is-in .m-session:nth-child(2) { transition-delay: 0.06s; }
+    .m-sessions-list.is-in .m-session:nth-child(3) { transition-delay: 0.12s; }
+    .m-sessions-list.is-in .m-session:nth-child(4) { transition-delay: 0.18s; }
+    .m-sessions-list.is-in .m-session:nth-child(5) { transition-delay: 0.24s; }
+    .m-sessions-list.is-in .m-session:nth-child(6) { transition-delay: 0.30s; }
+    .m-session:hover, .m-session:focus-visible { border-color: rgba(123, 77, 255, 0.45); background: #fff; box-shadow: 0 14px 30px -20px rgba(11, 16, 32, 0.45); outline: none; }
+    .m-session-date { grid-row: 1; grid-column: 1 / -1; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); }
+    .m-session-title { grid-row: 2; grid-column: 1 / -1; font-size: clamp(1.12rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); }
+    .m-session-meta { grid-row: 3; grid-column: 1; align-self: end; font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.02em; color: rgba(11, 16, 32, 0.52); }
+    .m-session-arrow { grid-row: 3; grid-column: 2; align-self: end; justify-self: end; font-size: 1.05rem; line-height: 1; color: rgba(11, 16, 32, 0.32); transition: transform 220ms ease, color 220ms ease; }
+    .m-session:hover .m-session-arrow, .m-session:focus-visible .m-session-arrow { transform: translateX(4px); color: var(--violet); }
 
-    /* ---------- FINAL CTA ---------- */
-    .m-final { position: relative; padding: clamp(6rem, 11vw, 10rem) 0; text-align: center; }
+    /* ---------- FINAL CTA + FOOTER (one dark brand band) ---------- */
+    .m-final { position: relative; padding: clamp(6rem, 11vw, 9rem) 0 clamp(3.5rem, 6vw, 5rem); text-align: center; background: var(--navy); color: #f7f8fb; }
     .m-final-inner { display: grid; justify-items: center; gap: 1.1rem; }
-    .m-final h2 { margin: 0; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.012em; max-width: 12ch; }
-    .m-final p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.45; max-width: 34rem; }
+    .m-final h2 { margin: 0; color: #fff; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.012em; max-width: 12ch; }
+    .m-final p { margin: 0; color: rgba(247, 248, 251, 0.72); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.45; max-width: 34rem; }
     .m-final .hero-cta { justify-content: center; margin-top: 0.6rem; }
+    .m-final .button-primary { background: #fff; color: var(--navy); border-color: #fff; }
+    .m-final .button-primary:hover { background: var(--blue); border-color: var(--blue); }
+    .m-final .button-secondary { color: #fff; border-color: rgba(247, 248, 251, 0.24); }
 
     /* ---------- reveal (progressive enhancement) ---------- */
     .reveal-el { opacity: 0; transform: translateY(12px); }
@@ -189,7 +218,7 @@
       .scroll-cue .rail-line { animation: none; }
       .m-steps::before { transform: scaleX(1); }
       .m-step::before { opacity: 1; transform: none; }
-      .m-step, .m-routemap .m-route { opacity: 1; transform: none; }
+      .m-step, .m-routemap .m-route, .m-sessions-list .m-session { opacity: 1; transform: none; }
       .hero-cta .button:hover, .hero-cta .button:focus-visible { transform: none; }
     }
 
@@ -201,7 +230,8 @@
       .m-step::before { top: 0.35rem; left: -5px; }
       .m-paths-head, .m-proof-grid, .m-diag-intro, .m-sessions-row { grid-template-columns: 1fr; }
       .m-sessions-row { align-items: start; }
-      .m-route { grid-template-columns: 2.5rem minmax(0, 1fr) 1.5rem; row-gap: 0.35rem; }
+      .m-sessions-list { grid-template-columns: 1fr; }
+      .m-route { grid-template-columns: auto minmax(0, 1fr) 1.5rem; row-gap: 0.35rem; }
       .m-route-meta { grid-column: 2 / 3; justify-self: start; }
       .m-route-arrow { grid-row: 1; grid-column: 3; }
     }
@@ -260,6 +290,10 @@
           <span>Who We Are</span>
           <span class="menu-item-meta">Understand the mission, beliefs, and the people behind the work.</span>
         </a>
+        <a class="block-menu-item" href="/manifesto/">
+          <span>Manifesto</span>
+          <span class="menu-item-meta">Why we exist.</span>
+        </a>
         <a class="block-menu-item" href="/get-started/">
           <span>Get Started</span>
           <span class="menu-item-meta">Start with the AI Diagnostic or submit a request directly.</span>
@@ -281,6 +315,7 @@
         <a href="/services/">Services</a>
         <a href="#diagnostic">Diagnostic</a>
         <a href="/about/">Who We Are</a>
+        <a href="/manifesto/">Manifesto</a>
         <a href="/get-started/" class="nav-cta" data-track="home_get_started_click">Get Started</a>
         <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
           <span></span>
@@ -305,17 +340,16 @@
               <a class="button button-secondary" href="/services/" data-track="home_explore_services_click">Explore Services</a>
             </div>
           </div>
-          <span class="hero-caption reveal-el" data-reveal><span class="dot" aria-hidden="true"></span>mapping work &rarr; opportunities &rarr; systems</span>
-          <div class="scroll-cue reveal-el" data-reveal aria-hidden="true"><span>How we work</span><span class="rail-line"></span></div>
+          <a class="scroll-cue reveal-el" data-reveal href="#process" aria-label="Scroll to how we work"><span>How we work</span><span class="rail-line" aria-hidden="true"></span></a>
         </section>
 
         <!-- PROCESS (sequence) -->
-        <section class="m-process" aria-labelledby="home-process-title">
+        <section class="m-process" id="process" aria-labelledby="home-process-title">
           <div class="rail m-pad">
             <header class="m-process-head sec-reveal">
               <p class="label">How we work</p>
-              <h2 id="home-process-title">No fake artifacts.<br>Just the work that has to happen.</h2>
-              <p class="m-lead">Every engagement starts the same way: understanding the business and the people in it before we recommend anything.</p>
+              <h2 id="home-process-title">We start with the work,<br>not the tool.</h2>
+              <p class="m-lead">Every engagement begins the same way: we learn how the business actually runs, then find the first move worth making.</p>
             </header>
             <ol class="m-steps" data-steps>
               <li class="m-step">
@@ -347,7 +381,10 @@
             </header>
             <div class="m-routemap sec-reveal">
               <a class="m-route" href="/consulting/" data-track="home_service_click" data-service="AI Consulting">
-                <span class="m-route-num">01</span>
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+                  <span class="m-route-num">01</span>
+                </span>
                 <span class="m-route-body">
                   <span class="m-route-name">AI Consulting</span>
                   <span class="m-route-promise">Advisory through implementation.</span>
@@ -357,7 +394,10 @@
                 <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
               </a>
               <a class="m-route" href="/automation/" data-track="home_service_click" data-service="AI Automation">
-                <span class="m-route-num">02</span>
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></span>
+                  <span class="m-route-num">02</span>
+                </span>
                 <span class="m-route-body">
                   <span class="m-route-name">AI Automation</span>
                   <span class="m-route-promise">Automate a workflow.</span>
@@ -367,7 +407,10 @@
                 <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
               </a>
               <a class="m-route" href="/enablement/" data-track="home_service_click" data-service="AI Enablement">
-                <span class="m-route-num">03</span>
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
+                  <span class="m-route-num">03</span>
+                </span>
                 <span class="m-route-body">
                   <span class="m-route-name">AI Enablement</span>
                   <span class="m-route-promise">Learn how to use AI well.</span>
@@ -377,7 +420,10 @@
                 <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
               </a>
               <a class="m-route" href="/engineering/" data-track="home_service_click" data-service="AI Engineering">
-                <span class="m-route-num">04</span>
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></span>
+                  <span class="m-route-num">04</span>
+                </span>
                 <span class="m-route-body">
                   <span class="m-route-name">AI Engineering</span>
                   <span class="m-route-promise">Build something useful.</span>
@@ -396,11 +442,11 @@
           <div class="rail">
             <div class="m-diag-intro">
               <div>
-                <p class="label">AI Diagnostic</p>
+                <p class="label">The Remedys Diagnostic</p>
                 <h2 id="home-diagnostic-title">Find the right first move.</h2>
               </div>
               <div>
-                <p>Seven questions. About three minutes. You&rsquo;ll get a recommended path, why it fits, and the first move to make.</p>
+                <p>Diagnose your AI opportunity in about three minutes. Seven questions, then a recommended path, why it fits, and the first move to make.</p>
                 <div class="diagnostic-actions">
                   <button class="button button-primary" type="button" data-start-home-diagnostic>Start the Diagnostic</button>
                   <a class="button button-secondary" href="/get-started/#request" data-track="home_submit_request_click">Submit a Request</a>
@@ -410,12 +456,11 @@
 
             <div class="terminal-pane" data-terminal-diagnostic data-diagnostic-autostart="true">
               <div class="terminal-top">
-                <span>Remedys diagnostic</span>
-                <span data-terminal-progress>Question 01 / 07</span>
+                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="terminal-title">remedys — diagnostic</span>
+                <span class="terminal-progress" data-terminal-progress>Question 01 / 07</span>
               </div>
               <div class="terminal-body">
-                <div class="terminal-system" data-terminal-status aria-live="polite">This is a real diagnostic. Your answers generate a real recommendation.</div>
-                <div class="terminal-question" data-terminal-current-question></div>
                 <div class="terminal-log" data-terminal-log aria-live="polite"></div>
               </div>
               <form class="terminal-input" data-terminal-form>
@@ -429,31 +474,36 @@
         </section>
       </div>
 
-      <!-- PROOF (who you work with) -->
+      <!-- PROOF (why remedys: belief + proof) -->
       <section class="m-proof" aria-labelledby="why-remedys-title">
         <div class="rail m-pad">
-          <div class="m-proof-grid sec-reveal">
-            <div class="m-proof-lead">
-              <p class="label">Why Remedys</p>
-              <h2 id="why-remedys-title">AI only matters when it improves how the business runs.</h2>
-              <p>We&rsquo;re engineers and operators. We get close to how your business actually works, find where AI can help, and build it with you.</p>
-            </div>
-            <aside class="m-proof-panel">
-              <p class="m-panel-label">Who you&rsquo;re working with</p>
-              <p class="m-panel-body">Bring on Remedys and you add a <strong>Chief AI Officer</strong>, not an agency. We built Squad, an AI-native software engineering product &mdash; and you work with the team that built it.</p>
-              <ul class="m-founders">
-                <li class="m-founder">
-                  <p class="m-founder-name">Danial Hasan</p>
-                  <p class="m-founder-role">Applied AI &amp; software engineering</p>
-                  <p class="m-founder-marks">Among Canada&rsquo;s top Codex engineers · 3,000+ across X and his newsletter · presented to 600 engineers</p>
-                </li>
-                <li class="m-founder">
-                  <p class="m-founder-name">Shafan Khan</p>
-                  <p class="m-founder-role">GTM, operations &amp; engineering</p>
-                  <p class="m-founder-marks">Scaled Middesk to $30M ARR · ex-Bloomberg and Deloitte · 3x President&rsquo;s Club</p>
-                </li>
-              </ul>
-            </aside>
+          <div class="m-proof-belief sec-reveal">
+            <p class="label">Why Remedys</p>
+            <h2 id="why-remedys-title">Most AI work stalls because it starts with the tool, not the business.</h2>
+            <p>We start with how your business actually runs, find where AI moves the needle, and build it with you. A Chief AI Officer, not an agency.</p>
+          </div>
+          <div class="m-proof-evidence sec-reveal">
+            <ul class="m-founders">
+              <li class="m-founder">
+                <p class="m-founder-name">Danial Hasan</p>
+                <p class="m-founder-role">Applied AI &amp; software engineering</p>
+                <ul class="m-founder-marks">
+                  <li>Among Canada&rsquo;s top Codex engineers</li>
+                  <li>3,000+ across X &amp; his newsletter</li>
+                  <li>Presented to 600+ engineers</li>
+                </ul>
+              </li>
+              <li class="m-founder">
+                <p class="m-founder-name">Shafan Khan</p>
+                <p class="m-founder-role">GTM, operations &amp; engineering</p>
+                <ul class="m-founder-marks">
+                  <li>Scaled Middesk to $30M ARR</li>
+                  <li>ex-Bloomberg &amp; Deloitte</li>
+                  <li>3&times; President&rsquo;s Club</li>
+                </ul>
+              </li>
+            </ul>
+            <p class="m-proof-connective">We built Squad, an AI-native engineering product &mdash; and you work with the team that built it.</p>
           </div>
         </div>
       </section>
@@ -465,9 +515,48 @@
             <div>
               <p class="label">In the room</p>
               <h2 id="sessions-title">In the room, not just behind the screen.</h2>
-              <p>We run live sessions on AI and how to build with it. It keeps us close to what teams are really asking &mdash; and what actually works in practice.</p>
+              <p>We run live sessions on building with AI &mdash; workshops, hackathons, and meetups across Toronto. It keeps us close to what teams are really asking, and what actually works in practice.</p>
             </div>
-            <a class="button button-secondary" href="/events/" data-track="home_view_events_click">View Past Sessions</a>
+            <a class="button button-secondary" href="https://luma.com/trySquad" target="_blank" rel="noreferrer" data-track="home_view_events_click">View all sessions</a>
+          </div>
+
+          <div class="m-sessions-list sec-reveal">
+            <a class="m-session" href="https://luma.com/jszvlo56" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Feb 2026</span>
+              <span class="m-session-title">Context Engineering for Agent Swarms</span>
+              <span class="m-session-meta">Toronto &middot; Workshop</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/dr6ro8j5" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Feb 2026</span>
+              <span class="m-session-title">Product Engineering Agent Hackathon</span>
+              <span class="m-session-meta">Toronto &middot; Hackathon</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/m67l61pa" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Nov 2025</span>
+              <span class="m-session-title">Claude Code Anonymous &mdash; AWS Edition</span>
+              <span class="m-session-meta">Toronto &middot; Remedys.ai &times; AWS</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/xgjbngp1" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Oct 2025</span>
+              <span class="m-session-title">Hackathon: Claude Agent SDK</span>
+              <span class="m-session-meta">Toronto &middot; Hackathon</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/7tvh3hu5" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Sep 2025</span>
+              <span class="m-session-title">Claude Code Anonymous &mdash; Toronto Edition</span>
+              <span class="m-session-meta">Toronto &middot; Community meetup</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/awkas4il" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Aug 2025</span>
+              <span class="m-session-title">Hackathon: GPT-5</span>
+              <span class="m-session-meta">Toronto &middot; Hackathon</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
       </section>
@@ -486,7 +575,7 @@
         </div>
       </section>
 
-      <section class="site-section site-section--tight">
+      <section class="site-section site-section--tight footer-band">
         <div class="container">
           <footer class="site-footer reveal">
             <div class="footer-grid">
@@ -496,7 +585,7 @@
                   <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
                 </a>
                 <p>Put AI to work.</p>
-                <p class="text-xs">Practical AI consulting, education, implementation, and engineering.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
               </div>
 
               <div class="footer-group">
@@ -512,6 +601,7 @@
                 <h3>Company</h3>
                 <div class="footer-links">
                   <a href="/about/">Who We Are</a>
+                  <a href="/manifesto/">Manifesto</a>
                   <a href="/contact/">Contact</a>
                 </div>
               </div>
@@ -540,6 +630,10 @@
                   <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
               </div>
+            </div>
+            <div class="footer-baseline">
+              <span>&copy; 2026 Remedys.ai</span>
+              <span>Made with intent. Not a template.</span>
             </div>
           </footer>
         </div>

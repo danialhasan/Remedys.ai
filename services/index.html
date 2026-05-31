@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Four ways to put AI to work. | Remedys.ai</title>
-  <meta name="description" content="Choose the Remedys path that fits best: where to start with AI, automate a workflow, learn AI, or build something with engineering support.">
+  <meta name="description" content="Choose the Remedys path that fits best: find where to start with AI, automate a workflow, get your team fluent, or build something with engineering support.">
   <meta name="theme-color" content="#f8f8f8">
   <link rel="canonical" href="https://remedys.ai/services/">
   <meta property="og:title" content="Services | Four ways to put AI to work. | Remedys.ai">
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remedys.ai/services/">
   <meta property="og:image" content="https://remedys.ai/assets/images/statue-hero.png">
-  <meta property="og:image:alt" content="Remedys.ai hero artwork">
+  <meta property="og:image:alt" content="Remedys.ai artwork">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Services | Four ways to put AI to work. | Remedys.ai">
   <meta name="twitter:description" content="Choose the Remedys path that fits best and move from there.">
@@ -21,9 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">
     {
@@ -40,8 +39,73 @@
       ]
     }
   </script>
+  <style>
+    /* Services (page-light): the paths hub. Extends page-light tokens in site.css. */
+    body.page-light { --font-display: "Clash Display", "Switzer", Arial, sans-serif; }
+    .m-pad { padding-inline: clamp(1.25rem, 3.5vw, 3.5rem); }
+    .sv-hero h1, .sv-card h2, .sv-paths-lead h2, .sv-path-name, .sv-final h2 { font-family: var(--font-display); }
+
+    /* hero */
+    .sv-hero { padding: clamp(6rem, 12vw, 10rem) 0 clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid var(--line); }
+    .sv-hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.85fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+    .sv-hero .label { margin: 0 0 1.1rem; }
+    .sv-hero h1 { margin: 0 0 1.4rem; font-size: clamp(2.8rem, 6.5vw, 5.4rem); font-weight: 700; line-height: 0.94; letter-spacing: -0.015em; color: var(--ink); }
+    .sv-hero-lede { margin: 0 0 1.6rem; max-width: 46ch; color: var(--muted); font-size: clamp(1.1rem, 1.5vw, 1.32rem); line-height: 1.42; }
+    .sv-hero .hero-cta { justify-content: flex-start; }
+
+    /* hero card: one system, four entry points */
+    .sv-card { padding: clamp(1.5rem, 2.8vw, 2.25rem); border: 1px solid var(--line); background: #fff; box-shadow: 0 2px 4px rgba(11,16,32,0.03), 0 20px 44px -22px rgba(11,16,32,0.18); }
+    .sv-card .label { margin: 0 0 0.7rem; }
+    .sv-card h2 { margin: 0 0 1.1rem; font-size: clamp(1.4rem, 2vw, 1.95rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; color: var(--ink); }
+    .sv-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+    .sv-card li { position: relative; padding-left: 1.1rem; color: var(--muted); font-size: 0.98rem; line-height: 1.4; }
+    .sv-card li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--violet); opacity: 0.7; }
+
+    /* paths */
+    .sv-paths { padding: clamp(4.5rem, 9vw, 7.5rem) 0; border-bottom: 1px solid var(--line); }
+    .sv-paths-lead { max-width: 60rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .sv-paths-lead .label { margin: 0 0 0.9rem; }
+    .sv-paths-lead h2 { margin: 0 0 0.9rem; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.012em; color: var(--ink); max-width: 18ch; }
+    .sv-paths-lead p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.5; max-width: 54ch; }
+    .sv-path-stack { display: grid; gap: clamp(1rem, 2vw, 1.5rem); }
+    .sv-path { padding: clamp(1.6rem, 3vw, 2.4rem); border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.55); display: grid; gap: 0.9rem; transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease; }
+    .sv-path:hover { border-color: rgba(123,77,255,0.45); background: #fff; box-shadow: 0 14px 30px -20px rgba(11,16,32,0.45); }
+    .sv-path-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .sv-path-id { display: inline-flex; align-items: baseline; gap: 0.85rem; }
+    .sv-path-n { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.14em; color: var(--violet); }
+    .sv-path-name { font-size: clamp(1.5rem, 2.4vw, 2.2rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.01em; color: var(--ink); }
+    .sv-path-meta { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(11,16,32,0.5); }
+    .sv-path-promise { margin: 0; font-size: clamp(1.08rem, 1.5vw, 1.28rem); font-weight: 600; line-height: 1.3; color: var(--ink); max-width: 60ch; }
+    .sv-path-body { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.55; max-width: 64ch; }
+    .sv-path-fit { list-style: none; margin: 0.2rem 0 0; padding: 0; display: grid; gap: 0.45rem; }
+    .sv-path-fit li { position: relative; padding-left: 1.4rem; color: rgba(11,16,32,0.7); font-size: 0.96rem; line-height: 1.45; }
+    .sv-path-fit li::before { content: "\2192"; position: absolute; left: 0; top: 0; color: var(--violet); }
+    .sv-path-link { margin-top: 0.3rem; }
+    .sv-path-link a { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.02em; color: var(--violet); text-decoration: none; border-bottom: 1px solid rgba(123,77,255,0.3); padding-bottom: 1px; }
+    .sv-path-link a:hover { border-bottom-color: var(--violet); }
+
+    /* final CTA (dark band) */
+    .sv-final { position: relative; padding: clamp(5.5rem, 10vw, 8rem) 0 clamp(3.5rem, 6vw, 5rem); text-align: center; background: var(--navy); color: #f7f8fb; }
+    .sv-final-inner { display: grid; justify-items: center; gap: 1.1rem; max-width: 44rem; margin-inline: auto; }
+    .sv-final h2 { margin: 0; color: #fff; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 700; line-height: 0.96; letter-spacing: -0.014em; max-width: 16ch; }
+    .sv-final p { margin: 0; color: rgba(247,248,251,0.72); font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.45; max-width: 36rem; }
+    .sv-final .hero-cta { justify-content: center; margin-top: 0.5rem; }
+    .sv-final .button-primary { background: #fff; color: var(--navy); border-color: #fff; }
+    .sv-final .button-primary:hover { background: var(--blue); border-color: var(--blue); }
+    .sv-final .button-secondary { color: #fff; border-color: rgba(247,248,251,0.24); }
+
+    /* reveal (degrades to visible) */
+    .reveal-up { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal-up.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal-up { opacity: 1; transform: none; transition: none; } }
+
+    @media (max-width: 760px) {
+      .sv-hero-grid { grid-template-columns: 1fr; align-items: start; gap: 2rem; }
+      .sv-path-top { gap: 0.4rem 1rem; }
+    }
+  </style>
 </head>
-<body class="page-ivory">
+<body class="page-light">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <div class="block-overlay" data-menu-overlay>
@@ -54,13 +118,17 @@
         <div class="menu-curtain"></div>
       </div>
       <div class="block-menu-list">
-        <a class="block-menu-item" href="/services/">
+        <a class="block-menu-item" href="/services/" aria-current="page">
           <span>Services</span>
           <span class="menu-item-meta">See the four ways to work with Remedys.</span>
         </a>
         <a class="block-menu-item" href="/about/">
           <span>Who We Are</span>
           <span class="menu-item-meta">Understand the mission, beliefs, and the people behind the work.</span>
+        </a>
+        <a class="block-menu-item" href="/manifesto/">
+          <span>Manifesto</span>
+          <span class="menu-item-meta">Why we exist.</span>
         </a>
         <a class="block-menu-item" href="/get-started/">
           <span>Get Started</span>
@@ -77,201 +145,138 @@
       </div>
     </div>
 
-    <nav class="nav">
-      <div class="nav_content container">
-        <div class="nav_logo">
-          <a href="/" class="logo-link">
-            <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-            <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-          </a>
-        </div>
-        <div class="shell-actions">
-          <a href="/get-started/" class="button shell-cta" data-track="shell_get_started">
-            <span>Get Started</span>
-            <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-          </a>
-          <div class="toggle-btn1">
-            <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu"><span></span></button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/" aria-current="page">Services</a>
+        <a href="/#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/manifesto/">Manifesto</a>
+        <a href="/get-started/" class="nav-cta" data-track="services_get_started_click">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
     <main class="site-main" id="main-content">
-      <section class="site-section site-section--hero">
-        <div class="container">
-          <div class="site-hero">
-            <div class="site-hero-copy">
-              <p class="u-eyebrow reveal">Services</p>
-              <h1 class="text-h1-xl reveal">Let&apos;s put AI to work.</h1>
-              <p class="hero-lede text-xxl reveal">AI should help your business make more money, save time, and solve real problems. Remedys gives you four clear ways to make that happen, depending on what you need right now.</p>
-              <div class="hero-actions reveal">
-                <a href="/get-started/" class="button" data-track="services_get_started">
-                  <span>Get Started</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-                <a href="/about/" class="button cc-tertiary" data-track="services_who_we_are">
-                  <span>Who We Are</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
+      <div class="rail-frame">
+        <!-- HERO -->
+        <section class="sv-hero" aria-labelledby="services-title">
+          <div class="rail m-pad">
+            <div class="sv-hero-grid reveal-up">
+              <div>
+                <p class="label">Services</p>
+                <h1 id="services-title">Four ways to put AI to work.</h1>
+                <p class="sv-hero-lede">Where you start depends on what you need right now. Pick the path that fits &mdash; or take the diagnostic and we&rsquo;ll point you to the first move.</p>
+                <div class="hero-cta">
+                  <a class="button button-primary" href="/get-started/" data-track="services_get_started_click">Get Started</a>
+                  <a class="button button-secondary" href="/about/" data-track="services_who_we_are_click">Who We Are</a>
+                </div>
               </div>
-            </div>
-
-            <div class="section-card reveal" aria-hidden="true">
-              <p class="u-eyebrow">Choose the path</p>
-              <h2 class="text-h1">One system. Four entry points.</h2>
-              <ul class="path-card__list">
-                <li>Find the first move that is actually worth acting on.</li>
-                <li>Fix the painful workflow that is already visible.</li>
-                <li>Build practical AI capability inside the team.</li>
-                <li>Bring in engineering help to make something real.</li>
-              </ul>
+              <aside class="sv-card">
+                <p class="label">Choose the path</p>
+                <h2>One system. Four entry points.</h2>
+                <ul>
+                  <li>Find the first move actually worth acting on.</li>
+                  <li>Fix the painful workflow that&rsquo;s already visible.</li>
+                  <li>Build real AI capability inside the team.</li>
+                  <li>Bring in engineering to make something real.</li>
+                </ul>
+              </aside>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="site-section site-section--tight">
-        <div class="container">
-          <p class="quiet-cue reveal">Choose the path that best matches your current need. We&apos;ll help you move from there.</p>
-        </div>
-      </section>
+        <!-- PATHS -->
+        <section class="sv-paths" aria-labelledby="services-paths-title">
+          <div class="rail m-pad">
+            <div class="sv-paths-lead reveal-up">
+              <p class="label">The four paths</p>
+              <h2 id="services-paths-title">Pick your entry point.</h2>
+              <p>Each path is a different way into the same system. Choose the one that matches where you are now &mdash; we&rsquo;ll help you move from there.</p>
+            </div>
 
-      <section class="site-section">
-        <div class="container">
-          <div class="path-stack">
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">01</span>
-                  <h2 class="path-card__title">AI Consulting</h2>
+            <div class="sv-path-stack">
+              <article class="sv-path reveal-up">
+                <div class="sv-path-top">
+                  <span class="sv-path-id"><span class="sv-path-n">01</span><span class="sv-path-name">AI Consulting</span></span>
+                  <span class="sv-path-meta">2&ndash;4 weeks</span>
                 </div>
-                <p class="path-card__meta">Engagement: AI Opportunity Audit</p>
-              </div>
-              <p>For businesses that know AI matters but need a clear first move worth acting on.</p>
-              <p>Start here when the opportunity is real, but the right place to begin is still unclear. Remedys works with you to understand the business, find where AI can actually help, and identify the first move worth executing.</p>
-              <ul class="path-card__list">
-                <li>Too many possible AI use cases and no clear priority</li>
-                <li>Leadership buy-in, but no practical first move</li>
-                <li>A team that needs clarity before anything gets built</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/consulting/" class="button cc-tertiary">
-                  <span>Explore AI Consulting</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
+                <p class="sv-path-promise">Find the right first move before you build.</p>
+                <p class="sv-path-body">Start here when the opportunity is real but the right place to begin is still unclear. We get close to the business, find where AI can actually help, and name the first move worth executing.</p>
+                <ul class="sv-path-fit">
+                  <li>Too many possible AI use cases and no clear priority</li>
+                  <li>Leadership buy-in, but no practical first move</li>
+                  <li>A team that needs clarity before anything gets built</li>
+                </ul>
+                <p class="sv-path-link"><a href="/consulting/" data-track="services_explore_consulting">Explore AI Consulting &rarr;</a></p>
+              </article>
 
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">02</span>
-                  <h2 class="path-card__title">AI Automation</h2>
+              <article class="sv-path reveal-up">
+                <div class="sv-path-top">
+                  <span class="sv-path-id"><span class="sv-path-n">02</span><span class="sv-path-name">AI Automation</span></span>
+                  <span class="sv-path-meta">4&ndash;8 weeks</span>
                 </div>
-                <p class="path-card__meta">Engagement: Workflow Automation</p>
-              </div>
-              <p>Turn a painful manual process into a real automated system your team can actually use.</p>
-              <p>This is the right path when the bottleneck is already visible and the business mainly needs the right solution scoped, built, and implemented. The goal is not automation for the sake of it. The goal is to remove drag and make the work run better.</p>
-              <ul class="path-card__list">
-                <li>Repetitive admin-heavy work</li>
-                <li>Reporting or follow-up that eats up time every week</li>
-                <li>Intake, onboarding, or support processes that stay too manual</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/automation/" class="button cc-tertiary">
-                  <span>Explore AI Automation</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
+                <p class="sv-path-promise">Turn a painful manual process into a system your team actually uses.</p>
+                <p class="sv-path-body">The right path when the bottleneck is already visible and you mainly need the solution scoped, built, and implemented. Not automation for its own sake &mdash; removing drag so the work runs better.</p>
+                <ul class="sv-path-fit">
+                  <li>Repetitive, admin-heavy work</li>
+                  <li>Reporting or follow-up that eats time every week</li>
+                  <li>Intake, onboarding, or support that stays too manual</li>
+                </ul>
+                <p class="sv-path-link"><a href="/automation/" data-track="services_explore_automation">Explore AI Automation &rarr;</a></p>
+              </article>
 
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">03</span>
-                  <h2 class="path-card__title">AI Enablement</h2>
+              <article class="sv-path reveal-up">
+                <div class="sv-path-top">
+                  <span class="sv-path-id"><span class="sv-path-n">03</span><span class="sv-path-name">AI Enablement</span></span>
+                  <span class="sv-path-meta">1&ndash;3 weeks</span>
                 </div>
-                <p class="path-card__meta">Engagement: AI Enablement</p>
-              </div>
-              <p>Build practical AI capability so your team or your operators can use these tools well and get started right away.</p>
-              <p>This is the right path when the tools are available but the habits, confidence, and role-specific usage still are not. Remedys helps people use AI in ways that are practical, useful, and grounded in real work.</p>
-              <ul class="path-card__list">
-                <li>A team has access to AI tools but is not using them well</li>
-                <li>Leaders want employees to become more AI-capable</li>
-                <li>Operators want practical ways to use AI in day-to-day work</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/enablement/" class="button cc-tertiary">
-                  <span>Explore AI Enablement</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
+                <p class="sv-path-promise">Get your team fluent enough to use AI well, every day.</p>
+                <p class="sv-path-body">The right path when the tools are available but the habits, confidence, and role-specific usage aren&rsquo;t. We help people use AI in ways that are practical, useful, and grounded in real work.</p>
+                <ul class="sv-path-fit">
+                  <li>A team has access to AI tools but isn&rsquo;t using them well</li>
+                  <li>Leaders want employees to become more AI-capable</li>
+                  <li>Operators want practical ways to use AI day-to-day</li>
+                </ul>
+                <p class="sv-path-link"><a href="/enablement/" data-track="services_explore_enablement">Explore AI Enablement &rarr;</a></p>
+              </article>
 
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">04</span>
-                  <h2 class="path-card__title">AI Engineering</h2>
+              <article class="sv-path reveal-up">
+                <div class="sv-path-top">
+                  <span class="sv-path-id"><span class="sv-path-n">04</span><span class="sv-path-name">AI Engineering</span></span>
+                  <span class="sv-path-meta">Scoped to the build</span>
                 </div>
-                <p class="path-card__meta">Engagement: Engineering</p>
-              </div>
-              <p>Get access to AI engineers to help you build the right product, feature, or solution for your business.</p>
-              <p>This is the right path when you know something should be built and need the right technical team to shape it, pressure-test it, and make it real. The goal is not more ideas in a doc. The goal is execution.</p>
-              <ul class="path-card__list">
-                <li>An internal tool would save the team time</li>
-                <li>A product needs a new AI feature or capability</li>
-                <li>A business-specific system needs to be built from scratch</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/engineering/" class="button cc-tertiary">
-                  <span>Explore AI Engineering</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="site-section">
-        <div class="container">
-          <div class="cta-panel reveal">
-            <p class="u-eyebrow">AI Diagnostic</p>
-            <h2 class="text-h1">Not sure which path fits best?</h2>
-            <p class="text-xxl">Start with the AI Diagnostic and we&apos;ll recommend the best next step.</p>
-            <div class="hero-actions">
-              <a href="/get-started/" class="button">
-                <span>Start the AI Diagnostic</span>
-                <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-              </a>
-              <a href="/get-started/#request" class="button cc-tertiary">
-                <span>Submit a Request</span>
-                <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-              </a>
+                <p class="sv-path-promise">Bring in AI engineers to build the thing the business needs.</p>
+                <p class="sv-path-body">The right path when you know something should be built and need a technical team to shape it, pressure-test it, and make it real. Not more ideas in a doc &mdash; execution.</p>
+                <ul class="sv-path-fit">
+                  <li>An internal tool would save the team time</li>
+                  <li>A product needs a new AI feature or capability</li>
+                  <li>A business-specific system needs to be built from scratch</li>
+                </ul>
+                <p class="sv-path-link"><a href="/engineering/" data-track="services_explore_engineering">Explore AI Engineering &rarr;</a></p>
+              </article>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="site-section">
-        <div class="container">
-          <div class="cta-panel reveal">
-            <p class="u-eyebrow">Next step</p>
-            <h2 class="text-h1">Need practical help putting AI to work?</h2>
-            <p class="text-xxl">Start with the path that fits best, or let the AI Diagnostic guide you.</p>
-            <div class="hero-actions">
-              <a href="/get-started/" class="button">
-                <span>Get Started</span>
-                <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-              </a>
+        <!-- FINAL CTA -->
+        <section class="sv-final" aria-labelledby="services-final-title">
+          <div class="rail m-pad">
+            <div class="sv-final-inner reveal-up">
+              <h2 id="services-final-title">Not sure which path fits?</h2>
+              <p>Take the diagnostic &mdash; seven questions, then a recommended path and the first move to make.</p>
+              <div class="hero-cta">
+                <a class="button button-primary" href="/get-started/" data-track="services_final_diagnostic_click">Start the Diagnostic</a>
+                <a class="button button-secondary" href="/get-started/#request" data-track="services_final_request_click">Submit a Request</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      <section class="site-section site-section--tight">
+      <section class="site-section site-section--tight footer-band">
         <div class="container">
           <footer class="site-footer reveal">
             <div class="footer-grid">
@@ -281,7 +286,7 @@
                   <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
                 </a>
                 <p>Put AI to work.</p>
-                <p class="text-xs">Practical AI consulting, education, implementation, and engineering.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
               </div>
 
               <div class="footer-group">
@@ -297,6 +302,7 @@
                 <h3>Company</h3>
                 <div class="footer-links">
                   <a href="/about/">Who We Are</a>
+                  <a href="/manifesto/">Manifesto</a>
                   <a href="/contact/">Contact</a>
                 </div>
               </div>
@@ -326,16 +332,30 @@
                 </div>
               </div>
             </div>
+            <div class="footer-baseline">
+              <span>&copy; 2026 Remedys.ai</span>
+              <span>Made with intent. Not a template.</span>
+            </div>
           </footer>
         </div>
       </section>
     </main>
-
-    <div class="load_grid" aria-hidden="true"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="/assets/site.js"></script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('.reveal-up');
+    if (!els.length) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function showAll() { els.forEach(function (e) { e.classList.add('is-in'); }); }
+    if (reduce || !('IntersectionObserver' in window)) { showAll(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+    setTimeout(showAll, 1800);
+  })();
+  </script>
 </body>
 </html>
