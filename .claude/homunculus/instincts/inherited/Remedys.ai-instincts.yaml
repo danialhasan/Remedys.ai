@@ -1,0 +1,566 @@
+# Instincts generated from https://github.com/danialhasan/Remedys.ai
+# Generated: 2026-05-31T05:53:46.890Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Remedys.ai-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, fix, test, docs
+
+## Evidence
+
+- 28 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: add diagnostic v3 intake schema, fix: allow booking-only direct call intake
+
+---
+id: Remedys.ai-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Commit Length
+
+## Action
+
+Keep commit messages concise (~43 characters)
+
+## Evidence
+
+- Average commit message length: 43 chars
+- Based on 28 commits
+
+---
+id: Remedys.ai-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: Remedys.ai-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Remedys.ai-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Remedys.ai-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: Remedys.ai-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~18x per month
+- Files: **/*.test.*
+
+---
+id: Remedys.ai-workflow-design-spec-documentation-workflow
+trigger: "when doing design spec documentation workflow"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Workflow Design Spec Documentation Workflow
+
+## Action
+
+Follow the design-spec-documentation-workflow workflow:
+1. Create or update a markdown file in docs/superpowers/specs/ with a dated filename.
+2. Optionally update related spec files to reflect new decisions or guidelines.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: docs/superpowers/specs/*.md
+
+---
+id: Remedys.ai-workflow-diagnostic-intake-schema-and-api-workflow
+trigger: "when doing diagnostic intake schema and api workflow"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Workflow Diagnostic Intake Schema And Api Workflow
+
+## Action
+
+Follow the diagnostic-intake-schema-and-api-workflow workflow:
+1. Add a new migration SQL file in supabase/migrations/ for the diagnostic schema.
+2. Update backend function (netlify/functions/remedys-intake.js) to handle the new payload.
+3. Add or update test/verification scripts in scripts/verify-remedys-intake.js.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: supabase/migrations/*.sql, netlify/functions/remedys-intake.js, scripts/verify-remedys-intake.js
+
+---
+id: Remedys.ai-workflow-site-page-addition-or-redesign-workflow
+trigger: "when doing site page addition or redesign workflow"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Workflow Site Page Addition Or Redesign Workflow
+
+## Action
+
+Follow the site-page-addition-or-redesign-workflow workflow:
+1. Add or update multiple route HTML files (e.g., about/index.html, consulting/index.html, etc.).
+2. Update shared CSS and JS assets (assets/site.css, assets/site.js) to reflect design or functionality changes.
+3. Optionally add new assets (images, favicon, etc.) or update documentation/readme.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: */index.html, assets/site.css, assets/site.js
+
+---
+id: Remedys.ai-workflow-documentation-restructuring-or-alignment-workflow
+trigger: "when doing documentation restructuring or alignment workflow"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/danialhasan/Remedys.ai
+---
+
+# Remedys.ai Workflow Documentation Restructuring Or Alignment Workflow
+
+## Action
+
+Follow the documentation-restructuring-or-alignment-workflow workflow:
+1. Move or rename documentation files to new locations or folders.
+2. Update or create README.md and topic index files.
+3. Correct outdated information and add new reference docs.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: docs/**/*.md, README.md, docs/README.md
+
+---
+id: remedys.ai-camelcase-files
+trigger: "When creating or renaming a source file"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Camelcase Files
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Consistent camelCase in source files
+
+---
+id: remedys.ai-camelcase-functions
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Camelcase Functions
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Consistent camelCase in function names
+
+---
+id: remedys.ai-pascalcase-classes
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Pascalcase Classes
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes
+- Consistent PascalCase in class names
+
+---
+id: remedys.ai-screaming-snake-constants
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Screaming Snake Constants
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in namingConventions.constants
+- Consistent SCREAMING_SNAKE_CASE in constants
+
+---
+id: remedys.ai-relative-imports
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Relative Imports
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle
+- Relative imports in source files
+
+---
+id: remedys.ai-named-exports
+trigger: "When exporting functions or variables"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Named Exports
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle
+- Named exports in source files
+
+---
+id: remedys.ai-try-catch-errors
+trigger: "When handling errors in code"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style
+- try-catch in backend functions
+
+---
+id: remedys.ai-test-file-location
+trigger: "When adding tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Test File Location
+
+## Action
+
+Place test files in a separate test location outside src
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+- Files matching **/*.test.*
+
+---
+id: remedys.ai-test-naming
+trigger: "When naming test files"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Test Naming
+
+## Action
+
+Name test files with the .test. infix (e.g., feature.test.js)
+
+## Evidence
+
+- Pattern in filesInvolved of workflows
+- Files matching **/*.test.*
+
+---
+id: remedys.ai-test-after-feature
+trigger: "When implementing a new feature"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Test After Feature
+
+## Action
+
+Add tests for the feature immediately after implementation
+
+## Evidence
+
+- Commit sequence in feature-development workflow
+- test: cover diagnostic v3 intake payloads
+
+---
+id: remedys.ai-conventional-commits
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Conventional Commits
+
+## Action
+
+Use conventional commit prefixes: feat, fix, test, docs
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: feat: add diagnostic v3 intake schema
+
+---
+id: remedys.ai-commit-length
+trigger: "When composing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Commit Length
+
+## Action
+
+Keep commit messages concise, around 43 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Sample commit messages
+
+---
+id: remedys.ai-design-spec-docs-workflow
+trigger: "When someone wants to propose, update, or finalize a design spec or guideline"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Design Spec Docs Workflow
+
+## Action
+
+Create or update a markdown file in docs/superpowers/specs/ with a dated filename
+
+## Evidence
+
+- design-spec-documentation-workflow
+- Files: docs/superpowers/specs/*.md
+
+---
+id: remedys.ai-diagnostic-intake-upgrade-workflow
+trigger: "When someone wants to add or upgrade a diagnostic intake version"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Diagnostic Intake Upgrade Workflow
+
+## Action
+
+Add a new migration SQL file in supabase/migrations/, update netlify/functions/remedys-intake.js, and update scripts/verify-remedys-intake.js
+
+## Evidence
+
+- diagnostic-intake-schema-and-api-workflow
+- Files: supabase/migrations/*.sql, netlify/functions/remedys-intake.js, scripts/verify-remedys-intake.js
+
+---
+id: remedys.ai-site-page-addition-workflow
+trigger: "When someone wants to launch a new page, redesign a section, or migrate to a new design system"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Site Page Addition Workflow
+
+## Action
+
+Add or update route HTML files, update shared CSS/JS assets, and optionally add new assets or update documentation
+
+## Evidence
+
+- site-page-addition-or-redesign-workflow
+- Files: */index.html, assets/site.css, assets/site.js, assets/images/*
+
+---
+id: remedys.ai-docs-restructure-workflow
+trigger: "When someone wants to reorganize docs to reflect the current product or operational reality"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: danialhasan/Remedys.ai
+---
+
+# Remedys.ai Docs Restructure Workflow
+
+## Action
+
+Move or rename documentation files, update or create README.md and topic index files, and correct outdated information
+
+## Evidence
+
+- documentation-restructuring-or-alignment-workflow
+- Files: docs/**/*.md, README.md, docs/README.md
+
