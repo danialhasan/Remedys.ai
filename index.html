@@ -1,480 +1,787 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remedys AI | Enterprise Intelligence</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Put AI to work. | Remedys.ai</title>
+  <meta name="description" content="Remedys helps businesses find the right AI opportunity, build the first solution, and get the team using it.">
+  <meta name="theme-color" content="#f8f8f8">
+  <link rel="canonical" href="https://remedys.ai/">
+  <meta property="og:title" content="Put AI to work. | Remedys.ai">
+  <meta property="og:description" content="Find the right AI opportunity, build the first solution, and get your team using it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remedys.ai/">
+  <meta property="og:image" content="https://remedys.ai/assets/images/statue-hero.png">
+  <meta property="og:image:alt" content="Remedys.ai hero artwork">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Put AI to work. | Remedys.ai">
+  <meta name="twitter:description" content="Find the right AI opportunity, build the first solution, and get your team using it.">
+  <meta name="twitter:image" content="https://remedys.ai/assets/images/statue-hero.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    /* Homepage (page-light): display type + per-section styles.
+       Extends the page-light tokens defined in site.css. */
 
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Rr Mr fi Cr Ar ci Tr Fr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_CEGE11ffVSoStkKyi3vngbXaQUo2Bpw1BEzGZ5AnTOf', {
-            api_host: 'https://us.i.posthog.com',
-            defaults: '2025-05-24',
-            person_profiles: 'identified_only'
-        })
-    </script>
+    /* display face: Clash Display for headlines; body stays Switzer */
+    body.page-light { --font-display: "Clash Display", "Switzer", Arial, sans-serif; }
+    .m-process-head h2, .m-step h3, .m-paths-head h2, .m-route-name,
+    .m-diag-intro h2, .m-proof-belief h2, .m-proof-lead, .m-sessions-row h2, .m-final h2 { font-family: var(--font-display); }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Manrope', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            black: '#0a0a0a',
-                            dark: '#171717',
-                            gray: '#737373',
-                            light: '#f5f5f5',
-                            white: '#ffffff',
-                            accent: '#FF4F11', // Duna-style vibrant orange
-                        }
-                    },
-                    backgroundImage: {
-                        'mesh-gradient': 'radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(340,100%,76%,1) 0px, transparent 50%)',
-                        'subtle-grid': 'linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)',
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                        'glow': '0 0 40px -10px rgba(255, 79, 17, 0.3)',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #FAFAFA;
-            color: #171717;
-        }
-        
-        /* Abstract "Painting" Blurs */
-        .aura-blur {
-            filter: blur(80px);
-            opacity: 0.6;
-            pointer-events: none;
-        }
+    /* shared rhythm: inner gutter so copy never kisses the rail rules */
+    .m-pad { padding-inline: clamp(1.25rem, 3.5vw, 3.5rem); }
+    .m-lead { max-width: 60ch; }
 
-        .bento-card {
-            background: white;
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .bento-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
-            border-color: rgba(0,0,0,0.08);
-        }
+    /* ---------- HERO ---------- */
+    .mock-hero {
+      position: relative; isolation: isolate;
+      min-height: calc(100svh - 76px);
+      display: grid; align-content: center; justify-items: center; text-align: center;
+      padding: clamp(5rem, 9vw, 8rem) 0 clamp(4.5rem, 8vw, 7rem);
+      overflow: hidden;
+    }
+    #work-graph { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+    .mock-hero::after {
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(58% 50% at 50% 46%, rgba(247,248,251,0.86) 0%, rgba(247,248,251,0.55) 38%, rgba(247,248,251,0) 72%);
+    }
+    .hero-inner { position: relative; z-index: 2; width: min(84vw, calc(100% - 2rem)); display: grid; justify-items: center; gap: 1.35rem; }
+    .mock-h1 {
+      margin: 0; max-width: 11ch; font-family: var(--font-display);
+      font-size: clamp(5.2rem, 12vw, 11.5rem); font-weight: 700; line-height: 0.84; letter-spacing: -0.006em; color: var(--ink);
+    }
+    .mock-h1 .line { display: block; overflow: hidden; padding-bottom: 0.04em; }
+    .mock-h1 .line > span { display: block; will-change: transform; }
+    .hero-sub { max-width: 46ch; margin: 0; color: var(--muted); font-size: clamp(1.12rem, 1.65vw, 1.42rem); line-height: 1.34; }
+    .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 0.4rem; }
+    .hero-cta .button { transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 220ms cubic-bezier(0.22,1,0.36,1), box-shadow 220ms ease; }
+    .hero-cta .button:hover, .hero-cta .button:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba(11,16,32,0.38); }
+    .scroll-cue {
+      position: absolute; left: 50%; bottom: clamp(1.4rem, 3.5vw, 2.4rem); transform: translateX(-50%); z-index: 2;
+      display: grid; justify-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(11,16,32,0.42);
+      text-decoration: none; transition: color 200ms ease;
+    }
+    .scroll-cue:hover, .scroll-cue:focus-visible { color: var(--violet); outline: none; }
+    .scroll-cue .rail-line { width: 1px; height: 2.4rem; background: linear-gradient(var(--violet), transparent); animation: cue 1.8s ease-in-out infinite; transform-origin: top; }
+    @keyframes cue { 0%,100% { transform: scaleY(0.4); opacity: 0.5; } 50% { transform: scaleY(1); opacity: 1; } }
 
-        /* Modern Typography */
-        h1, h2, h3 {
-            letter-spacing: -0.04em;
-        }
+    /* ---------- PROCESS (sequence) ---------- */
+    .m-process { position: relative; padding: clamp(5.5rem, 10vw, 9rem) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .m-process-head { display: grid; gap: 1rem; max-width: 70rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
+    .m-process-head .label { margin: 0; }
+    .m-process-head h2 { margin: 0; font-size: clamp(2.45rem, 5vw, 4.6rem); font-weight: 700; line-height: 0.96; letter-spacing: -0.01em; }
+    .m-process-head .m-lead { margin: 0.4rem 0 0; color: var(--muted); font-size: clamp(1.02rem, 1.3vw, 1.18rem); line-height: 1.5; }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+    .m-steps { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.75rem, 4vw, 4rem); padding-top: 2.6rem; }
+    /* connector rule that draws in on scroll to signal sequence */
+    .m-steps::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); transform: scaleX(0); transform-origin: left; }
+    .m-steps.is-drawn::before { transform: scaleX(1); transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1); }
+    .m-step { position: relative; display: grid; gap: 0.75rem; align-content: start; opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+    .m-step.is-drawn { opacity: 1; transform: none; }
+    /* violet node sitting on the connector above each step */
+    .m-step::before {
+      content: ""; position: absolute; top: calc(-2.6rem - 4px); left: 0; width: 9px; height: 9px; border-radius: 50%;
+      background: var(--violet); box-shadow: 0 0 0 5px rgba(123,77,255,0.14);
+      opacity: 0; transform: translateY(-4px);
+    }
+    .m-step.is-drawn::before { opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .m-step-num { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 500; letter-spacing: 0.04em; color: var(--violet); }
+    .m-step h3 { margin: 0; font-size: clamp(1.5rem, 2.1vw, 2.05rem); line-height: 1.05; letter-spacing: -0.01em; }
+    .m-step p { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.52; max-width: 34ch; }
+
+    /* ---------- FOUR PATHS (route map) ---------- */
+    .m-paths { padding: clamp(5.5rem, 10vw, 9rem) 0; border-bottom: 1px solid var(--line); }
+    .m-paths-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: end; max-width: 78rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .m-paths-head .label { margin: 0 0 0.9rem; grid-column: 1 / -1; }
+    .m-paths-head h2 { margin: 0; font-size: clamp(2.45rem, 5vw, 4.6rem); font-weight: 700; line-height: 0.96; letter-spacing: -0.01em; }
+    .m-paths-head .m-lead { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.5; }
+
+    .m-routemap { display: grid; }
+    /* reveal route rows in sequence rather than as one block */
+    .m-routemap.sec-reveal { opacity: 1; transform: none; }
+    .m-routemap .m-route { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease; }
+    .m-routemap.is-in .m-route { opacity: 1; transform: none; }
+    .m-routemap.is-in .m-route:nth-child(2) { transition-delay: 0.09s; }
+    .m-routemap.is-in .m-route:nth-child(3) { transition-delay: 0.18s; }
+    .m-routemap.is-in .m-route:nth-child(4) { transition-delay: 0.27s; }
+    .m-route {
+      position: relative; display: grid;
+      grid-template-columns: auto minmax(0, 1fr) 9rem 2rem;
+      align-items: center; gap: clamp(1rem, 3vw, 2.75rem);
+      padding: clamp(1.5rem, 2.8vw, 2.25rem) clamp(0.5rem, 1.5vw, 1.5rem);
+      border-top: 1px solid var(--line); text-decoration: none; color: var(--ink);
+      transition: background-color 220ms ease;
+    }
+    .m-route:last-child { border-bottom: 1px solid var(--line); }
+    .m-route::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--violet); transform: scaleY(0); transform-origin: center; transition: transform 240ms ease; }
+    .m-route:hover, .m-route:focus-visible { background: #fff; outline: none; }
+    .m-route:hover::before, .m-route:focus-visible::before { transform: scaleY(1); }
+    .m-route-num { font-family: var(--font-mono); font-size: 0.92rem; color: var(--violet); }
+    .m-route-lead { display: inline-flex; align-items: center; gap: 0.85rem; }
+    .m-route-icon { display: inline-flex; color: rgba(11,16,32,0.4); transition: color 220ms ease; }
+    .m-route-icon svg { display: block; }
+    .m-route:hover .m-route-icon, .m-route:focus-visible .m-route-icon { color: var(--violet); }
+    .m-route-body { display: grid; gap: 0.2rem; min-width: 0; }
+    .m-route-name { font-size: clamp(1.55rem, 2.4vw, 2.4rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.01em; }
+    .m-route-promise { color: var(--muted); font-size: 1.04rem; line-height: 1.4; }
+    .m-route-detail { max-height: 0; opacity: 0; overflow: hidden; color: var(--muted); font-size: 0.98rem; line-height: 1.45; transition: max-height 260ms ease, opacity 260ms ease, margin-top 260ms ease; }
+    .m-route:hover .m-route-detail, .m-route:focus-visible .m-route-detail { max-height: 4.5rem; opacity: 1; margin-top: 0.5rem; }
+    .m-route-meta { justify-self: end; font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.03em; color: rgba(11,16,32,0.5); white-space: nowrap; }
+    .m-route-arrow { justify-self: end; font-size: 1.2rem; color: rgba(11,16,32,0.4); transition: transform 220ms ease, color 220ms ease; }
+    .m-route:hover .m-route-arrow, .m-route:focus-visible .m-route-arrow { transform: translateX(5px); color: var(--violet); }
+
+    /* ---------- DIAGNOSTIC (dark moment) ---------- */
+    .m-diagnostic { position: relative; isolation: isolate; padding: clamp(5.5rem, 10vw, 9rem) 0; background: var(--navy); color: #f7f8fb; overflow: hidden; }
+    #diag-field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.5; }
+    .m-diagnostic > .rail { position: relative; z-index: 2; display: grid; gap: 1.25rem; }
+    .m-diag-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: end; padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.5rem, 1.5vw, 1.5rem); }
+    .m-diag-intro .label { color: var(--blue); margin: 0 0 0.6rem; }
+    .m-diag-intro h2 { margin: 0; color: #fff; font-size: clamp(2.45rem, 5vw, 4.6rem); font-weight: 700; line-height: 0.96; letter-spacing: -0.01em; }
+    .m-diag-intro p { margin: 0 0 1.1rem; color: rgba(247,248,251,0.72); font-size: 1.05rem; line-height: 1.5; }
+    .m-diagnostic .button-primary { background: #fff; color: var(--navy); border-color: #fff; }
+    .m-diagnostic .button-primary:hover { background: var(--blue); border-color: var(--blue); }
+    .m-diagnostic .button-secondary { color: #fff; border-color: rgba(247,248,251,0.24); }
+
+    /* ---------- PROOF (why remedys: belief + proof) ---------- */
+    .m-proof { padding: clamp(5.5rem, 10vw, 9rem) 0; border-bottom: 1px solid var(--line); }
+    .m-proof-belief { max-width: 64rem; }
+    .m-proof-belief .label { margin: 0 0 0.95rem; }
+    .m-proof-belief h2 { margin: 0 0 1.1rem; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.012em; max-width: 17ch; }
+    .m-proof-belief p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.5; max-width: 60ch; }
+    .m-proof-evidence { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); max-width: 64rem; display: grid; gap: 1.1rem; }
+    .m-proof-lead { margin: 0; font-weight: 700; font-size: clamp(1.5rem, 2.8vw, 2.4rem); line-height: 1.08; letter-spacing: -0.012em; color: var(--ink); max-width: 22ch; }
+    .m-proof-body { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.55; max-width: 58ch; }
+    .m-founders-credit { list-style: none; margin: 0.8rem 0 0; padding: 1.2rem 0 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 0.5rem 2.75rem; }
+    .m-founders-credit li { font-size: 1rem; line-height: 1.4; color: var(--muted); }
+    .m-founders-credit .name { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+
+    /* ---------- SESSIONS ---------- */
+    .m-sessions { padding: clamp(5rem, 9vw, 8rem) 0; border-bottom: 1px solid var(--line); }
+    .m-sessions-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
+    .m-sessions-row .label { margin: 0 0 0.9rem; }
+    .m-sessions-row h2 { margin: 0 0 0.9rem; font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.01em; max-width: 18ch; }
+    .m-sessions-row p { margin: 0; color: var(--muted); font-size: 1.04rem; line-height: 1.5; max-width: 56ch; }
+    /* past sessions pulled from the Squad Luma calendar */
+    .m-sessions-list { margin-top: clamp(2.75rem, 5vw, 4rem); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(0.85rem, 1.6vw, 1.1rem); }
+    .m-sessions-list.sec-reveal { opacity: 1; transform: none; }
+    .m-session {
+      position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto 1fr;
+      gap: 0.85rem 1rem; padding: clamp(1.3rem, 2.4vw, 1.7rem) clamp(1.3rem, 2.4vw, 1.6rem);
+      border: 1px solid var(--line); border-radius: 14px; background: rgba(255, 255, 255, 0.55);
+      text-decoration: none; color: inherit;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+    }
+    .m-sessions-list.is-in .m-session { opacity: 1; transform: none; }
+    .m-sessions-list.is-in .m-session:nth-child(2) { transition-delay: 0.06s; }
+    .m-sessions-list.is-in .m-session:nth-child(3) { transition-delay: 0.12s; }
+    .m-sessions-list.is-in .m-session:nth-child(4) { transition-delay: 0.18s; }
+    .m-sessions-list.is-in .m-session:nth-child(5) { transition-delay: 0.24s; }
+    .m-sessions-list.is-in .m-session:nth-child(6) { transition-delay: 0.30s; }
+    .m-session:hover, .m-session:focus-visible { border-color: rgba(123, 77, 255, 0.45); background: #fff; box-shadow: 0 14px 30px -20px rgba(11, 16, 32, 0.45); outline: none; }
+    .m-session-date { grid-row: 1; grid-column: 1 / -1; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); }
+    .m-session-title { grid-row: 2; grid-column: 1 / -1; font-size: clamp(1.12rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); }
+    .m-session-meta { grid-row: 3; grid-column: 1; align-self: end; font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.02em; color: rgba(11, 16, 32, 0.52); }
+    .m-session-arrow { grid-row: 3; grid-column: 2; align-self: end; justify-self: end; font-size: 1.05rem; line-height: 1; color: rgba(11, 16, 32, 0.32); transition: transform 220ms ease, color 220ms ease; }
+    .m-session:hover .m-session-arrow, .m-session:focus-visible .m-session-arrow { transform: translateX(4px); color: var(--violet); }
+
+    /* ---------- FINAL CTA + FOOTER (one dark brand band) ---------- */
+    .m-final { position: relative; padding: clamp(6rem, 11vw, 9rem) 0 clamp(3.5rem, 6vw, 5rem); text-align: center; background: var(--navy); color: #f7f8fb; }
+    .m-final-inner { display: grid; justify-items: center; gap: 1.1rem; }
+    .m-final h2 { margin: 0; color: #fff; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.012em; max-width: 12ch; }
+    .m-final p { margin: 0; color: rgba(247, 248, 251, 0.72); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.45; max-width: 34rem; }
+    .m-final .hero-cta { justify-content: center; margin-top: 0.6rem; }
+    .m-final .button-primary { background: #fff; color: var(--navy); border-color: #fff; }
+    .m-final .button-primary:hover { background: var(--blue); border-color: var(--blue); }
+    .m-final .button-secondary { color: #fff; border-color: rgba(247, 248, 251, 0.24); }
+
+    /* ---------- reveal (progressive enhancement) ---------- */
+    .reveal-el { opacity: 0; transform: translateY(12px); }
+    .sec-reveal { opacity: 0; transform: translateY(20px); }
+    .sec-reveal.is-in { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-el, .sec-reveal { opacity: 1; transform: none; }
+      .scroll-cue .rail-line { animation: none; }
+      .m-steps::before { transform: scaleX(1); }
+      .m-step::before { opacity: 1; transform: none; }
+      .m-step, .m-routemap .m-route, .m-sessions-list .m-session { opacity: 1; transform: none; }
+      .hero-cta .button:hover, .hero-cta .button:focus-visible { transform: none; }
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 900px) {
+      .m-steps { grid-template-columns: 1fr; gap: 2.25rem; padding-top: 0; }
+      .m-steps::before { display: none; }
+      .m-step { padding-left: 1.25rem; border-left: 1px solid var(--line); }
+      .m-step::before { top: 0.35rem; left: -5px; }
+      .m-paths-head, .m-proof-grid, .m-diag-intro, .m-sessions-row { grid-template-columns: 1fr; }
+      .m-sessions-row { align-items: start; }
+      .m-sessions-list { grid-template-columns: 1fr; }
+      .m-route { grid-template-columns: auto minmax(0, 1fr) 1.5rem; row-gap: 0.35rem; }
+      .m-route-meta { grid-column: 2 / 3; justify-self: start; }
+      .m-route-arrow { grid-row: 1; grid-column: 3; }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Remedys.ai",
+      "url": "https://remedys.ai/",
+      "description": "Remedys helps owners and operators find the AI opportunities worth acting on, then build the workflows, training, and systems to make them real.",
+      "email": "hello@remedys.ai",
+      "areaServed": "United States",
+      "serviceType": [
+        "AI consulting",
+        "Workflow automation",
+        "AI enablement",
+        "Engineering"
+      ],
+      "image": "https://remedys.ai/assets/images/statue-hero.png",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Danial Hasan",
+          "jobTitle": "Co-founder",
+          "description": "Applied AI and software engineering. Among Canada's top Codex engineers."
+        },
+        {
+          "@type": "Person",
+          "name": "Shafan Khan",
+          "jobTitle": "Co-founder",
+          "description": "GTM, operations, and engineering. Early at an acquired fintech startup; ex-Bloomberg and Deloitte."
         }
-        ::-webkit-scrollbar-track {
-            background: #FAFAFA;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d4d4d4;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a3a3a3;
-        }
-    </style>
+      ]
+    }
+  </script>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-brand-accent selection:text-white">
+<body class="page-light">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-wrapper">
+    <div class="block-overlay" data-menu-overlay>
+      <div class="block-overlay-bg" aria-hidden="true">
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+        <div class="menu-curtain"></div>
+      </div>
+      <div class="block-menu-list">
+        <a class="block-menu-item" href="/services/">
+          <span>Services</span>
+          <span class="menu-item-meta">See the four ways to work with Remedys.</span>
+        </a>
+        <a class="block-menu-item" href="/about/">
+          <span>Who We Are</span>
+          <span class="menu-item-meta">Understand the mission, beliefs, and the people behind the work.</span>
+        </a>
+        <a class="block-menu-item" href="/manifesto/">
+          <span>Manifesto</span>
+          <span class="menu-item-meta">Why we exist.</span>
+        </a>
+        <a class="block-menu-item" href="/get-started/">
+          <span>Get Started</span>
+          <span class="menu-item-meta">Start with the AI Diagnostic or submit a request directly.</span>
+        </a>
+        <a class="block-menu-item" href="/contact/">
+          <span>Contact</span>
+          <span class="menu-item-meta">Reach the team directly.</span>
+        </a>
+        <a class="block-menu-item" href="/privacy/">
+          <span>Privacy</span>
+          <span class="menu-item-meta">See how inquiry information is handled.</span>
+        </a>
+      </div>
+    </div>
 
-    <!-- Background Mesh -->
-    <div class="fixed inset-0 z-0 bg-[size:40px_40px] bg-subtle-grid opacity-[0.3] pointer-events-none"></div>
-    
-    <!-- Painterly Orbs -->
-    <div class="fixed top-0 right-0 w-[500px] h-[500px] bg-orange-300 rounded-full aura-blur mix-blend-multiply z-0 animate-pulse" style="animation-duration: 8s;"></div>
-    <div class="fixed bottom-0 left-0 w-[600px] h-[600px] bg-purple-200 rounded-full aura-blur mix-blend-multiply z-0"></div>
-    <div class="fixed top-1/2 left-1/2 w-[400px] h-[400px] bg-blue-200 rounded-full aura-blur mix-blend-multiply z-0 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/">Services</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/manifesto/">Manifesto</a>
+        <a href="/get-started/" class="nav-cta" data-track="home_get_started_click">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-black/5" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-8 h-8 rounded-lg bg-brand-black flex items-center justify-center text-white">
-                        <i class="fa-solid fa-layer-group text-sm"></i>
-                    </div>
-                    <span class="font-display font-bold text-xl text-brand-black">Remedys<span class="text-brand-gray">.ai</span></span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="text-sm font-medium text-brand-gray hover:text-brand-black transition-colors">Solutions</a>
-                    <a href="#process" class="text-sm font-medium text-brand-gray hover:text-brand-black transition-colors">Methodology</a>
-                    <a href="#about" class="text-sm font-medium text-brand-gray hover:text-brand-black transition-colors">About Us</a>
-                    <a href="#contact" class="bg-brand-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-accent transition-colors duration-300 shadow-lg shadow-black/5">
-                        Get my AI plan
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Btn -->
-                <button class="md:hidden text-brand-black" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden bg-white border-t border-gray-100 p-4 absolute w-full shadow-xl">
-            <div class="flex flex-col gap-4">
-                <a href="#services" class="text-lg font-medium">Solutions</a>
-                <a href="#process" class="text-lg font-medium">Methodology</a>
-                <a href="#about" class="text-lg font-medium">About Us</a>
-                <a href="#contact" class="bg-brand-black text-white text-center py-3 rounded-xl font-semibold">Get my AI plan</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-black/5 shadow-sm mb-8">
-                <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-                <span class="text-xs font-bold tracking-wide uppercase text-brand-gray">Q1 2026 waitlist open</span>
-            </div>
-            
-            <h1 class="text-6xl md:text-8xl font-display font-bold text-brand-black leading-[0.9] tracking-tighter mb-8">
-                Remedy your business pains.
+    <main class="site-main" id="main-content">
+      <div class="rail-frame">
+        <!-- HERO -->
+        <section class="mock-hero" aria-labelledby="home-hero-title">
+          <canvas id="work-graph" aria-hidden="true"></canvas>
+          <div class="hero-inner">
+            <p class="eyebrow reveal-el" data-reveal>AI-native product studio</p>
+            <h1 class="mock-h1" id="home-hero-title">
+              <span class="line"><span class="reveal-el" data-reveal-line>Put AI</span></span>
+              <span class="line"><span class="reveal-el" data-reveal-line>to work.</span></span>
             </h1>
-            
-            <p class="mt-6 max-w-2xl mx-auto text-xl text-brand-gray leading-relaxed font-light">
-                We help you turn everything you know about your business into a simple, focused AI plan that increases revenue and removes busywork. You bring the context. We bring the direction.
-            </p>
-            
-            <div class="mt-10 flex justify-center">
-                <a href="#contact" class="px-8 py-4 rounded-full bg-brand-black text-white font-semibold hover:bg-gray-800 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2 group">
-                    Get my AI plan
-                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            <p class="hero-sub reveal-el" data-reveal>If you know AI matters but aren&rsquo;t sure where to start, Remedys helps you find the right opportunity, build the first solution, and get your team using it.</p>
+            <div class="hero-cta reveal-el" data-reveal>
+              <a class="button button-primary" href="/get-started/" data-track="home_get_started_click">Get Started</a>
+              <a class="button button-secondary" href="/services/" data-track="home_explore_services_click">Explore Services</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROCESS (sequence) -->
+        <section class="m-process" id="process" aria-labelledby="home-process-title">
+          <div class="rail m-pad">
+            <header class="m-process-head sec-reveal">
+              <p class="label">How we work</p>
+              <h2 id="home-process-title">We start with the work,<br>not the tool.</h2>
+              <p class="m-lead">Every engagement begins the same way: we learn how the business actually runs, then find the first move worth making.</p>
+            </header>
+            <ol class="m-steps" data-steps>
+              <li class="m-step">
+                <span class="m-step-num">01</span>
+                <h3>Understand the work</h3>
+                <p>We talk to leaders and the people doing the work, map the workflows, and find where time, money, and momentum get lost.</p>
+              </li>
+              <li class="m-step">
+                <span class="m-step-num">02</span>
+                <h3>Choose the first move</h3>
+                <p>We weigh value, effort, and risk, then recommend the one move worth making first.</p>
+              </li>
+              <li class="m-step">
+                <span class="m-step-num">03</span>
+                <h3>Make it real</h3>
+                <p>That might be an app, an automation, a workflow, or training. What matters is that your team actually uses it.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- FOUR PATHS (route map) -->
+        <section class="m-paths" id="services" aria-labelledby="home-services-title">
+          <div class="rail m-pad">
+            <header class="m-paths-head sec-reveal">
+              <p class="label">Services</p>
+              <h2 id="home-services-title">Four ways to make AI useful.</h2>
+              <p class="m-lead">Each path solves a different problem. Pick the one that fits where you are now &mdash; or take the diagnostic and we&rsquo;ll point you.</p>
+            </header>
+            <div class="m-routemap sec-reveal">
+              <a class="m-route" href="/consulting/" data-track="home_service_click" data-service="AI Consulting">
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+                  <span class="m-route-num">01</span>
+                </span>
+                <span class="m-route-body">
+                  <span class="m-route-name">AI Consulting</span>
+                  <span class="m-route-promise">Advisory through implementation.</span>
+                  <span class="m-route-detail">Find the opportunity worth acting on, then the first move to make.</span>
+                </span>
+                <span class="m-route-meta">2&ndash;4 weeks</span>
+                <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="m-route" href="/automation/" data-track="home_service_click" data-service="AI Automation">
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></span>
+                  <span class="m-route-num">02</span>
+                </span>
+                <span class="m-route-body">
+                  <span class="m-route-name">AI Automation</span>
+                  <span class="m-route-promise">Automate a workflow.</span>
+                  <span class="m-route-detail">Take one repetitive, costly workflow off your team&rsquo;s plate end to end.</span>
+                </span>
+                <span class="m-route-meta">4&ndash;8 weeks</span>
+                <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="m-route" href="/enablement/" data-track="home_service_click" data-service="AI Enablement">
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
+                  <span class="m-route-num">03</span>
+                </span>
+                <span class="m-route-body">
+                  <span class="m-route-name">AI Enablement</span>
+                  <span class="m-route-promise">Learn how to use AI well.</span>
+                  <span class="m-route-detail">Get your team using AI confidently on the work they already do.</span>
+                </span>
+                <span class="m-route-meta">1&ndash;3 weeks</span>
+                <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="m-route" href="/engineering/" data-track="home_service_click" data-service="AI Engineering">
+                <span class="m-route-lead">
+                  <span class="m-route-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></span>
+                  <span class="m-route-num">04</span>
+                </span>
+                <span class="m-route-body">
+                  <span class="m-route-name">AI Engineering</span>
+                  <span class="m-route-promise">Build something useful.</span>
+                  <span class="m-route-detail">When the first move is software, build the system with review and QA.</span>
+                </span>
+                <span class="m-route-meta">Scoped per build</span>
+                <span class="m-route-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- DIAGNOSTIC (dark moment, functional terminal) -->
+        <section class="m-diagnostic" id="diagnostic" aria-labelledby="home-diagnostic-title">
+          <canvas id="diag-field" aria-hidden="true"></canvas>
+          <div class="rail">
+            <div class="m-diag-intro">
+              <div>
+                <p class="label">The Remedys Diagnostic</p>
+                <h2 id="home-diagnostic-title">Find the right first move.</h2>
+              </div>
+              <div>
+                <p>Diagnose your AI opportunity in about three minutes. Seven questions, then a recommended path, why it fits, and the first move to make.</p>
+                <div class="diagnostic-actions">
+                  <button class="button button-primary" type="button" data-start-home-diagnostic>Start the Diagnostic</button>
+                  <a class="button button-secondary" href="/get-started/#request" data-track="home_submit_request_click">Submit a Request</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="terminal-pane" data-terminal-diagnostic data-diagnostic-autostart="true">
+              <div class="terminal-top">
+                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="terminal-title">remedys — diagnostic</span>
+                <span class="terminal-progress" data-terminal-progress>Question 01 / 07</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-log" data-terminal-log aria-live="polite"></div>
+              </div>
+              <form class="terminal-input" data-terminal-form>
+                <label class="sr-only" for="home-terminal-input">Diagnostic answer</label>
+                <span class="prompt" aria-hidden="true">&gt;</span>
+                <textarea id="home-terminal-input" data-terminal-input rows="1" autocomplete="off" spellcheck="true"></textarea>
+                <button class="terminal-enter" type="submit" data-terminal-submit>Enter</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- PROOF (why remedys: belief + proof) -->
+      <section class="m-proof" aria-labelledby="why-remedys-title">
+        <div class="rail m-pad">
+          <div class="m-proof-belief sec-reveal">
+            <p class="label">Why Remedys</p>
+            <h2 id="why-remedys-title">Most AI work stalls because it starts with the tool, not the business.</h2>
+            <p>We start with how your business actually runs, find where AI moves the needle, and build it with you.</p>
+          </div>
+          <div class="m-proof-evidence sec-reveal">
+            <p class="m-proof-lead">We don&rsquo;t advise on AI from the outside &mdash; we build and run it.</p>
+            <p class="m-proof-body">Squad is our own AI-native engineering product. You work with the team that ships it &mdash; a Chief AI Officer, not an agency.</p>
+            <ul class="m-founders-credit">
+              <li><span class="name">Danial Hasan</span> &middot; Applied AI &amp; engineering</li>
+              <li><span class="name">Shafan Khan</span> &middot; GTM, operations &amp; engineering</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SESSIONS -->
+      <section class="m-sessions" aria-labelledby="sessions-title">
+        <div class="rail m-pad">
+          <div class="m-sessions-row sec-reveal">
+            <div>
+              <p class="label">In the room</p>
+              <h2 id="sessions-title">In the room, not just behind the screen.</h2>
+              <p>We run live sessions on building with AI &mdash; workshops, hackathons, and meetups across Toronto. It keeps us close to what teams are really asking, and what actually works in practice.</p>
+            </div>
+            <a class="button button-secondary" href="https://luma.com/trySquad" target="_blank" rel="noreferrer" data-track="home_view_events_click">View all sessions</a>
+          </div>
+
+          <div class="m-sessions-list sec-reveal">
+            <a class="m-session" href="https://luma.com/jszvlo56" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Feb 2026</span>
+              <span class="m-session-title">Context Engineering for Agent Swarms</span>
+              <span class="m-session-meta">Toronto &middot; Workshop</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/dr6ro8j5" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Feb 2026</span>
+              <span class="m-session-title">Product Engineering Agent Hackathon</span>
+              <span class="m-session-meta">Toronto &middot; Hackathon</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/m67l61pa" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Nov 2025</span>
+              <span class="m-session-title">Claude Code Anonymous &mdash; AWS Edition</span>
+              <span class="m-session-meta">Toronto &middot; Remedys.ai &times; AWS</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/xgjbngp1" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Oct 2025</span>
+              <span class="m-session-title">Hackathon: Claude Agent SDK</span>
+              <span class="m-session-meta">Toronto &middot; Hackathon</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/7tvh3hu5" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Sep 2025</span>
+              <span class="m-session-title">Claude Code Anonymous &mdash; Toronto Edition</span>
+              <span class="m-session-meta">Toronto &middot; Community meetup</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="m-session" href="https://luma.com/awkas4il" target="_blank" rel="noreferrer" data-track="home_session_click">
+              <span class="m-session-date">Aug 2025</span>
+              <span class="m-session-title">Hackathon: GPT-5</span>
+              <span class="m-session-meta">Toronto &middot; Hackathon</span>
+              <span class="m-session-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="m-final" aria-labelledby="final-cta-title">
+        <div class="rail m-pad">
+          <div class="m-final-inner sec-reveal">
+            <h2 id="final-cta-title">Ready to put AI to work?</h2>
+            <p>Take the diagnostic and we&rsquo;ll point you to the first move.</p>
+            <div class="hero-cta">
+              <a class="button button-primary" href="/get-started/" data-track="home_final_get_started_click">Get Started</a>
+              <a class="button button-secondary" href="/services/" data-track="home_final_explore_services_click">Explore Services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-section site-section--tight footer-band">
+        <div class="container">
+          <footer class="site-footer reveal">
+            <div class="footer-grid">
+              <div class="footer-brand">
+                <a href="/" class="logo-link">
+                  <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+                  <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
                 </a>
-            </div>
+                <p>Put AI to work.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
+              </div>
 
-            <!-- Abstract "Dashboard" Visual -->
-            <div class="mt-20 relative max-w-5xl mx-auto">
-                <div class="absolute -inset-1 bg-gradient-to-r from-orange-100 via-purple-100 to-blue-100 rounded-3xl blur opacity-50"></div>
-                <div class="relative bg-white rounded-2xl border border-black/5 shadow-2xl shadow-blue-900/5 overflow-hidden">
-                    <div class="h-11 border-b border-gray-100 bg-gray-50/50 flex items-center px-4 gap-2">
-                        <div class="w-3 h-3 rounded-full bg-red-400/20 border border-red-400/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-400/20 border border-yellow-400/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-400/20 border border-green-400/50"></div>
-                    </div>
-                    <div class="p-8 grid md:grid-cols-3 gap-8">
-                        <!-- Mock Chart -->
-                        <div class="col-span-2 space-y-4">
-                            <div class="flex justify-between items-end">
-                                <div>
-                                    <p class="text-xs text-gray-400 uppercase font-semibold">Efficiency Score</p>
-                                    <p class="text-3xl font-display font-bold text-brand-black">98.4%</p>
-                                </div>
-                                <div class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">+12%</div>
-                            </div>
-                            <div class="h-32 flex items-end gap-2">
-                                <div class="w-full bg-gray-100 rounded-t-lg h-[40%]"></div>
-                                <div class="w-full bg-gray-100 rounded-t-lg h-[60%]"></div>
-                                <div class="w-full bg-brand-black rounded-t-lg h-[85%] relative group">
-                                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">Remedy</div>
-                                </div>
-                                <div class="w-full bg-gray-100 rounded-t-lg h-[70%]"></div>
-                            </div>
-                        </div>
-                        <!-- Mock Stats -->
-                        <div class="space-y-4">
-                            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <p class="text-xs text-gray-400 mb-1">Tokens Saved</p>
-                                <p class="text-xl font-bold">14.2M</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <p class="text-xs text-gray-400 mb-1">Agent Uptime</p>
-                                <p class="text-xl font-bold">99.99%</p>
-                            </div>
-                        </div>
-                    </div>
+              <div class="footer-group">
+                <h3>Explore</h3>
+                <div class="footer-links">
+                  <a href="/services/">Services</a>
+                  <a href="/get-started/">AI Diagnostic</a>
+                  <a href="/get-started/#request">Submit a Request</a>
                 </div>
-            </div>
+              </div>
 
-            <!-- Logos -->
-            <!-- Temporarily hidden until we have real client logos -->
-            <div class="mt-16 pt-10 border-t border-black/5 hidden">
-                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8">Trusted by innovative teams</p>
-                <div class="flex flex-wrap justify-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-                    <i class="fab fa-stripe text-4xl"></i>
-                    <i class="fab fa-aws text-4xl"></i>
-                    <i class="fab fa-google text-4xl"></i>
-                    <i class="fab fa-meta text-4xl"></i>
-                    <i class="fab fa-spotify text-4xl"></i>
+              <div class="footer-group">
+                <h3>Company</h3>
+                <div class="footer-links">
+                  <a href="/about/">Who We Are</a>
+                  <a href="/manifesto/">Manifesto</a>
+                  <a href="/contact/">Contact</a>
                 </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Paths</h3>
+                <div class="footer-links">
+                  <a href="/consulting/">AI Consulting</a>
+                  <a href="/automation/">AI Automation</a>
+                  <a href="/enablement/">AI Enablement</a>
+                  <a href="/engineering/">AI Engineering</a>
+                </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                  <a href="/privacy/">Privacy</a>
+                </div>
+              </div>
+
+              <div class="footer-group">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                  <a href="mailto:hello@remedys.ai">hello@remedys.ai</a>
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+              </div>
             </div>
+            <div class="footer-baseline">
+              <span>&copy; 2026 Remedys.ai</span>
+              <span>Made with intent. Not a template.</span>
+            </div>
+          </footer>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Services Bento Grid -->
-    <section id="services" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 max-w-2xl">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-black">Three focused services.</h2>
-                <p class="text-xl text-brand-gray">We help you decide what to build, build it with AI-assisted engineering, and make sure it actually gets used.</p>
-            </div>
+    <div class="load_grid" aria-hidden="true"></div>
+  </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]">
-                
-                <!-- Card 1: Large -->
-                <div class="bento-card md:col-span-2 rounded-[2rem] p-10 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-blue-100"></div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6 text-blue-600">
-                            <i class="fas fa-compass text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4">1. Discovery and Planning</h3>
-                        <p class="text-gray-500 text-lg max-w-md">
-                            We interview your team, map how work gets done, and identify where AI will have real impact. You get a prioritized roadmap with concrete next steps.
-                        </p>
-                    </div>
-                    <!-- Decorative graphic -->
-                    <div class="absolute bottom-0 right-0 w-1/2 h-32 bg-gradient-to-t from-blue-50 to-transparent opacity-50"></div>
-                </div>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="/assets/site.js"></script>
+  <script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-                <!-- Card 2: Tall -->
-                <div class="bento-card md:row-span-2 rounded-[2rem] p-10 relative overflow-hidden flex flex-col justify-between group">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-transparent via-orange-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div>
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6 text-brand-accent">
-                            <i class="fas fa-robot text-xl"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4">2. AI-Assisted Building</h3>
-                        <p class="text-gray-500 text-lg">
-                            We use Squad, our AI agent platform, to accelerate design and development. Agents handle the heavy lifting while we supervise and refine to production quality.
-                        </p>
-                    </div>
-                    <div class="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-400 font-mono">
-                        > Squad_Agent: <span class="text-green-600">Active</span><br>
-                        > Task: Build_Feature<br>
-                        > Status: <span class="text-brand-black font-bold">In Progress</span>
-                    </div>
-                </div>
+    function circleTexture() {
+      var s = 64, c = document.createElement('canvas'); c.width = c.height = s;
+      var ctx = c.getContext('2d');
+      var g = ctx.createRadialGradient(s/2, s/2, 0, s/2, s/2, s/2);
+      g.addColorStop(0, 'rgba(255,255,255,1)');
+      g.addColorStop(0.45, 'rgba(255,255,255,1)');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(s/2, s/2, s/2, 0, Math.PI*2); ctx.fill();
+      return new THREE.CanvasTexture(c);
+    }
 
-                <!-- Card 3: Standard -->
-                <div class="bento-card rounded-[2rem] p-10 relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6 text-purple-600">
-                        <i class="fas fa-rocket text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">3. Deployment and Adoption</h3>
-                    <p class="text-gray-500">
-                        We integrate into your existing tools, run pilots with real users, and train your team so changes stick. You get working systems, not just documentation.
-                    </p>
-                </div>
+    /* HERO work graph: work -> opportunities -> systems */
+    (function workGraph() {
+      var canvas = document.getElementById('work-graph');
+      if (!canvas || typeof THREE === 'undefined') return;
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100); camera.position.z = 13;
+      var group = new THREE.Group(); scene.add(group);
+      var NODE_COUNT = 92, VIOLET_EVERY = 10, BOUNDS = { x: 10.5, y: 6.2, zMin: -5, zMax: 3 };
+      var nodes = [], i;
+      for (i = 0; i < NODE_COUNT; i++) {
+        var bx = (Math.random()*2-1)*BOUNDS.x, by = (Math.random()*2-1)*BOUNDS.y, bz = BOUNDS.zMin + Math.random()*(BOUNDS.zMax-BOUNDS.zMin);
+        nodes.push({ bx:bx, by:by, bz:bz, x:bx, y:by, z:bz, phase: Math.random()*Math.PI*2, speed: 0.25+Math.random()*0.5, amp: 0.18+Math.random()*0.28, violet: (i%VIOLET_EVERY===0) });
+      }
+      var sprite = circleTexture(), inkIdx = [], violetIdx = [];
+      for (i = 0; i < nodes.length; i++) (nodes[i].violet ? violetIdx : inkIdx).push(i);
+      function makePoints(indices, color, size, opacity) {
+        var geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(indices.length*3), 3));
+        var mat = new THREE.PointsMaterial({ color: color, size: size, map: sprite, transparent: true, opacity: opacity, depthWrite: false, sizeAttenuation: true });
+        var pts = new THREE.Points(geo, mat); pts.userData.indices = indices; group.add(pts); return pts;
+      }
+      var inkPoints = makePoints(inkIdx, 0x0b1020, 0.17, 0.55);
+      var violetPoints = makePoints(violetIdx, 0x7b4dff, 0.42, 0.95);
+      var pairs = [], THRESH = 3.4;
+      for (i = 0; i < nodes.length; i++) for (var j = i+1; j < nodes.length; j++) {
+        var dx = nodes[i].bx-nodes[j].bx, dy = nodes[i].by-nodes[j].by, dz = nodes[i].bz-nodes[j].bz;
+        if (Math.sqrt(dx*dx+dy*dy+dz*dz) < THRESH) pairs.push([i,j]);
+      }
+      var lineGeo = new THREE.BufferGeometry(), linePos = new Float32Array(pairs.length*2*3);
+      lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+      var lines = new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({ color: 0x0b1020, transparent: true, opacity: 0.1 }));
+      group.add(lines);
+      var mouse = { x: 0, y: 0 };
+      window.addEventListener('mousemove', function (e) { mouse.x = (e.clientX/window.innerWidth)*2-1; mouse.y = (e.clientY/window.innerHeight)*2-1; }, { passive: true });
+      function resize() { var w = canvas.clientWidth||1, h = canvas.clientHeight||1; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+      window.addEventListener('resize', resize); resize();
+      function writePositions() {
+        var inkArr = inkPoints.geometry.attributes.position.array, vioArr = violetPoints.geometry.attributes.position.array, k;
+        for (k = 0; k < inkIdx.length; k++) { var n = nodes[inkIdx[k]]; inkArr[k*3]=n.x; inkArr[k*3+1]=n.y; inkArr[k*3+2]=n.z; }
+        for (k = 0; k < violetIdx.length; k++) { var m = nodes[violetIdx[k]]; vioArr[k*3]=m.x; vioArr[k*3+1]=m.y; vioArr[k*3+2]=m.z; }
+        inkPoints.geometry.attributes.position.needsUpdate = true; violetPoints.geometry.attributes.position.needsUpdate = true;
+        for (k = 0; k < pairs.length; k++) { var a = nodes[pairs[k][0]], b = nodes[pairs[k][1]], o = k*6; linePos[o]=a.x; linePos[o+1]=a.y; linePos[o+2]=a.z; linePos[o+3]=b.x; linePos[o+4]=b.y; linePos[o+5]=b.z; }
+        lineGeo.attributes.position.needsUpdate = true;
+      }
+      function step(t) {
+        for (var k = 0; k < nodes.length; k++) { var n = nodes[k]; n.x = n.bx + Math.sin(t*n.speed+n.phase)*n.amp; n.y = n.by + Math.cos(t*n.speed*0.9+n.phase)*n.amp; n.z = n.bz + Math.sin(t*n.speed*0.6+n.phase)*n.amp*0.6; }
+        writePositions();
+        group.rotation.y += 0.0006;
+        group.rotation.x += ((mouse.y*0.16) - group.rotation.x)*0.05;
+        group.position.x += ((mouse.x*0.8) - group.position.x)*0.04;
+        violetPoints.material.opacity = 0.78 + Math.sin(t*1.6)*0.18;
+        renderer.render(scene, camera);
+      }
+      if (reduce) { step(0); }
+      else { var start = performance.now(), running = true;
+        document.addEventListener('visibilitychange', function () { running = !document.hidden; if (running) loop(); });
+        function loop() { if (!running) return; step((performance.now()-start)/1000); requestAnimationFrame(loop); } loop();
+      }
+    })();
 
-                <!-- Card 4: Removed - keeping only 3 focused services -->
-                <div class="bento-card rounded-[2rem] p-10 relative overflow-hidden group bg-brand-black text-white hidden">
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-shield-halved text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Enterprise Governance</h3>
-                    <p class="text-gray-400">
-                        ISO-compliant guardrails ensuring your AI never hallucinates or leaks PII.
-                    </p>
-                </div>
+    /* DIAGNOSTIC ambient field (ice-blue echo) */
+    (function diagField() {
+      var canvas = document.getElementById('diag-field');
+      if (!canvas || typeof THREE === 'undefined') return;
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100); camera.position.z = 12;
+      var group = new THREE.Group(); scene.add(group);
+      var N = 60, nodes = [], i;
+      for (i = 0; i < N; i++) { var bx = (Math.random()*2-1)*11, by = (Math.random()*2-1)*6, bz = -4 + Math.random()*4;
+        nodes.push({ bx:bx, by:by, bz:bz, x:bx, y:by, z:bz, phase: Math.random()*Math.PI*2, speed: 0.2+Math.random()*0.35, amp: 0.16+Math.random()*0.22 }); }
+      var sprite = circleTexture();
+      var geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N*3), 3));
+      var pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x72b7ff, size: 0.2, map: sprite, transparent: true, opacity: 0.7, depthWrite: false, sizeAttenuation: true }));
+      group.add(pts);
+      var pairs = [], i2, j2;
+      for (i2 = 0; i2 < N; i2++) for (j2 = i2+1; j2 < N; j2++) { var dx = nodes[i2].bx-nodes[j2].bx, dy = nodes[i2].by-nodes[j2].by, dz = nodes[i2].bz-nodes[j2].bz; if (Math.sqrt(dx*dx+dy*dy+dz*dz) < 3.2) pairs.push([i2,j2]); }
+      var lineGeo = new THREE.BufferGeometry(), linePos = new Float32Array(pairs.length*6);
+      lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+      group.add(new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({ color: 0x72b7ff, transparent: true, opacity: 0.12 })));
+      function resize() { var w = canvas.clientWidth||1, h = canvas.clientHeight||1; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+      window.addEventListener('resize', resize); resize();
+      function step(t) {
+        var arr = pts.geometry.attributes.position.array, k;
+        for (k = 0; k < N; k++) { var n = nodes[k]; n.x = n.bx + Math.sin(t*n.speed+n.phase)*n.amp; n.y = n.by + Math.cos(t*n.speed*0.9+n.phase)*n.amp; n.z = n.bz; arr[k*3]=n.x; arr[k*3+1]=n.y; arr[k*3+2]=n.z; }
+        pts.geometry.attributes.position.needsUpdate = true;
+        for (k = 0; k < pairs.length; k++) { var a = nodes[pairs[k][0]], b = nodes[pairs[k][1]], o = k*6; linePos[o]=a.x; linePos[o+1]=a.y; linePos[o+2]=a.z; linePos[o+3]=b.x; linePos[o+4]=b.y; linePos[o+5]=b.z; }
+        lineGeo.attributes.position.needsUpdate = true;
+        group.rotation.y += 0.0004;
+        renderer.render(scene, camera);
+      }
+      if (reduce) { step(0); }
+      else { var start = performance.now(), running = true;
+        document.addEventListener('visibilitychange', function () { running = !document.hidden; if (running) loop2(); });
+        function loop2() { if (!running) return; step((performance.now()-start)/1000); requestAnimationFrame(loop2); } loop2();
+      }
+    })();
 
-            </div>
-        </div>
-    </section>
+    /* kinetic hero reveal */
+    (function reveal() {
+      var lines = document.querySelectorAll('[data-reveal-line]'), els = document.querySelectorAll('[data-reveal]');
+      function finalize() {
+        if (typeof gsap !== 'undefined') { gsap.set(els, { opacity: 1, y: 0, clearProps: 'transform' }); gsap.set(lines, { yPercent: 0, opacity: 1 }); }
+        else { els.forEach(function (n) { n.style.opacity = '1'; n.style.transform = 'none'; }); lines.forEach(function (n) { n.style.opacity = '1'; n.style.transform = 'none'; }); }
+      }
+      if (reduce || typeof gsap === 'undefined') { finalize(); return; }
+      gsap.set(lines, { yPercent: 115, opacity: 1 });
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' }, onComplete: finalize });
+      tl.to(els, { opacity: 1, y: 0, duration: 0.7, stagger: 0.07 }, 0.1);
+      tl.to(lines, { yPercent: 0, duration: 0.95, stagger: 0.09 }, 0.2);
+      setTimeout(finalize, 1700);
+    })();
 
-    <!-- Process Section -->
-    <section id="process" class="py-24 relative z-10 bg-white border-y border-black/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">The Treatment Plan.</h2>
-                    <p class="text-xl text-brand-gray mb-12">
-                        A simple three-step way to work with us, from first conversation to live results.
-                    </p>
-                </div>
-
-                <div class="relative border-l border-gray-200 ml-4 md:ml-0 space-y-12 pl-8 md:pl-12">
-                    <!-- Item 1 -->
-                    <div class="relative group">
-                        <div class="absolute -left-[3.25rem] md:-left-[3.25rem] top-1 w-5 h-5 bg-white border-4 border-gray-200 rounded-full group-hover:border-brand-accent transition-colors"></div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">01. Understand the business</h3>
-                        <p class="text-brand-gray text-lg">We start with a short series of calls and workshops to learn how your business makes money and where time is wasted. Deliverable: a shared map of your key processes and pain points.</p>
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="relative group">
-                        <div class="absolute -left-[3.25rem] md:-left-[3.25rem] top-1 w-5 h-5 bg-white border-4 border-gray-200 rounded-full group-hover:border-brand-accent transition-colors"></div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">02. Design the AI plan</h3>
-                        <p class="text-brand-gray text-lg">We identify the highest-value AI opportunities, pressure-test them with you, and shape them into a clear sequence of projects. Deliverable: a concise AI game plan that your leadership team can agree on.</p>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="relative group">
-                        <div class="absolute -left-[3.25rem] md:-left-[3.25rem] top-1 w-5 h-5 bg-white border-4 border-gray-200 rounded-full group-hover:border-brand-accent transition-colors"></div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">03. Build, ship, and refine</h3>
-                        <p class="text-brand-gray text-lg">We use Squad and our engineering playbooks to help implement the first projects, then adjust based on what actually works in production. Deliverable: live improvements and a pattern you can repeat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-32 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-black">The Founders.</h2>
-                <p class="text-xl text-brand-gray">
-                    We connect business realities with practical engineering so AI work actually ships and gets used.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Founder 1: Shafan -->
-                <div class="bento-card rounded-[2.5rem] p-10 relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[80px] opacity-60 -mr-20 -mt-20 group-hover:bg-orange-200 transition-colors"></div>
-                    
-                    <div class="relative z-10 h-full flex flex-col">
-                        <div class="mb-8">
-                            <h3 class="text-3xl font-display font-bold text-brand-black mb-1">Shafan Khan</h3>
-                            <p class="text-brand-accent font-medium tracking-wide uppercase text-sm">Co-Founder and Strategy Lead</p>
-                        </div>
-
-                        <div class="prose prose-lg text-gray-600 flex-grow">
-                            <p class="mb-4">
-                                Shafan leads discovery and strategy. He turns what your team knows about the business into clear problems that AI can actually solve without disrupting how people work.
-                            </p>
-                            <ul class="space-y-2 mt-6">
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-check text-brand-accent"></i> Fewer steps in important workflows
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-check text-brand-accent"></i> Faster answers for operators and customers
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-check text-brand-accent"></i> Clear decisions leadership can trust
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Founder 2: Danial -->
-                <div class="bento-card rounded-[2.5rem] p-10 relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[80px] opacity-60 -mr-20 -mt-20 group-hover:bg-blue-200 transition-colors"></div>
-                    
-                    <div class="relative z-10 h-full flex flex-col">
-                        <div class="mb-8">
-                            <h3 class="text-3xl font-display font-bold text-brand-black mb-1">Danial Hasan</h3>
-                            <p class="text-blue-500 font-medium tracking-wide uppercase text-sm">Co-Founder and Technical Lead</p>
-                        </div>
-
-                        <div class="prose prose-lg text-gray-600 flex-grow">
-                            <p class="mb-4">
-                                Danial leads architecture and implementation. He prototypes quickly, tests ideas with real users, and hardens the ones that work so they stay maintainable.
-                            </p>
-                            <ul class="space-y-2 mt-6">
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-code text-blue-500"></i> Rapid prototyping with real data
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-shield-halved text-blue-500"></i> Production-ready engineering support
-                                </li>
-                                <li class="flex items-center gap-3 text-sm font-medium text-gray-800">
-                                    <i class="fa-solid fa-users text-blue-500"></i> Systems your team can own after handoff
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Mini stats below bio -->
-            <!-- Temporarily hidden until we have real metrics -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-black/5 hidden">
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">100+</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Systems Healed</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">30%</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Cost Reduction</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">24h</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Response Time</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-bold text-brand-black mb-1">ISO</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide font-bold">Certified Secure</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA / Contact Section -->
-    <section id="contact" class="py-24 relative z-10">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-brand-black rounded-[2.5rem] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
-                <!-- Background effects -->
-                <div class="absolute top-0 right-0 w-96 h-96 bg-brand-accent rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full blur-[100px] opacity-20 -ml-20 -mb-20 pointer-events-none"></div>
-                
-                <div class="relative z-10">
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-white tracking-tight">Ready for the remedy?</h2>
-                    <p class="text-gray-400 text-xl mb-10 max-w-2xl mx-auto">
-                        Schedule a free 30-minute call.<br>
-                        We will diagnose one high-value workflow, identify where AI and automation can actually help, and propose a concrete plan you can act on with us or without us.
-                    </p>
-
-                    <form onsubmit="event.preventDefault(); alert('Thank you. Your request has been received.');" class="max-w-md mx-auto space-y-4">
-                        <div>
-                            <input type="email" placeholder="work@company.com" required
-                                   class="w-full px-6 py-4 bg-white/10 border border-white/10 rounded-xl focus:outline-none focus:bg-white/20 focus:border-white/30 text-white placeholder-gray-500 transition-all text-center">
-                        </div>
-                        <button type="submit" class="w-full px-8 py-4 rounded-xl bg-white text-brand-black font-bold text-lg transition-all hover:scale-[1.02] shadow-glow">
-                            Get my AI plan
-                        </button>
-                        <p class="text-xs text-gray-500 mt-4">No slides in advance. No obligation. Just a focused conversation.</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-black/5 bg-white py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded bg-brand-black flex items-center justify-center">
-                    <i class="fa-solid fa-layer-group text-white text-xs"></i>
-                </div>
-                <span class="font-bold text-lg tracking-tight text-brand-black">Remedys.ai</span>
-            </div>
-            <div class="text-gray-500 text-sm font-medium">
-                &copy; 2025 Remedys AI Consultancy.
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-brand-black transition-colors"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-brand-black transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-gray-400 hover:text-brand-black transition-colors"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </footer>
-
+    /* scroll reveals + process-line draw (degrades to visible) */
+    (function scrollReveal() {
+      var secs = document.querySelectorAll('.sec-reveal');
+      var steps = document.querySelector('[data-steps]');
+      if (reduce || !('IntersectionObserver' in window)) {
+        secs.forEach(function (s) { s.classList.add('is-in'); });
+        if (steps) { steps.classList.add('is-drawn'); steps.querySelectorAll('.m-step').forEach(function (st) { st.classList.add('is-drawn'); }); }
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold: 0.16 });
+      secs.forEach(function (s) { io.observe(s); });
+      if (steps) {
+        var io2 = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            steps.classList.add('is-drawn');
+            var items = steps.querySelectorAll('.m-step');
+            items.forEach(function (st, idx) { setTimeout(function () { st.classList.add('is-drawn'); }, 220 + idx*180); });
+            io2.unobserve(e.target);
+          });
+        }, { threshold: 0.3 });
+        io2.observe(steps);
+      }
+    })();
+  })();
+  </script>
 </body>
 </html>

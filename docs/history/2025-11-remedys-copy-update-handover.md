@@ -1,5 +1,12 @@
 # Remedys.ai Marketing Copy Update - Handover Document
 
+> **HISTORICAL (Nov 2025) — describes a site version that no longer exists.** This is
+> a copy pass on the old single-page homepage ("Remedy your business pains.", medical
+> metaphors, a 3-card service bento, a founders section, a "Get my AI plan" waitlist
+> form). The current site is a multi-page diagnostic site headlined "Put AI to work."
+> with the four service paths. Kept for copy-evolution context only. Current truth:
+> [`../README.md`](../README.md).
+
 ## Executive Summary
 Complete redesign of marketing messaging from medical/clinical metaphors to business-focused AI consulting language. All changes are copy-only with no structural or visual modifications to maintain design integrity.
 

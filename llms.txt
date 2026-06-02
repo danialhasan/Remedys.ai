@@ -1,0 +1,30 @@
+# Remedys
+
+> AI-native product studio. We help businesses find the right AI opportunity, build the first solution, and get their team using it.
+
+Remedys works with growing businesses that know AI matters but aren't sure where to start. We're engineers and operators: we get close to how the business actually works, find where AI can help, and build it alongside the team. Bringing on Remedys is like adding a Chief AI Officer — senior AI judgment and hands-on building — without the full-time hire.
+
+Every engagement starts the same way: understand the work, choose the first move worth making, then make it real. The first solution might be an app, an automation, a workflow, or training — what matters is that the team actually uses it.
+
+## Services
+- [Services overview](https://remedys.ai/services/): One system, four entry points. Pick the path that matches your current need, or take the diagnostic.
+- [AI Consulting](https://remedys.ai/consulting/): Find the first move worth acting on. We map the business and identify where AI can actually create value.
+- [AI Automation](https://remedys.ai/automation/): Turn a painful manual process into an automated system the team actually uses.
+- [AI Enablement](https://remedys.ai/enablement/): Build practical AI capability so the team uses these tools well and gets started right away.
+- [AI Engineering](https://remedys.ai/engineering/): Work with AI engineers to build the right product, feature, or solution.
+
+## Start here
+- [Get started — AI Diagnostic](https://remedys.ai/get-started/): Seven questions, about three minutes. Get a recommended path, why it fits, and the first move to make.
+- [Contact](https://remedys.ai/contact/): Reach the team directly.
+
+## Company
+- [About](https://remedys.ai/about/): Who Remedys is and how we work.
+- [Events](https://remedys.ai/events/): Live sessions on AI and how to build with it.
+
+## Founders
+- Danial Hasan — applied AI and software engineering. Among Canada's top Codex engineers; runs AI build workshops and has presented to 600 engineers.
+- Shafan Khan — GTM, operations, and engineering. Scaled Middesk to $30M ARR; ex-Bloomberg and Deloitte; 3x President's Club.
+- Together they built Squad, an AI-native software engineering product.
+
+## Optional
+- [Privacy](https://remedys.ai/privacy/): Privacy policy.

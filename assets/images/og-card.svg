@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f8f8"/>
+
+  <!-- node-graph motif (echoes the hero WebGL graph) -->
+  <g stroke="#7b4dff" stroke-width="1.2" opacity="0.18" fill="none">
+    <line x1="1000" y1="92" x2="1090" y2="150"/>
+    <line x1="1090" y1="150" x2="1020" y2="214"/>
+    <line x1="1020" y1="214" x2="1140" y2="250"/>
+    <line x1="1000" y1="92" x2="1020" y2="214"/>
+    <line x1="1020" y1="214" x2="1078" y2="312"/>
+    <line x1="932" y1="262" x2="1020" y2="214"/>
+    <line x1="900" y1="120" x2="1000" y2="92"/>
+  </g>
+  <g fill="#7b4dff" opacity="0.42">
+    <circle cx="900" cy="120" r="5"/>
+    <circle cx="1000" cy="92" r="7"/>
+    <circle cx="1090" cy="150" r="5"/>
+    <circle cx="1140" cy="250" r="6"/>
+    <circle cx="1020" cy="214" r="9"/>
+    <circle cx="932" cy="262" r="5"/>
+    <circle cx="1078" cy="312" r="4"/>
+  </g>
+
+  <!-- mono kicker -->
+  <text x="80" y="112" font-family="Menlo, monospace" font-size="22" letter-spacing="3" fill="#7b4dff">AI-NATIVE PRODUCT STUDIO</text>
+
+  <!-- headline -->
+  <text x="76" y="352" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="104" letter-spacing="-2" fill="#0b1020">Put AI to work.</text>
+
+  <!-- subhead -->
+  <text x="80" y="430" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="400" font-size="33" fill="#5f5f5f">Find the right opportunity. Build the first solution.</text>
+  <text x="80" y="474" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="400" font-size="33" fill="#5f5f5f">Get your team using it.</text>
+
+  <!-- wordmark -->
+  <rect x="80" y="540" width="16" height="16" fill="#7b4dff"/>
+  <text x="108" y="556" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="30" fill="#0b1020">Remedys.ai</text>
+</svg>

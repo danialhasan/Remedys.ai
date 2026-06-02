@@ -1,5 +1,13 @@
 # Remedys.ai Waitlist Deployment Guide
 
+> **HISTORICAL (2025-11-21) — this is not how the site captures leads anymore.** It
+> documents an email waitlist wired to a *shared Squad* Supabase `public.waitlist`
+> table and `send-waitlist-email` edge function. The current site captures leads
+> through the AI diagnostic / direct-request flow into `remedys_diagnostic_submissions`
+> via the Netlify intake function — see
+> [`../diagnostic-and-intake.md`](../diagnostic-and-intake.md). Kept for context on the
+> prior shared-infra approach.
+
 ## Overview
 
 This guide covers deploying the Remedys.ai waitlist integration with the shared Squad Supabase infrastructure. The waitlist uses a `product` column to differentiate between Squad and Remedys signups in the same table.

@@ -1,105 +1,48 @@
 # Remedys.ai
 
-AI consultancy landing page for operational intelligence and autonomous agents.
+Marketing site for Remedys — an AI-native product studio. Static, multi-page HTML with
+a shared CSS/JS system, an on-page AI diagnostic, and a Netlify-function lead intake.
 
-## Tech Stack
+**Full documentation lives in [`docs/`](docs/) — start there** ([docs/README.md](docs/README.md)).
+This file is just the quickstart.
 
-- **Static HTML** - Single page site with vanilla JavaScript
-- **Tailwind CSS** - Utility-first CSS via CDN
-- **PostHog** - Analytics and event tracking
-- **Netlify** - Hosting and deployment
-
-## Development
-
-### Local Development
-
-Start a local dev server with auto-refresh:
+## Quickstart
 
 ```bash
-npx serve -l 3000 .
+npx serve -l 4500 .
 ```
 
-The site will be available at `http://localhost:3000`
+Open `http://localhost:4500`. No build step — edit a route's `index.html` or the shared
+files in `assets/`, then refresh.
 
-### Project Structure
+## Layout
 
 ```
-Remedys.ai/
-├── index.html      # Main landing page
-├── netlify.toml    # Netlify configuration
-└── README.md       # This file
+index.html          # homepage
+<route>/index.html  # 12 inner routes (services, automation, enablement, engineering,
+                    #   consulting, education, implementation, about, events,
+                    #   get-started, contact, privacy)
+assets/             # site.css + site.js (shared across all pages)
+netlify/functions/  # remedys-intake.js (lead capture; the only server-side code)
+supabase/           # intake table migrations
+docs/               # reference documentation (source of truth for "how it works")
 ```
 
-### Making Changes
+Three design systems currently coexist (mid-migration). Know which one a page uses
+before editing shared CSS/JS — see [docs/architecture.md](docs/architecture.md).
 
-1. Edit `index.html` directly
-2. Changes auto-reload in browser
-3. Test locally before deploying
+## Stack
 
-## Deployment
+- Static HTML, vanilla CSS + JS, GSAP for motion
+- PostHog analytics (configured via `<meta>` tags read by `assets/site.js`)
+- Netlify hosting — push to `main` auto-deploys (`publish = "."`, no build)
+- Supabase for lead storage, written to only by the Netlify intake function
 
-### Production URL
-https://remedys.ai
+## Deploy & operations
 
-### Deploy Workflow
+Push to `main` for an automatic Netlify deploy. Environment variables, the launch/QA
+checklist, and manual-deploy steps are in [docs/operations.md](docs/operations.md).
 
-**Automatic (CI/CD):**
-- Push to `main` branch on GitHub
-- Netlify auto-deploys changes
-- Typically takes 1-2 minutes
+## Repo
 
-**Manual Deploy:**
-```bash
-npx netlify-cli deploy --prod --dir=.
-```
-
-### Netlify Configuration
-
-The site is configured with:
-- **Base directory:** `.` (root)
-- **Build command:** None (static HTML)
-- **Publish directory:** `.`
-- **Auto-deploy:** ✅ Enabled on `main` branch
-
-## Analytics
-
-### PostHog Integration
-
-- **Project:** Remedys.ai
-- **API Key:** `phc_CEGE11ffVSoStkKyi3vngbXaQUo2Bpw1BEzGZ5AnTOf`
-- **Dashboard:** https://us.posthog.com
-
-**Events tracked:**
-- Page views
-- Button clicks (CTA, navigation)
-- Form submissions
-- Scroll depth
-
-**Updating analytics:**
-Changes to PostHog configuration require redeployment to take effect.
-
-## Git Workflow
-
-### Making Changes
-
-```bash
-# Make your changes to index.html
-git add index.html
-git commit -m "Description of changes"
-git push origin main
-```
-
-### Deployment happens automatically after push
-
-## Domain & DNS
-
-- **Domain:** remedys.ai
-- **DNS:** Managed by Netlify
-- **SSL:** Auto-provisioned by Netlify
-
-## Support
-
-For issues or questions:
-- Check Netlify build logs: https://app.netlify.com/sites/remedys-ai/deploys
-- View PostHog dashboard for analytics
-- GitHub repo: https://github.com/danialhasan/Remedys.ai
+- origin: https://github.com/shafan9/Remedys.ai
