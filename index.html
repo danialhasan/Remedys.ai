@@ -32,7 +32,7 @@
     /* display face: Clash Display for headlines; body stays Switzer */
     body.page-light { --font-display: "Clash Display", "Switzer", Arial, sans-serif; }
     .m-process-head h2, .m-step h3, .m-paths-head h2, .m-route-name,
-    .m-diag-intro h2, .m-proof-lead h2, .m-sessions-row h2, .m-final h2 { font-family: var(--font-display); }
+    .m-diag-intro h2, .m-proof-belief h2, .m-proof-lead, .m-sessions-row h2, .m-final h2 { font-family: var(--font-display); }
 
     /* shared rhythm: inner gutter so copy never kisses the rail rules */
     .m-pad { padding-inline: clamp(1.25rem, 3.5vw, 3.5rem); }
@@ -155,19 +155,12 @@
     .m-proof-belief .label { margin: 0 0 0.95rem; }
     .m-proof-belief h2 { margin: 0 0 1.1rem; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.012em; max-width: 17ch; }
     .m-proof-belief p { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.5; max-width: 60ch; }
-    .m-proof-evidence { margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; gap: clamp(1.6rem, 3vw, 2.4rem); }
-    .m-founders { list-style: none; margin: 0; padding: clamp(1.5rem, 3vw, 2.25rem) 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.75rem, 4vw, 3.5rem); border-top: 1px solid var(--line); }
-    .m-founder { display: grid; gap: 0.22rem; align-content: start; }
-    .m-founder-name { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.12rem, 1.5vw, 1.32rem); letter-spacing: -0.01em; color: var(--ink); }
-    .m-founder-role { margin: 0; font-size: 0.92rem; color: var(--muted); }
-    .m-founder-marks { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 0.4rem; }
-    .m-founder-marks li { position: relative; padding-left: 1.05rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.01em; line-height: 1.45; color: rgba(11,16,32,0.66); }
-    .m-founder-marks li::before { content: ""; position: absolute; left: 0; top: 0.52em; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--violet); opacity: 0.72; }
-    .m-proof-connective { margin: 0; max-width: 60ch; color: var(--ink); font-size: clamp(1.02rem, 1.3vw, 1.16rem); line-height: 1.5; font-weight: 500; }
-    @media (max-width: 700px) {
-      .m-founders { grid-template-columns: 1fr; gap: 1.5rem; }
-      .m-founder + .m-founder { border-top: 1px solid var(--line); padding-top: 1.5rem; }
-    }
+    .m-proof-evidence { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); max-width: 64rem; display: grid; gap: 1.1rem; }
+    .m-proof-lead { margin: 0; font-weight: 700; font-size: clamp(1.5rem, 2.8vw, 2.4rem); line-height: 1.08; letter-spacing: -0.012em; color: var(--ink); max-width: 22ch; }
+    .m-proof-body { margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.55; max-width: 58ch; }
+    .m-founders-credit { list-style: none; margin: 0.8rem 0 0; padding: 1.2rem 0 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 0.5rem 2.75rem; }
+    .m-founders-credit li { font-size: 1rem; line-height: 1.4; color: var(--muted); }
+    .m-founders-credit .name { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
 
     /* ---------- SESSIONS ---------- */
     .m-sessions { padding: clamp(5rem, 9vw, 8rem) 0; border-bottom: 1px solid var(--line); }
@@ -479,30 +472,15 @@
           <div class="m-proof-belief sec-reveal">
             <p class="label">Why Remedys</p>
             <h2 id="why-remedys-title">Most AI work stalls because it starts with the tool, not the business.</h2>
-            <p>We start with how your business actually runs, find where AI moves the needle, and build it with you. A Chief AI Officer, not an agency.</p>
+            <p>We start with how your business actually runs, find where AI moves the needle, and build it with you.</p>
           </div>
           <div class="m-proof-evidence sec-reveal">
-            <ul class="m-founders">
-              <li class="m-founder">
-                <p class="m-founder-name">Danial Hasan</p>
-                <p class="m-founder-role">Applied AI &amp; software engineering</p>
-                <ul class="m-founder-marks">
-                  <li>Among Canada&rsquo;s top Codex engineers</li>
-                  <li>3,000+ across X &amp; his newsletter</li>
-                  <li>Presented to 600+ engineers</li>
-                </ul>
-              </li>
-              <li class="m-founder">
-                <p class="m-founder-name">Shafan Khan</p>
-                <p class="m-founder-role">GTM, operations &amp; engineering</p>
-                <ul class="m-founder-marks">
-                  <li>Early at an acquired fintech startup</li>
-                  <li>ex-Bloomberg &amp; Deloitte</li>
-                  <li>3&times; President&rsquo;s Club</li>
-                </ul>
-              </li>
+            <p class="m-proof-lead">We don&rsquo;t advise on AI from the outside &mdash; we build and run it.</p>
+            <p class="m-proof-body">Squad is our own AI-native engineering product. You work with the team that ships it &mdash; a Chief AI Officer, not an agency.</p>
+            <ul class="m-founders-credit">
+              <li><span class="name">Danial Hasan</span> &middot; Applied AI &amp; engineering</li>
+              <li><span class="name">Shafan Khan</span> &middot; GTM, operations &amp; engineering</li>
             </ul>
-            <p class="m-proof-connective">We built Squad, an AI-native engineering product &mdash; and you work with the team that built it.</p>
           </div>
         </div>
       </section>
