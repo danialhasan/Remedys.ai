@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 
 const MAX_BODY_BYTES = 32 * 1024;
-const DEFAULT_BOOKING_URL = "https://calendar.app.google/WHBdTUUuqEsjfdFN6";
+const DEFAULT_BOOKING_URL = "https://calendar.app.google/aet2L9whR5yYRZ7cA";
 const ALLOWED_SOURCES = new Set([
   "remedys_ai_diagnostic",
   "remedys_direct_request",

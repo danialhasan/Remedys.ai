@@ -2,7 +2,7 @@ process.env.SUPABASE_URL = "https://example.supabase.co";
 process.env.SUPABASE_SECRET_KEY = "test-service-role-key";
 process.env.LEAD_IP_HASH_SECRET = "test-ip-hash-secret";
 process.env.ALLOWED_ORIGINS = "https://remedys.ai,https://www.remedys.ai";
-process.env.INTRO_CALL_BOOKING_URL = "https://calendar.app.google/WHBdTUUuqEsjfdFN6";
+process.env.INTRO_CALL_BOOKING_URL = "https://calendar.app.google/aet2L9whR5yYRZ7cA";
 delete process.env.RESEND_API_KEY;
 delete process.env.RESEND_FROM;
 delete process.env.LEAD_NOTIFY_TO;
@@ -92,7 +92,7 @@ const directRequest = {
   posthog_distinct_id: "ph_test",
   posthog_session_id: "session_test",
   form_variant: "direct_request_v1",
-  booking_url: "https://calendar.app.google/WHBdTUUuqEsjfdFN6",
+  booking_url: "https://calendar.app.google/aet2L9whR5yYRZ7cA",
   is_test: true,
 };
 
