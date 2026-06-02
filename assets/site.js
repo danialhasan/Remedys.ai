@@ -1359,11 +1359,12 @@
       state.submitting = false;
       state.started = false;
       log.textContent = "";
-      appendLine("remedys diagnostic — v1.0", "hint");
-      appendLine("scanning: business · workflows · data · team", "hint");
-      appendLine("session ready · 7 questions · ~3 min", "hint");
-      appendLine("This is a real diagnostic. Your answers generate a real recommendation.");
-      appendLine("Type /reset to start over or /help for commands.", "hint");
+      var sid = "";
+      for (var i = 0; i < 8; i += 1) sid += "ABCDEFGHJKLMNPQRSTUVWXYZ23456789".charAt(Math.floor(Math.random() * 32));
+      appendLine("remedys diagnostic v2.4 — ai opportunity scanner", "hint");
+      appendLine("session: " + sid, "hint");
+      appendLine("hint: this is a real tool. your answers generate a real (lightweight) report.", "hint");
+      appendLine("type /skip to jump ahead, /reset to start over.", "hint");
       promptCurrentStep();
     }
 

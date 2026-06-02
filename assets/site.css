@@ -5402,3 +5402,24 @@ body.page-light {
   .page-light .button-secondary:active,
   .page-light .nav-cta:active { transform: none; }
 }
+
+/* ============================================================
+   Diagnostic terminal — reference-style chrome in BRAND colors.
+   Keeps the site's navy / ice-blue palette; adds only the
+   reference's structure: faint grid, airy line spacing,
+   right-aligned session label, hidden progress, dim placeholder.
+   Scoped to .m-diagnostic (won't reach the /get-started/ diagnostic).
+   ============================================================ */
+.m-diagnostic .terminal-pane {
+  position: relative;
+  background:
+    linear-gradient(rgba(120, 183, 255, 0.08) 1px, transparent 1px) 0 0 / 2.5rem 2.5rem,
+    linear-gradient(90deg, rgba(120, 183, 255, 0.08) 1px, transparent 1px) 0 0 / 2.5rem 2.5rem,
+    #0a0a0c;
+}
+.m-diagnostic .terminal-top { background: transparent; }
+.m-diagnostic .terminal-input { background: transparent; }
+.m-diagnostic .terminal-title { position: static; transform: none; margin-left: auto; }
+.m-diagnostic .terminal-progress { display: none; }
+.m-diagnostic .terminal-line { margin-bottom: 0.7rem; }
+.m-diagnostic .terminal-input textarea::placeholder { color: rgba(247, 248, 251, 0.4); }
