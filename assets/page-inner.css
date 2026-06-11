@@ -201,6 +201,8 @@ body.page-light.page-inner {
   height: 3.5rem;
   border: 1px solid var(--line);
   background: #fff;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .page-light.page-inner .founder-role {
