@@ -13,15 +13,15 @@
   --bg-panel: #050505;
   --text: #f0eee5;
   --line-soft: rgba(255, 255, 255, 0.08);
-  --accent: #ff6b35;
-  --accent-hover: #ff7f4d;
-  --accent-active: #ff5a1f;
-  --accent-soft: rgba(255, 107, 53, 0.12);
-  --accent-fade: rgba(255, 107, 53, 0.04);
+  --accent: #7b4dff;
+  --accent-hover: #804bff;
+  --accent-active: #6a3fe6;
+  --accent-soft: rgba(123, 77, 255, 0.12);
+  --accent-fade: rgba(123, 77, 255, 0.04);
   --black: #000;
   --white: #fff;
   --font-body: "Switzer", Arial, sans-serif;
-  --font-display: "Gloock", Georgia, serif;
+  --font-display: "Clash Display", "Switzer", Arial, sans-serif;
   --font-mono: "Chivo Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --max: 84vw;
   --section: clamp(4.5rem, 7vw, 7rem);
@@ -5277,4 +5277,53 @@ body.page-light .load_grid * {
   .page-light .diagnostic-actions .button {
     width: 100%;
   }
+}
+
+/* Unified light footer (homepage + inner pages) */
+.site-footer-light {
+  padding: clamp(2rem, 4vw, 3rem) 0 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer-light .brand-text {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.site-footer-light .brand-text .tld {
+  color: rgba(11, 16, 32, 0.52);
+}
+
+.site-footer-light .text-xs {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.page-light .site-footer-light .footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.page-light .site-footer-light .footer-group h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-light .site-footer-light .footer-links {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+}
+
+.page-light .site-footer-light .footer-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }

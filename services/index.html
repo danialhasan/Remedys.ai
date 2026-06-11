@@ -22,9 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/page-inner.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,7 +42,7 @@
     }
   </script>
 </head>
-<body class="page-ivory">
+<body class="page-light page-inner">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <div class="block-overlay" data-menu-overlay>
@@ -77,25 +78,18 @@
       </div>
     </div>
 
-    <nav class="nav">
-      <div class="nav_content container">
-        <div class="nav_logo">
-          <a href="/" class="logo-link">
-            <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-            <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-          </a>
-        </div>
-        <div class="shell-actions">
-          <a href="/get-started/" class="button shell-cta" data-track="shell_get_started">
-            <span>Get Started</span>
-            <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-          </a>
-          <div class="toggle-btn1">
-            <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu"><span></span></button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/">Services</a>
+        <a href="/#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/get-started/" class="nav-cta" data-track="shell_get_started">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
     <main class="site-main" id="main-content">
       <section class="site-section site-section--hero">
@@ -132,158 +126,14 @@
       </section>
 
       <section class="site-section site-section--tight">
-        <div class="container">
-          <p class="quiet-cue reveal">Choose the path that best matches your current need. We&apos;ll help you move from there.</p>
-        </div>
-      </section>
-
-      <section class="site-section">
-        <div class="container">
-          <div class="path-stack">
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">01</span>
-                  <h2 class="path-card__title">AI Consulting</h2>
-                </div>
-                <p class="path-card__meta">Engagement: AI Opportunity Audit</p>
-              </div>
-              <p>For businesses that know AI matters but need a clear first move worth acting on.</p>
-              <p>Start here when the opportunity is real, but the right place to begin is still unclear. Remedys works with you to understand the business, find where AI can actually help, and identify the first move worth executing.</p>
-              <ul class="path-card__list">
-                <li>Too many possible AI use cases and no clear priority</li>
-                <li>Leadership buy-in, but no practical first move</li>
-                <li>A team that needs clarity before anything gets built</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/consulting/" class="button cc-tertiary">
-                  <span>Explore AI Consulting</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
-
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">02</span>
-                  <h2 class="path-card__title">AI Automation</h2>
-                </div>
-                <p class="path-card__meta">Engagement: Workflow Automation</p>
-              </div>
-              <p>Turn a painful manual process into a real automated system your team can actually use.</p>
-              <p>This is the right path when the bottleneck is already visible and the business mainly needs the right solution scoped, built, and implemented. The goal is not automation for the sake of it. The goal is to remove drag and make the work run better.</p>
-              <ul class="path-card__list">
-                <li>Repetitive admin-heavy work</li>
-                <li>Reporting or follow-up that eats up time every week</li>
-                <li>Intake, onboarding, or support processes that stay too manual</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/automation/" class="button cc-tertiary">
-                  <span>Explore AI Automation</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
-
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">03</span>
-                  <h2 class="path-card__title">AI Enablement</h2>
-                </div>
-                <p class="path-card__meta">Engagement: AI Enablement</p>
-              </div>
-              <p>Build practical AI capability so your team or your operators can use these tools well and get started right away.</p>
-              <p>This is the right path when the tools are available but the habits, confidence, and role-specific usage still are not. Remedys helps people use AI in ways that are practical, useful, and grounded in real work.</p>
-              <ul class="path-card__list">
-                <li>A team has access to AI tools but is not using them well</li>
-                <li>Leaders want employees to become more AI-capable</li>
-                <li>Operators want practical ways to use AI in day-to-day work</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/enablement/" class="button cc-tertiary">
-                  <span>Explore AI Enablement</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
-
-            <article class="path-card reveal">
-              <div class="path-card__top">
-                <div>
-                  <span class="path-card__index">04</span>
-                  <h2 class="path-card__title">AI Engineering</h2>
-                </div>
-                <p class="path-card__meta">Engagement: Engineering</p>
-              </div>
-              <p>Get access to AI engineers to help you build the right product, feature, or solution for your business.</p>
-              <p>This is the right path when you know something should be built and need the right technical team to shape it, pressure-test it, and make it real. The goal is not more ideas in a doc. The goal is execution.</p>
-              <ul class="path-card__list">
-                <li>An internal tool would save the team time</li>
-                <li>A product needs a new AI feature or capability</li>
-                <li>A business-specific system needs to be built from scratch</li>
-              </ul>
-              <div class="path-card__bottom">
-                <a href="/engineering/" class="button cc-tertiary">
-                  <span>Explore AI Engineering</span>
-                  <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="site-section">
-        <div class="container">
-          <div class="cta-panel reveal">
-            <p class="u-eyebrow">AI Diagnostic</p>
-            <h2 class="text-h1">Not sure which path fits best?</h2>
-            <p class="text-xxl">Start with the AI Diagnostic and we&apos;ll recommend the best next step.</p>
-            <div class="hero-actions">
-              <a href="/get-started/" class="button">
-                <span>Start the AI Diagnostic</span>
-                <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-              </a>
-              <a href="/get-started/#request" class="button cc-tertiary">
-                <span>Submit a Request</span>
-                <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="site-section">
-        <div class="container">
-          <div class="cta-panel reveal">
-            <p class="u-eyebrow">Next step</p>
-            <h2 class="text-h1">Need practical help putting AI to work?</h2>
-            <p class="text-xxl">Start with the path that fits best, or let the AI Diagnostic guide you.</p>
-            <div class="hero-actions">
-              <a href="/get-started/" class="button">
-                <span>Get Started</span>
-                <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="site-section site-section--tight">
-        <div class="container">
-          <footer class="site-footer reveal">
+        <div class="rail">
+          <footer class="site-footer-light">
             <div class="footer-grid">
               <div class="footer-brand">
-                <a href="/" class="logo-link">
-                  <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-                  <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-                </a>
+                <a href="/" class="brand-text" translate="no">Remedys<span class="tld">.ai</span></a>
                 <p>Put AI to work.</p>
-                <p class="text-xs">Practical AI consulting, education, implementation, and engineering.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
               </div>
-
               <div class="footer-group">
                 <h3>Explore</h3>
                 <div class="footer-links">
@@ -292,15 +142,14 @@
                   <a href="/get-started/#request">Submit a Request</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Company</h3>
                 <div class="footer-links">
                   <a href="/about/">Who We Are</a>
+                  <a href="/events/">Events</a>
                   <a href="/contact/">Contact</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Paths</h3>
                 <div class="footer-links">
@@ -310,26 +159,25 @@
                   <a href="/engineering/">AI Engineering</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Legal</h3>
                 <div class="footer-links">
                   <a href="/privacy/">Privacy</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Connect</h3>
                 <div class="footer-links">
                   <a href="mailto:hello@remedys.ai">hello@remedys.ai</a>
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/shafan-khan/" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
               </div>
             </div>
           </footer>
         </div>
       </section>
-    </main>
+
+      </main>
 
     <div class="load_grid" aria-hidden="true"></div>
   </div>

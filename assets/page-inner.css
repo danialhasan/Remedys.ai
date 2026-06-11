@@ -1,0 +1,356 @@
+/* Inner pages on the unified page-light system */
+
+body.page-light.page-inner {
+  --font-display: "Clash Display", "Switzer", Arial, sans-serif;
+}
+
+.page-light.page-inner .text-h1-xl,
+.page-light.page-inner .text-h1,
+.page-light.page-inner h1,
+.page-light.page-inner h2,
+.page-light.page-inner h3 {
+  font-family: var(--font-display);
+}
+
+.page-light.page-inner .page-wrapper {
+  background: var(--paper);
+}
+
+.page-light.page-inner .site-main {
+  padding-top: 0;
+}
+
+.page-light.page-inner .site-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-light.page-inner .site-section--hero {
+  padding-top: clamp(5rem, 9vw, 8rem);
+}
+
+.page-light.page-inner .site-section--tight {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-bottom: 0;
+}
+
+.page-light.page-inner .container {
+  width: min(var(--max), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.page-light.page-inner .u-eyebrow,
+.page-light.page-inner .path-card__index,
+.page-light.page-inner .process-card__index {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.page-light.page-inner .text-h1-xl {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+}
+
+.page-light.page-inner .text-h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.005em;
+}
+
+.page-light.page-inner .hero-lede,
+.page-light.page-inner .text-xxl,
+.page-light.page-inner .text-xl {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.page-light.page-inner .site-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.75fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.page-light.page-inner .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.page-light.page-inner .button {
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.15rem;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.page-light.page-inner .button.cc-tertiary,
+.page-light.page-inner .button.button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.page-light.page-inner .button:hover,
+.page-light.page-inner .button:focus-visible {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: #fff;
+}
+
+.page-light.page-inner .button.cc-tertiary:hover,
+.page-light.page-inner .button.cc-tertiary:focus-visible {
+  background: #fff;
+  border-color: var(--violet);
+  color: var(--ink);
+}
+
+.page-light.page-inner .icon-box {
+  display: none;
+}
+
+.page-light.page-inner .section-card,
+.page-light.page-inner .belief-card,
+.page-light.page-inner .process-card,
+.page-light.page-inner .path-card,
+.page-light.page-inner .story-card,
+.page-light.page-inner .cta-panel,
+.page-light.page-inner .request-panel,
+.page-light.page-inner .diagnostic-intro-card,
+.page-light.page-inner .get-started-choice-card,
+.page-light.page-inner .founder-card {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  box-shadow: 0 2px 4px rgba(11, 16, 32, 0.03), 0 16px 36px -20px rgba(11, 16, 32, 0.14);
+}
+
+.page-light.page-inner .get-started-choice-card--dark {
+  background: var(--navy);
+  color: #f7f8fb;
+  border-color: rgba(247, 248, 251, 0.14);
+}
+
+.page-light.page-inner .get-started-choice-card--dark .u-eyebrow {
+  color: var(--blue);
+}
+
+.page-light.page-inner .get-started-choice-card--dark p {
+  color: rgba(247, 248, 251, 0.72);
+}
+
+.page-light.page-inner .get-started-choice-card--dark .button {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+
+.page-light.page-inner .belief-grid,
+.page-light.page-inner .founder-grid,
+.page-light.page-inner .split-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.page-light.page-inner .belief-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-light.page-inner .founder-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.page-light.page-inner .founder-card summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.page-light.page-inner .founder-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.page-light.page-inner .founder-summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0;
+}
+
+.page-light.page-inner .founder-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.page-light.page-inner .founder-role {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.page-light.page-inner .founder-bio {
+  padding-top: 1rem;
+  color: var(--muted);
+}
+
+.page-light.page-inner .founder-links a,
+.page-light.page-inner .footer-links a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.page-light.page-inner .path-stack,
+.page-light.page-inner .process-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.page-light.page-inner .stack-header {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  max-width: 52rem;
+}
+
+.page-light.page-inner .chip-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.page-light.page-inner .chip {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.page-light.page-inner .site-footer-light {
+  padding: clamp(2rem, 4vw, 3rem) 0 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.page-light.page-inner .site-footer-light .brand-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.page-light.page-inner .site-footer-light .brand-text .tld {
+  color: rgba(11, 16, 32, 0.52);
+}
+
+.page-light.page-inner .site-footer-light .text-xs {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.page-light.page-inner .footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.page-light.page-inner .footer-group h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-light.page-inner .footer-links {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+}
+
+.page-light.page-inner .event-list {
+  display: grid;
+  gap: 0;
+  margin-top: 2rem;
+}
+
+.page-light.page-inner .event-row {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background-color 180ms ease;
+}
+
+.page-light.page-inner .event-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.page-light.page-inner .event-row:hover,
+.page-light.page-inner .event-row:focus-visible {
+  background: #fff;
+  outline: none;
+}
+
+.page-light.page-inner .event-date {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--violet);
+}
+
+.page-light.page-inner .event-type {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.page-light.page-inner .event-arrow {
+  color: rgba(11, 16, 32, 0.4);
+}
+
+.page-light.page-inner .event-row:hover .event-arrow {
+  color: var(--violet);
+}
+
+@media (max-width: 900px) {
+  .page-light.page-inner .site-hero,
+  .page-light.page-inner .belief-grid,
+  .page-light.page-inner .founder-grid,
+  .page-light.page-inner .split-grid,
+  .page-light.page-inner .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-light.page-inner .event-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .page-light.page-inner .event-date {
+    grid-column: 1 / -1;
+  }
+}

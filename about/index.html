@@ -22,9 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/page-inner.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,7 +44,7 @@
     }
   </script>
 </head>
-<body class="page-ivory">
+<body class="page-light page-inner">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <div class="block-overlay" data-menu-overlay>
@@ -79,25 +80,18 @@
       </div>
     </div>
 
-    <nav class="nav">
-      <div class="nav_content container">
-        <div class="nav_logo">
-          <a href="/" class="logo-link">
-            <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-            <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-          </a>
-        </div>
-        <div class="shell-actions">
-          <a href="/get-started/" class="button shell-cta" data-track="shell_get_started">
-            <span>Get Started</span>
-            <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-          </a>
-          <div class="toggle-btn1">
-            <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu"><span></span></button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/">Services</a>
+        <a href="/#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/get-started/" class="nav-cta" data-track="shell_get_started">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
     <main class="site-main" id="main-content">
       <section class="site-section site-section--hero">
@@ -105,8 +99,8 @@
           <div class="site-hero">
             <div class="site-hero-copy">
               <p class="u-eyebrow reveal">Who We Are</p>
-              <h1 class="text-h1-xl reveal">Practical AI help, led by people close to the work.</h1>
-              <p class="hero-lede text-xxl reveal">Remedys is a founder-led AI consulting, education, and implementation practice built to help real businesses put AI to work in ways that actually improve how the work runs.</p>
+              <h1 class="text-h1-xl reveal">Close to your business. Close to the build.</h1>
+              <p class="hero-lede text-xxl reveal">A founder-led AI practice &mdash; consulting, automation, enablement, engineering. We help real businesses put AI to work where it improves how the work runs.</p>
               <div class="hero-actions reveal">
                 <a href="/get-started/" class="button">
                   <span>Get Started</span>
@@ -131,8 +125,8 @@
         <div class="container">
           <div class="stack-header reveal">
             <p class="u-eyebrow">What We Believe</p>
-            <h2 class="text-h1">Most teams do not need more AI noise.</h2>
-            <p class="text-xxl">They need help understanding where AI can actually help, what to do first, and how to make it real.</p>
+            <h2 class="text-h1">This is the biggest shift in how work gets done in a generation.</h2>
+            <p class="text-xxl">The companies that put AI to work first &mdash; and build it for real &mdash; pull ahead. The ones waiting for it to settle are already behind.</p>
           </div>
 
           <div class="belief-grid">
@@ -156,41 +150,45 @@
         <div class="container">
           <div class="stack-header reveal">
             <p class="u-eyebrow">Who You&apos;ll Work With</p>
-            <h2 class="text-h1">The people shaping the work stay in the work.</h2>
-            <p class="text-xxl">Shafan Khan and Danial Hasan stay close to the work from first conversation through delivery.</p>
+            <h2 class="text-h1">You work with the people who build it.</h2>
+            <p class="text-xxl">Shafan Khan and Danial Hasan stay close from the first conversation through delivery &mdash; a Chief AI Officer, not an agency.</p>
           </div>
 
           <div class="founder-grid">
             <details class="founder-card reveal">
               <summary class="founder-summary">
+                <img class="founder-avatar" src="/assets/images/founder-shafan.svg" width="56" height="56" alt="">
                 <div class="founder-summary__meta">
                   <h3>Shafan Khan</h3>
-                  <p class="founder-role">Founder</p>
+                  <p class="founder-role">GTM, operations &amp; engineering</p>
                 </div>
                 <span class="founder-summary__action">View bio</span>
               </summary>
               <div class="founder-bio">
-                <p>Shafan helps frame the business context, pressure-test the first move, and keep the work grounded in the commercial reality of the team. He brings technical consulting experience, GTM experience, and operator context as a business owner.</p>
-                <p>The job on his side is to make sure the recommendation is not just interesting. It has to match what the business can actually act on and what would make the work better.</p>
+                <p>Shafan frames the business context, pressure-tests the first move, and keeps the work grounded in what the business can actually act on &mdash; so the recommendation isn&rsquo;t just interesting, it&rsquo;s something you can run with.</p>
                 <div class="founder-links">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/shafan-khan/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://x.com/ShafanKhan_" target="_blank" rel="noreferrer">X</a>
+                  <a href="https://github.com/shafan9" target="_blank" rel="noreferrer">GitHub</a>
                 </div>
               </div>
             </details>
 
             <details class="founder-card reveal">
               <summary class="founder-summary">
+                <img class="founder-avatar" src="/assets/images/founder-danial.svg" width="56" height="56" alt="">
                 <div class="founder-summary__meta">
                   <h3>Danial Hasan</h3>
-                  <p class="founder-role">Applied AI Engineer</p>
+                  <p class="founder-role">Applied AI &amp; software engineering</p>
                 </div>
                 <span class="founder-summary__action">View bio</span>
               </summary>
               <div class="founder-bio">
-                <p>Danial focuses on making systems real. He works across implementation, engineering, and technical execution, helping turn ideas into workflows, internal tools, and AI-supported systems that can actually be used.</p>
-                <p>That means staying close to feasibility, shaping the build correctly, and making sure the technical side of the work matches the operational need.</p>
+                <p>Danial makes systems real &mdash; turning ideas into workflows, internal tools, and AI systems people actually use. He stays close to feasibility so the build matches the operational need.</p>
                 <div class="founder-links">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/dhasandev/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://x.com/dhasandev" target="_blank" rel="noreferrer">X</a>
+                  <a href="https://github.com/danialhasan" target="_blank" rel="noreferrer">GitHub</a>
                 </div>
               </div>
             </details>
@@ -205,8 +203,8 @@
             <h2 class="text-h1">In the room, not just behind the screen.</h2>
             <p class="text-xxl">Remedys regularly runs live sessions on AI, agentic engineering, and practical implementation. That keeps the team close to the questions people are asking and how businesses are actually learning to use this technology.</p>
             <div class="hero-actions">
-              <a href="/contact/" class="button cc-tertiary">
-                <span>Ask About Events</span>
+              <a href="/events/" class="button cc-tertiary">
+                <span>View sessions</span>
                 <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
               </a>
             </div>
@@ -235,18 +233,14 @@
       </section>
 
       <section class="site-section site-section--tight">
-        <div class="container">
-          <footer class="site-footer reveal">
+        <div class="rail">
+          <footer class="site-footer-light">
             <div class="footer-grid">
               <div class="footer-brand">
-                <a href="/" class="logo-link">
-                  <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-                  <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-                </a>
+                <a href="/" class="brand-text" translate="no">Remedys<span class="tld">.ai</span></a>
                 <p>Put AI to work.</p>
-                <p class="text-xs">Practical AI consulting, education, implementation, and engineering.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
               </div>
-
               <div class="footer-group">
                 <h3>Explore</h3>
                 <div class="footer-links">
@@ -255,15 +249,14 @@
                   <a href="/get-started/#request">Submit a Request</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Company</h3>
                 <div class="footer-links">
                   <a href="/about/">Who We Are</a>
+                  <a href="/events/">Events</a>
                   <a href="/contact/">Contact</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Paths</h3>
                 <div class="footer-links">
@@ -273,26 +266,25 @@
                   <a href="/engineering/">AI Engineering</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Legal</h3>
                 <div class="footer-links">
                   <a href="/privacy/">Privacy</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Connect</h3>
                 <div class="footer-links">
                   <a href="mailto:hello@remedys.ai">hello@remedys.ai</a>
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/shafan-khan/" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
               </div>
             </div>
           </footer>
         </div>
       </section>
-    </main>
+
+      </main>
 
     <div class="load_grid" aria-hidden="true"></div>
   </div>

@@ -22,9 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/page-inner.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -40,7 +41,7 @@
     }
   </script>
 </head>
-<body class="page-ivory">
+<body class="page-light page-inner">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <div class="block-overlay" data-menu-overlay>
@@ -76,25 +77,18 @@
       </div>
     </div>
 
-    <nav class="nav">
-      <div class="nav_content container">
-        <div class="nav_logo">
-          <a href="/" class="logo-link">
-            <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-            <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-          </a>
-        </div>
-        <div class="shell-actions">
-          <a href="/get-started/" class="button shell-cta" data-track="shell_get_started">
-            <span>Get Started</span>
-            <span class="icon-box" aria-hidden="true"><span class="icon-arrow"></span></span>
-          </a>
-          <div class="toggle-btn1">
-            <button class="burger" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu"><span></span></button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <header class="site-header">
+      <nav class="rail nav" aria-label="Primary">
+        <a href="/" class="brand-text" translate="no">Remedys</a>
+        <a href="/services/">Services</a>
+        <a href="/#diagnostic">Diagnostic</a>
+        <a href="/about/">Who We Are</a>
+        <a href="/get-started/" class="nav-cta" data-track="shell_get_started">Get Started</a>
+        <button class="nav-menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
     <main class="site-main" id="main-content">
       <section class="site-section site-section--hero get-started-intake-section" id="request">
@@ -389,18 +383,14 @@
       </section>
 
       <section class="site-section site-section--tight">
-        <div class="container">
-          <footer class="site-footer reveal">
+        <div class="rail">
+          <footer class="site-footer-light">
             <div class="footer-grid">
               <div class="footer-brand">
-                <a href="/" class="logo-link">
-                  <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-                  <span class="brand-text" translate="no"><span>Remedys</span><span class="tld">.ai</span></span>
-                </a>
+                <a href="/" class="brand-text" translate="no">Remedys<span class="tld">.ai</span></a>
                 <p>Put AI to work.</p>
-                <p class="text-xs">Practical AI consulting, education, implementation, and engineering.</p>
+                <p class="text-xs">Practical AI consulting, automation, enablement, and engineering.</p>
               </div>
-
               <div class="footer-group">
                 <h3>Explore</h3>
                 <div class="footer-links">
@@ -409,15 +399,14 @@
                   <a href="/get-started/#request">Submit a Request</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Company</h3>
                 <div class="footer-links">
                   <a href="/about/">Who We Are</a>
+                  <a href="/events/">Events</a>
                   <a href="/contact/">Contact</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Paths</h3>
                 <div class="footer-links">
@@ -427,26 +416,25 @@
                   <a href="/engineering/">AI Engineering</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Legal</h3>
                 <div class="footer-links">
                   <a href="/privacy/">Privacy</a>
                 </div>
               </div>
-
               <div class="footer-group">
                 <h3>Connect</h3>
                 <div class="footer-links">
                   <a href="mailto:hello@remedys.ai">hello@remedys.ai</a>
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/shafan-khan/" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
               </div>
             </div>
           </footer>
         </div>
       </section>
-    </main>
+
+      </main>
 
     <div class="load_grid" aria-hidden="true"></div>
   </div>
