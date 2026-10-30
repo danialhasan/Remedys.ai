@@ -6,8 +6,8 @@ const valid = { full_name: 'Test Person', email: 'test@example.com', company: 'E
 const production = { deploy: { context: 'production', published: true }, site: { name: 'remedys-ai' } };
 const call = (req, context = production) => intake(req, context);
 function request(body = valid, options = {}) {
-  const { origin = 'https://remedys.ai', contentType = 'application/json', method = 'POST', raw = false } = options;
-  return new Request('https://remedys.ai/api/intake', { method, headers: { ...(origin ? { origin } : {}), 'content-type': contentType }, ...(method === 'POST' ? { body: raw ? body : JSON.stringify(body) } : {}) });
+  const { origin = 'https://remedys.ai', contentType = 'application/json', method = 'POST', raw = false, url = 'https://remedys.ai/api/intake' } = options;
+  return new Request(url, { method, headers: { ...(origin ? { origin } : {}), 'content-type': contentType }, ...(method === 'POST' ? { body: raw ? body : JSON.stringify(body) } : {}) });
 }
 
 test('intake boundary and side effects', async t => {
@@ -94,6 +94,13 @@ test('intake boundary and side effects', async t => {
       calls.length=0;
       assert.equal((await call(request(valid,{origin}),production)).status,403);
       assert.equal((await call(request(valid,{origin:origin+'.evil.test'}),preview)).status,403);
+      assert.equal(calls.length,0);
+      const alias='https://deploy-preview-8--remedys-ai.netlify.app';
+      assert.equal((await call(request(valid,{origin:alias,url:alias+'/api/intake'}),preview)).status,200);
+      assert.equal(calls.length,1);assert.equal(JSON.parse(calls[0].body).is_test,true);
+      calls.length=0;
+      assert.equal((await call(request(valid,{origin:alias}),preview)).status,403);
+      assert.equal((await call(request(valid,{origin:alias,url:alias+'/api/intake'}),production)).status,403);
       assert.equal(calls.length,0);
     });
   } finally { globalThis.fetch=originalFetch; process.env=environment; }

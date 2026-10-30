@@ -19,6 +19,8 @@ function allowedOrigin(origin, request, context) {
   // Runtime deploy identity is supplied by Netlify, never by the submitted payload.
   if (context.deploy?.context === 'deploy-preview' && /^[a-f0-9]{24}$/.test(context.deploy.id) && context.site?.name === 'remedys-ai') {
     allowed.add('https://' + context.deploy.id + '--remedys-ai.netlify.app');
+    // Netlify also serves PR previews through a stable, project-owned alias.
+    if (/^https:\/\/deploy-preview-[1-9][0-9]*--remedys-ai\.netlify\.app$/.test(origin) && origin === new URL(request.url).origin) allowed.add(origin);
   }
   if (process.env.NETLIFY_DEV === 'true') {
     const url = new URL(request.url);
