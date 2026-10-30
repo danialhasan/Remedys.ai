@@ -1,48 +1,33 @@
-# Remedys.ai
+# Remedys.ai website
 
-Marketing site for Remedys — an AI-native product studio. Static, multi-page HTML with
-a shared CSS/JS system, an on-page AI diagnostic, and a Netlify-function lead intake.
+Static website for Remedys AI consulting and implementation. Shared page content and templates live in `scripts/build.py`; first-party CSS, JavaScript, vector artwork, and the approved split-R brand live in `assets/`.
 
-**Full documentation lives in [`docs/`](docs/) — start there** ([docs/README.md](docs/README.md)).
-This file is just the quickstart.
+## Build and preview
 
-## Quickstart
-
-```bash
-npx serve -l 4500 .
+```sh
+python3 scripts/build.py
+python3 scripts/verify-site.py
+node --test scripts/intake.test.mjs
+python3 -m http.server 4173 --directory dist --bind 127.0.0.1
 ```
 
-Open `http://localhost:4500`. No build step — edit a route's `index.html` or the shared
-files in `assets/`, then refresh.
+Node 22+ is used for the Netlify function. The static build uses Python 3.9+ and its standard library. There are no application package dependencies.
 
-## Layout
+For isolated form UI tests, run `node scripts/preview.mjs` and visit port4174. That harness returns mocked success/error responses, never calls providers, and is not published. Put `[simulate error]` in its description field to exercise retry behavior.
 
+## Deploy
+
+The existing Netlify project is `remedys-ai` / `01da3b98-f396-47d4-bc89-3c065c8d1c61`, with custom domain https://remedys.ai. Link this exact project; do not create another.
+
+```sh
+netlify link --id 01da3b98-f396-47d4-bc89-3c065c8d1c61
+netlify deploy --context deploy-preview
+# Production requires task authorization and the release checks below.
+netlify deploy --prod --context production
 ```
-index.html          # homepage
-<route>/index.html  # 12 inner routes (services, automation, enablement, engineering,
-                    #   consulting, education, implementation, about, events,
-                    #   get-started, contact, privacy)
-assets/             # site.css + site.js (shared across all pages)
-netlify/functions/  # remedys-intake.js (lead capture; the only server-side code)
-supabase/           # intake table migrations
-docs/               # reference documentation (source of truth for "how it works")
-```
 
-Three design systems currently coexist (mid-migration). Know which one a page uses
-before editing shared CSS/JS — see [docs/architecture.md](docs/architecture.md).
+Always publish the generated `dist` directory configured in `netlify.toml`. Never publish the repository root. Do not override the publish directory to expose docs, source, migrations, or local artifacts.
 
-## Stack
+The public intake endpoint is `/api/intake`. Secrets remain in Netlify Functions environment variables. See [operations](docs/operations.md), [intake](docs/diagnostic-and-intake.md), and the [revamp record](docs/revamp-2026-10-30.md).
 
-- Static HTML, vanilla CSS + JS, GSAP for motion
-- PostHog analytics (configured via `<meta>` tags read by `assets/site.js`)
-- Netlify hosting — push to `main` auto-deploys (`publish = "."`, no build)
-- Supabase for lead storage, written to only by the Netlify intake function
-
-## Deploy & operations
-
-Push to `main` for an automatic Netlify deploy. Environment variables, the launch/QA
-checklist, and manual-deploy steps are in [docs/operations.md](docs/operations.md).
-
-## Repo
-
-- origin: https://github.com/shafan9/Remedys.ai
+Original multi-page source: upstream `danialhasan/Remedys.ai`, shipped baseline `ef3e7fde`. This redesign is prepared on a dedicated `codex/` branch and retained in source control before production publication. The original local checkout and untracked planning notes are preserved.
