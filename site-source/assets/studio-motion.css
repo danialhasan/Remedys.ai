@@ -1,0 +1,78 @@
+/* Keep the open control visually distinct even when motion is disabled. */
+@media screen {
+  .menu-toggle > span {
+    display: inline-grid;
+    place-items: center;
+    width: 1.1em;
+    height: 1.1em;
+    font: 400 1.25rem/1 var(--sans);
+  }
+  .menu-toggle[aria-expanded="true"] {
+    color: var(--paper);
+    background: var(--ink);
+  }
+  .menu-toggle[aria-expanded="true"] > span { transform: rotate(45deg); }
+  @media (max-width: 700px) {
+    .site-header .mobile-nav {
+      position: static;
+      flex: 0 0 100%;
+      min-width: 0;
+      padding: .45rem 0 .55rem;
+      border-bottom: 0;
+    }
+  }
+  :is(.primary-nav,.mobile-nav) a:is([aria-current="page"],[aria-current="location"]) {
+    text-decoration-line: underline;
+    text-decoration-thickness: .13em;
+    text-underline-offset: .35em;
+  }
+  :is(.studio-service-list a,.chooser-link):is(:focus-visible,:active) {
+    background-color: var(--field);
+  }
+  :is(.studio-action,.nav-contact,.button):active:not(:disabled) {
+    box-shadow: inset 0 0 0 2px currentColor;
+    transform: none;
+  }
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+  .studio-service-list a:hover { background-color: var(--field); }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .menu-toggle > span { transition: transform 150ms ease-out; }
+  .studio-service-list a, .chooser-link,
+  .studio-action, .button, .primary-nav .nav-contact {
+    transition: background-color 120ms ease-out, color 120ms ease-out;
+  }
+  @media (max-width: 700px) {
+    /* Closing still removes links from the tab order immediately. */
+    .mobile-nav:not([hidden]) { animation: open-mobile-nav 150ms ease-out; }
+    @keyframes open-mobile-nav {
+      from { transform: translateY(-4px); }
+      to { transform: translateY(0); }
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .studio-service-list b, .chooser-arrow svg, .studio-action > span,
+    .primary-nav .nav-contact svg, .button svg {
+      transition: transform 140ms ease-out;
+    }
+    :is(.studio-service-list a,.studio-action):hover > :is(b,span[aria-hidden="true"]) {
+      transform: translate(2px,-2px);
+    }
+    .chooser-link:hover .chooser-arrow svg,
+    :is(.primary-nav .nav-contact,.button):hover svg {
+      transform: translateX(3px);
+    }
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce), screen and (hover: none) {
+  /* Older button rules also set a hover transform outside their transition. */
+  :is(.primary-nav .nav-contact,.button):hover svg,
+  .chooser-link:hover .chooser-arrow svg { transform: none; }
+}
+@media (forced-colors: active) {
+  .menu-toggle[aria-expanded="true"]:not(:focus-visible) { outline: 1px solid ButtonText; }
+}

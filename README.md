@@ -1,6 +1,6 @@
 # Remedys.ai website
 
-Static website for Remedys AI consulting and implementation. Shared page content and templates live in `scripts/build.py`; first-party CSS, JavaScript, vector artwork, and the approved split-R brand live in `assets/`.
+Static website for Remedys AI consulting and implementation. The pages, styles, fonts, and images that ship live in `site-source/`. The build checks that source against `release-manifest.json` before it copies the reviewed files into `dist/`.
 
 ## Build and preview
 

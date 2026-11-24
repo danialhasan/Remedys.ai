@@ -1,0 +1,9 @@
+# Remedys.ai
+
+AI consulting and implementation for small and midsize businesses.
+
+- [Services](https://remedys.ai/services/)
+- [Approach](https://remedys.ai/implementation/)
+- [About](https://remedys.ai/about/)
+- [Inquiry](https://remedys.ai/get-started/)
+- [Privacy](https://remedys.ai/privacy/)

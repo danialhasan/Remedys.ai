@@ -1,0 +1,9 @@
+.founder-portrait-section{padding:70px var(--gutter);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:110px;align-items:center;background:#e8e4d8}
+.founder-portrait{margin:0;max-width:420px;align-self:center}
+.founder-portrait img{display:block;width:100%;height:auto;aspect-ratio:533/800;object-fit:cover}
+.founder-portrait figcaption{font-size:10px;line-height:1.6;letter-spacing:.03em;padding-top:16px;color:var(--ink)}
+.founder-story{max-width:560px}.founder-story h2{font-family:var(--sans);font-size:clamp(65px,7.2vw,108px);font-weight:500;line-height:.94;letter-spacing:-.06em;margin:27px 0 35px;overflow-wrap:anywhere}
+.founder-story h2 em{font-family:var(--serif);font-size:1.12em;letter-spacing:-.025em}.founder-story .founder-intro{font-size:26px;line-height:1.35;letter-spacing:-.025em;color:var(--ink);margin-bottom:25px}
+.founder-story>p:not(.eyebrow):not(.founder-intro){font-size:15px;line-height:1.85;margin-bottom:22px}.founder-links{display:flex;flex-wrap:wrap;gap:25px 40px;margin-top:30px}
+@media(max-width:1000px){.founder-portrait-section{gap:60px;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.founder-story h2{font-size:76px}.founder-story .founder-intro{font-size:23px}}
+@media(max-width:700px){.founder-portrait-section{display:flex;flex-direction:column;padding:40px var(--gutter);gap:35px;align-items:stretch}.founder-portrait{width:100%;max-width:340px;align-self:flex-start}.founder-portrait img{aspect-ratio:4/5;object-position:center 20%}.founder-story h2{font-size:72px;margin:20px 0 25px}.founder-story .founder-intro{font-size:25px}.founder-story>p:not(.eyebrow):not(.founder-intro){font-size:14px}.founder-links{gap:25px 35px}}
