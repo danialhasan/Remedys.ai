@@ -7,7 +7,10 @@ export const config = {
 };
 
 const MAX_BYTES = 12 * 1024;
-const SERVICES = new Set(['', 'AI consulting', 'Workflow automation', 'AI engineering', 'Team enablement']);
+const SERVICES = new Set([
+  '', 'AI consulting', 'Workflow automation', 'Custom software', 'AI training', 'Ongoing support',
+  'AI engineering', 'Team enablement', // Forms opened before the service names changed.
+]);
 const FIELDS = new Set(['full_name', 'email', 'company', 'service', 'description', 'website']);
 const limits = { full_name: 160, email: 254, company: 180, service: 80, description: 4000, website: 200 };
 const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };

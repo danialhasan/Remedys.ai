@@ -1,9 +1,28 @@
 # Remedys.ai
 
-AI consulting and implementation for small and midsize businesses.
+Shafan Khan founded Remedys.ai, an AI agency for small businesses. We test ideas on real tasks, build tools and teach teams how to use them. Businesses can also hire us to run and improve their tools after launch.
 
-- [Services](https://remedys.ai/services/)
-- [Approach](https://remedys.ai/implementation/)
-- [About](https://remedys.ai/about/)
-- [Inquiry](https://remedys.ai/get-started/)
-- [Privacy](https://remedys.ai/privacy/)
+## Services
+
+- [Service guide](https://remedys.ai/services/) — Choose a service based on where your team needs help.
+- [AI consulting](https://remedys.ai/consulting/) — Decide whether AI could help with a task and how to test it.
+- [Workflow automation](https://remedys.ai/automation/) — Connect the tools your team uses so people spend less time copying information.
+- [Custom software](https://remedys.ai/engineering/) — Build a tool for a job your current software cannot do.
+- [AI training](https://remedys.ai/enablement/) — Practice using AI and checking its answers on tasks your team already does.
+- [Ongoing support](https://remedys.ai/implementation/#ongoing-support) — Hire Remedys.ai to run and improve the tool after it goes into use.
+
+## How Remedys works
+
+- [How we test, build and support AI tools](https://remedys.ai/implementation/) — See what happens before, during and after a project.
+- [Workflow worksheet](https://remedys.ai/implementation/#worksheet) — Describe one recurring task, edit the example, and print or save it as a PDF.
+- [Shafan Khan, founder](https://remedys.ai/about/) — Read about the founder and his work.
+- [East Carolina University workshop](https://remedys.ai/about/#workshop) — Read about the Codex session for computer science faculty and graduate students.
+- [Working principles](https://remedys.ai/manifesto/) — How we decide whether AI will help and how people check the work.
+- [AI education](https://remedys.ai/education/) — How we plan a training session around your team’s goals.
+- [Workshops and events](https://remedys.ai/events/) — Discuss a session for your organization.
+
+## Contact
+
+- [Project inquiry](https://remedys.ai/get-started/) — Describe the task your team wants help with.
+- [Contact](https://remedys.ai/contact/) — Email Remedys or book an introductory call.
+- [Privacy](https://remedys.ai/privacy/) — How Remedys handles inquiries and contact details.

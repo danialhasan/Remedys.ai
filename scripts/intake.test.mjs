@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { existsSync, readFileSync } from 'node:fs';
 import intake, { config } from '../netlify/functions/intake.mjs';
 
 const valid = { full_name: 'Test Person', email: 'test@example.com', company: 'Example', service: '', description: 'Review the manual intake workflow.', website: '' };
@@ -43,6 +44,22 @@ test('intake boundary and side effects', async t => {
     await t.test('invalid requests and honeypot have no provider side effects', async () => {
       for (const [req,code] of invalid) assert.equal((await call(req)).status,code);
       assert.equal(calls.length,0);
+    });
+    await t.test('the form can send every offered service and older service names', async () => {
+      const snapshot = new URL('../site-source/get-started/index.html', import.meta.url);
+      const local = new URL('../dist/get-started/index.html', import.meta.url);
+      const html = readFileSync(existsSync(snapshot) ? snapshot : local, 'utf8');
+      const select = html.match(/<select\b[^>]*\bname="service"[^>]*>([\s\S]*?)<\/select>/)[1];
+      const options = [...select.matchAll(/<option(?: value="([^"]*)")?>([^<]+)<\/option>/g)];
+      const offered = options.map(([,value,label]) => value ?? label);
+      assert.ok(offered.includes('Ongoing support'));
+      for (const service of [...offered, 'AI engineering', 'Team enablement']) {
+        calls.length = 0;
+        const result = await call(request({...valid,service}));
+        assert.equal(result.status,200,service);
+        if (service) assert.equal(JSON.parse(calls[0].body).direct_request_path,service);
+      }
+      calls.length = 0;
     });
     await t.test('valid inquiry persists minimal fields and notifies only the configured team', async () => {
       const result=await call(request({...valid,description:'An <img src=x onerror=alert(1)> example.'}));
