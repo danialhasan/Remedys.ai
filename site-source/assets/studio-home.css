@@ -1,0 +1,83 @@
+.studio-home {
+  --studio-edge: var(--gutter);
+  --studio-ink: #232624;
+  --studio-paper: #f7f5ee;
+  --studio-accent: #b6442a;
+  color: var(--studio-ink);
+  background: var(--studio-paper);
+  overflow-wrap: anywhere;
+}
+.studio-home :where(h1,h2,p,blockquote,figure,figcaption) { margin: 0; }
+.studio-home a { color: inherit; }
+.studio-home .studio-label {
+  display: flex; align-items: center; gap: .65rem;
+  color: inherit; font: 600 .74rem/1.5 var(--sans); letter-spacing: .065em;
+  text-transform: uppercase;
+}
+.studio-label > span { flex: 0 0 .55rem; height: .55rem; background: var(--studio-accent); }
+.studio-intro {
+  display: grid; grid-template-columns: minmax(0,1.65fr) minmax(0,.75fr);
+  align-items: end; gap: clamp(1.5rem,4vw,6rem);
+  padding: clamp(2.2rem,4.2vw,5.6rem) var(--studio-edge) clamp(2.35rem,4.8vw,5.8rem);
+}
+.studio-intro h1 {
+  margin: .22em 0 -.03em; max-width: 14ch; color: inherit;
+  font: 600 clamp(3.5rem,6.6vw,7.8rem)/.98 var(--sans); letter-spacing: -.063em;
+}
+.studio-home :is(h1,h2) em {
+  font: 400 1.14em/.9 var(--serif); letter-spacing: -.035em;
+}
+.studio-intro h1 em { display: block; }
+.studio-intro-aside { max-width: 29rem; padding-bottom: .12rem; }
+.studio-intro-aside > p, .studio-close p {
+  font: 400 clamp(1.02rem,1.28vw,1.32rem)/1.5 var(--sans); color: #464943;
+}
+.studio-home .studio-action, .studio-home .studio-secondary, .studio-home .studio-text-link {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: .85rem;
+  min-height: 2.8rem; font: 600 .91rem/1.4 var(--sans);
+}
+.studio-home .studio-action {
+  background: var(--studio-ink); color: white; padding: .7rem 1.05rem;
+  text-decoration: none; margin: 1.2rem 1rem 0 0;
+}
+.studio-home .studio-action:hover { background: #803520; }
+.studio-secondary,.studio-text-link { text-decoration: underline; text-underline-offset: .35em; }
+.studio-home :is(.studio-action,.studio-secondary,.studio-text-link) span { font-size: 1.23em; }
+.studio-teaching h2 {
+  color: inherit; font: 500 clamp(2.1rem,3.75vw,4.8rem)/1.04 var(--sans); letter-spacing: -.052em;
+  margin: .45em 0 .34em; max-width: 18ch;
+}
+.studio-services,.studio-teaching,.studio-close {
+  display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.3fr); gap: clamp(2rem,5vw,7rem);
+  align-items: start; padding: clamp(3.1rem,6.5vw,7.2rem) var(--studio-edge);
+}
+.studio-services h2,.studio-close h2 { color: inherit; font: 500 clamp(2.8rem,4.8vw,6.2rem)/1.02 var(--sans); letter-spacing: -.062em; margin: .25em 0; }
+.studio-service-list a {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .15rem 1rem;
+  padding: 1.13rem 0; border-top: 1px solid #aaaea6; text-decoration: none;
+}
+.studio-service-list a:last-child { border-bottom: 1px solid #aaaea6; }
+.studio-service-list strong { font: 600 clamp(1.22rem,1.95vw,2.12rem)/1.22 var(--sans); letter-spacing: -.035em; }
+.studio-service-list span { grid-column: 1; color: #50544d; font: 400 .96rem/1.5 var(--sans); }
+.studio-service-list b { grid-row: 1/3; grid-column: 2; font: 400 1.5rem/1 var(--sans); }
+.studio-service-list a:hover strong { text-decoration: underline; text-underline-offset: .15em; }
+.studio-teaching { background: #e8ebe4; }
+.studio-teaching-notes { max-width: 54ch; }
+.studio-teaching-notes p { color: #282e29; font: 400 clamp(1.03rem,1.35vw,1.3rem)/1.55 var(--sans); }
+.studio-teaching-notes p + p { margin: .7rem 0 .45rem; }
+.studio-close { grid-template-columns: minmax(0,1.55fr) minmax(0,.7fr); align-items: center; }
+.studio-close h2 { margin: 0 0 .25em; }
+.studio-close > div:last-child { display: flex; flex-direction: column; align-items: flex-start; }
+.studio-close .studio-action { margin: 0 0 .2rem; }
+.studio-home a:focus-visible { outline: 3px solid #155880; outline-offset: 4px; }
+@media (max-width: 52rem) {
+  .studio-intro { grid-template-columns: minmax(0,1.1fr) minmax(0,.85fr); }
+}
+@media (max-width: 43rem) {
+  .studio-intro,.studio-services,.studio-teaching,.studio-close { grid-template-columns: 1fr; gap: 1.45rem; }
+  .studio-intro h1 { font-size: clamp(2.5rem,11vw,3.25rem); text-wrap: balance; }
+  .studio-intro-aside { max-width: 36rem; }
+  .studio-intro .studio-action { margin-top: .95rem; }
+  .studio-services h2 { margin-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

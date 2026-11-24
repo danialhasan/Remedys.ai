@@ -1,0 +1,2 @@
+/* Native intake accepts JSON; no-JS visitors use the visible email fallback. */
+html:not([data-js]) #inquiry-form > :not(noscript){display:none}
