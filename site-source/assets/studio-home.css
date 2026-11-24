@@ -39,12 +39,12 @@
 .studio-home .studio-action:hover { background: #dceba4; color: #173b30; }
 .studio-home .studio-action span,.studio-home .studio-text-link span { font: 400 1.3rem/1 var(--sans); }
 .studio-home .studio-text-link { text-underline-offset: .26em; }
-.studio-services,.studio-teaching,.studio-close {
+.studio-services,.studio-teaching,.studio-questions,.studio-close {
   display: grid; grid-template-columns: minmax(0,.75fr) minmax(0,1.3fr);
   column-gap: clamp(2rem,5vw,7rem);
   align-items: start; padding: clamp(3.1rem,5.6vw,6rem) var(--studio-edge);
 }
-.studio-services h2,.studio-teaching h2,.studio-close h2 {
+.studio-services h2,.studio-teaching h2,.studio-questions h2,.studio-close h2 {
   margin: 0; color: inherit; font: 560 clamp(2.35rem,3.95vw,4.75rem)/1.04 var(--display); letter-spacing: -.045em;
 }
 .studio-service-list a {
@@ -68,6 +68,12 @@
 .studio-teaching-notes p,.studio-close p { font: 400 clamp(1.07rem,1.4vw,1.32rem)/1.5 var(--sans); }
 .studio-teaching-notes p + p { margin-top: .65rem; }
 .studio-teaching-notes .studio-text-link { margin-top: .65rem; }
+.studio-questions article { max-width: 58ch; padding-block: 1.15rem; border-top: 1px solid var(--studio-rule); }
+.studio-questions article:first-child { border-top: 2px solid var(--studio-ink); }
+.studio-questions h3 { margin: 0 0 .45rem; font: 590 clamp(1.3rem,1.9vw,2rem)/1.15 var(--display); letter-spacing: -.024em; }
+.studio-questions p { color: #465649; font: 400 1.07rem/1.5 var(--sans); }
+.studio-questions .studio-text-link { margin-top: .35rem; }
+.studio-questions + .studio-close { border-top: 1px solid var(--studio-rule); }
 .studio-close { align-items: center; grid-template-columns: minmax(0,1fr) max-content; }
 .studio-close p { margin-top: .7rem; color: #465649; }
 .studio-home a:focus-visible { outline: 3px solid #214f79; outline-offset: 4px; }
@@ -77,12 +83,12 @@
   .studio-intro h1 { font-size: clamp(2.3rem,4.95vw,3.2rem); }
 }
 @media (max-width: 44rem) {
-  .studio-intro,.studio-services,.studio-teaching,.studio-close { grid-template-columns: minmax(0,1fr); row-gap: 1.4rem; }
+  .studio-intro,.studio-services,.studio-teaching,.studio-questions,.studio-close { grid-template-columns: minmax(0,1fr); row-gap: 1.4rem; }
   .studio-intro { padding-block: clamp(2.1rem,8vw,3.5rem) 2rem; row-gap: 1.8rem; }
   .studio-intro h1 { max-width: none; font-size: clamp(2.125rem,9.65vw,3.75rem); letter-spacing: -.045em; }
   .studio-intro-copy > p { margin-top: 1rem; }
   .studio-intro-copy .studio-action { margin-top: 1.05rem; }
-  .studio-services,.studio-teaching,.studio-close { padding-block: 2.55rem; }
+  .studio-services,.studio-teaching,.studio-questions,.studio-close { padding-block: 2.55rem; }
   .studio-teaching-person { display: flex; max-width: none; align-items: center; gap: .8rem; }
   .studio-teaching-person img { width: 3.8rem; }
 }

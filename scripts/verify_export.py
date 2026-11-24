@@ -3,6 +3,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
+from urllib.robotparser import RobotFileParser
 import hashlib
 import json
 import re
@@ -36,8 +37,21 @@ class HTML(HTMLParser):
         self.main = 0
         self.script_sources = []
         self.style_sources = []
+        self.in_title = False
+        self.title = ''
+        self.meta = {}
+        self.canonicals = []
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == 'title':
+            self.in_title = True
+        if tag == 'meta':
+            name = a.get('name') or a.get('property')
+            if name:
+                assert name not in self.meta, f'duplicate metadata: {name}'
+                self.meta[name] = a.get('content', '')
+        if tag == 'link' and 'canonical' in a.get('rel', '').split():
+            self.canonicals.append(a.get('href'))
         if 'id' in a:
             assert a['id'] not in self.ids, f'duplicate id: {a["id"]}'
             self.ids.add(a['id'])
@@ -60,6 +74,12 @@ class HTML(HTMLParser):
         assert not any(k.startswith('on') for k in a), 'inline event handler'
         if 'style' in a:
             raise AssertionError('inline style conflicts with production CSP')
+    def handle_data(self, data):
+        if self.in_title:
+            self.title += data
+    def handle_endtag(self, tag):
+        if tag == 'title':
+            self.in_title = False
 
 
 def local_path(root, page, url):
@@ -82,6 +102,7 @@ def verify(root):
     actual = {str(p.relative_to(root)) for p in root.rglob('*.html')}
     assert actual == PAGES, f'HTML allowlist mismatch: {actual ^ PAGES}'
     parsed = {}
+    titles, descriptions = set(), set()
     for rel in sorted(PAGES):
         page = root / rel
         source = page.read_text()
@@ -91,20 +112,42 @@ def verify(root):
         assert item.h1 == item.main == 1, f'{rel}: main/H1 count'
         if rel != '404.html':
             assert 'content="noindex' not in source, f'{rel}: private robots directive'
+            canonical = 'https://remedys.ai/' + rel[:-len('index.html')]
+            assert item.canonicals == [canonical], f'{rel}: wrong canonical URL'
+            assert item.meta.get('og:url') == canonical, f'{rel}: wrong sharing URL'
+            assert item.title and item.meta.get('og:title') == item.title, f'{rel}: inconsistent page title'
+            description = item.meta.get('description')
+            assert description and item.meta.get('og:description') == description, f'{rel}: inconsistent description'
+            assert item.title not in titles and description not in descriptions, f'{rel}: duplicated page metadata'
+            titles.add(item.title)
+            descriptions.add(description)
         else:
             assert 'We couldn’t find that page.' in source, '404: missing-page explanation missing'
             assert 'href="/">Back to home' in source, '404: recovery link missing'
             assert 'class="growth-hero"' not in source, '404: homepage substituted for error content'
             assert 'content="noindex, follow"' in source, '404: indexing boundary missing'
+            assert not item.canonicals, '404: recovery page must not be canonical'
         parsed[page] = item
+    page_links = {page: set() for page in parsed}
     for page, item in parsed.items():
         for tag, link in item.links:
             target, fragment = local_path(root, page, link)
             if target is None:
                 continue
             assert target.is_file(), f'{page.name}: missing {link}'
+            if tag == 'a' and target in parsed:
+                page_links[page].add(target)
             if fragment:
                 assert target in parsed and fragment in parsed[target].ids, f'missing anchor {link}'
+    reachable = set()
+    remaining = [root / 'index.html']
+    while remaining:
+        page = remaining.pop()
+        if page not in reachable:
+            reachable.add(page)
+            remaining.extend(page_links[page] - reachable)
+    missing = set(parsed) - {root / '404.html'} - reachable
+    assert not missing, f'unreachable from homepage links: {sorted(str(p.relative_to(root)) for p in missing)}'
     inquiry = parsed[root / 'get-started/index.html']
     assert inquiry.form['action'] == '/api/intake' and inquiry.form['method'] == 'post'
     assert set(inquiry.fields) == {'full_name', 'email', 'company', 'service', 'description', 'website'}
@@ -128,6 +171,11 @@ def verify(root):
     locations = {e.text for e in ET.fromstring((root / 'sitemap.xml').read_text()).findall('s:url/s:loc', ns)}
     expected = {'https://remedys.ai/' + (r + '/' if r else '') for r in ROUTES}
     assert locations == expected, 'sitemap route mismatch'
+    policy = RobotFileParser()
+    policy.parse((root / 'robots.txt').read_text().splitlines())
+    assert 'https://remedys.ai/sitemap.xml' in (policy.site_maps() or []), 'sitemap missing from robots.txt'
+    for bot in ('Googlebot', 'bingbot', 'OAI-SearchBot'):
+        assert all(policy.can_fetch(bot, page) for page in locations), f'{bot}: public page disallowed'
     for asset in root.rglob('*'):
         assert not asset.is_symlink(), 'symlink in export'
         if asset.is_file() and asset.suffix in ('.js', '.css', '.html', '.txt', '.xml'):
@@ -135,7 +183,8 @@ def verify(root):
             for marker in FORBIDDEN:
                 assert marker.lower() not in text.lower(), f'{asset.name}: private marker {marker}'
     return {'html_pages': len(PAGES), 'public_routes': len(ROUTES),
-            'links_and_anchors': 'pass', 'private_markers': 'absent',
+            'links_and_anchors': 'pass', 'search': 'titles, descriptions, canonicals, crawl policy and homepage paths verified',
+            'private_markers': 'absent',
             'inquiry': 'JSON native endpoint; production success; no-JS email fallback',
             'workshop_account': 'editorial prose', 'files': hashes(root)}
 
