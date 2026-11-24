@@ -1,9 +1,27 @@
 # Remedys.ai
 
-AI consulting and implementation for small and midsize businesses.
+Remedys is an AI consulting and implementation practice founded by Shafan Khan. It works with small and midsize businesses to choose what to automate, build software, and train the people who use it.
 
-- [Services](https://remedys.ai/services/)
-- [Approach](https://remedys.ai/implementation/)
-- [About](https://remedys.ai/about/)
-- [Inquiry](https://remedys.ai/get-started/)
-- [Privacy](https://remedys.ai/privacy/)
+## Services
+
+- [Service guide](https://remedys.ai/services/) — Choose a service based on where your team needs help.
+- [AI consulting](https://remedys.ai/consulting/) — Decide whether a recurring task is worth automating and how to test it.
+- [Workflow automation](https://remedys.ai/automation/) — Connect existing tools and keep a person responsible for exceptions.
+- [Custom software](https://remedys.ai/engineering/) — Build an application or integration when existing tools fall short.
+- [AI training](https://remedys.ai/enablement/) — Practice using AI on tasks your team already does.
+
+## How Remedys works
+
+- [Implementation and handover](https://remedys.ai/implementation/) — See how an engagement moves from a first test to team handover.
+- [Workflow worksheet](https://remedys.ai/implementation/#worksheet) — Describe one recurring task, edit the example, and print or save it as a PDF.
+- [Shafan Khan, founder](https://remedys.ai/about/) — Read about the founder and his work.
+- [East Carolina University workshop](https://remedys.ai/about/#workshop) — Read about the Codex session for computer science faculty and graduate students.
+- [Working principles](https://remedys.ai/manifesto/) — How Remedys scopes and reviews work.
+- [AI education](https://remedys.ai/education/) — Learning options for teams.
+- [Workshops and events](https://remedys.ai/events/) — Discuss a session for your organization.
+
+## Contact
+
+- [Project inquiry](https://remedys.ai/get-started/) — Describe the task your team wants help with.
+- [Contact](https://remedys.ai/contact/) — Email Remedys or book an introductory call.
+- [Privacy](https://remedys.ai/privacy/) — How Remedys handles inquiries and contact details.

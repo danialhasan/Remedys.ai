@@ -16,7 +16,7 @@ FORBIDDEN = ('Local preview:', 'mock inquiry', 'mock-confirmation',
              'Private design study', 'preview-banner', 'preview-note',
              '/alternatives/', '/assets/provisional/', '/assets/brand/',
              '[simulate error]', '[simulate delay]')
-ECU = ('Shafan and Danial led a Codex workshop for computer science '
+ECU = ('Shafan Khan and Danial Hasan led a Codex workshop for computer science '
        'faculty and graduate students at East Carolina University.')
 
 

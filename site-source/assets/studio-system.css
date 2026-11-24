@@ -1,16 +1,17 @@
 :root {
-  --paper: #f8f7f2;
-  --ink: #191c1b;
-  --muted: #525956;
-  --field: #eeeee7;
-  --line: #c7cbc2;
-  --orange: #bc432b;
-  --studio-dark: #202825;
+  --paper: #faf9f3;
+  --ink: #182f29;
+  --muted: #495a50;
+  --field: #eaece1;
+  --line: #bfcbbe;
+  --orange: #49653b;
+  --studio-dark: #183c32;
   --studio-rule: #858f86;
 }
 
 /* Navigation and footer are the common entry and exit on every route. */
 .site-header { gap: clamp(1rem, 3vw, 3rem); padding-block: 1rem; }
+.wordmark { font-family: var(--display); font-weight: 640; }
 .site-header .wordmark { font-size: clamp(2.05rem, 2.55vw, 3.25rem); }
 .header-note {
   margin: 0;
@@ -19,6 +20,7 @@
   color: var(--muted);
 }
 .primary-nav { gap: clamp(1rem, 2vw, 2rem); font-size: .87rem; }
+.site-header .menu-toggle { font: 600 1rem/1.35 var(--sans); }
 .primary-nav > a, .menu-toggle { min-height: 2.75rem; align-content: center; }
 .primary-nav > a:not(.nav-contact):hover, .mobile-nav a:hover {
   text-decoration: underline;
@@ -46,7 +48,7 @@
 .site-footer .footer-top .wordmark { font-size: clamp(3.5rem, 7vw, 7rem); line-height: 1; }
 .site-footer .footer-top > a:last-child { justify-self: end; font-size: clamp(1rem, 1.4vw, 1.35rem); }
 .site-footer .footer-top > p { display: none; }
-.site-footer .brand-dot { color: #ed7657; }
+.site-footer .brand-dot { color: #e4f183; }
 .site-footer .footer-bottom { font-size: .75rem; line-height: 1.6; border-color: #4d5751; }
 .footer-bottom > span { overflow-wrap: anywhere; }
 .site-header :focus-visible, body[data-page] main :is(a,button,summary,input,textarea,select,[contenteditable]):focus-visible {
@@ -57,10 +59,10 @@
 
 /* Interior titles share one typographic voice. Client quotations retain the serif. */
 body:not([data-page="home"]) :is(.page-hero,.services-masthead,.approach-masthead,.about-masthead,.practice-copy) h1 {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-weight: 600;
   font-size: clamp(2.8rem, 5.7vw + .45rem, 6.5rem);
-  letter-spacing: -.055em;
+  letter-spacing: -.043em;
   line-height: 1.01;
   overflow-wrap: anywhere;
 }
